@@ -10,7 +10,7 @@ import { Packer, drawPacker } from './../components/packer';
 import { Wellhead, drawWellhead } from './../components/wellhead';
 import { CasingHanger, drawCasingHanger } from './../components/casing-hanger';
 
-export const handleHole = async (wellData: WellData) => {
+export const handleHole = (wellData: WellData) => {
   // Create an SVG element
   const [svg, d3, d3n] = createSVG(400, 900, 100);
 

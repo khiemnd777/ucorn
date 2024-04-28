@@ -8,7 +8,7 @@ app.use(bodyParser.json()); // Middleware to parse JSON bodies
 
 app.post('/hole', async (req, res) => {
   const wellData = req.body as WellData;
-  const svgString = await handleHole(wellData);
+  const svgString = handleHole(wellData);
   // Send the SVG as response
   res.setHeader('Content-Type', 'image/svg+xml');
   res.send(svgString);

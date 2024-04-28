@@ -8,7 +8,7 @@ const routeRequest = async (req: Request): Promise<Response> => {
     case '/':
     case '/hole':
       const wellData = (await req.json()) as WellData;
-      const svgString = await handleHole(wellData);
+      const svgString = handleHole(wellData);
 
       // Send the SVG as response
       return new Response(svgString, {
