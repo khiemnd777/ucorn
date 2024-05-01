@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "go": "node --import=./register.js ./src/index.ts"
+    "go": "node --import=./register.js ./src/index.ts",
+    "go:bun": "bun run ./src/index.bun.ts"
   },
   "devDependencies": {
+    "@turf/turf": "^6.5.0",
     "@types/body-parser": "^1.19.5",
     "@types/bun": "^1.1.0",
     "@types/d3": "^7.4.3",

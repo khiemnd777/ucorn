@@ -1,4 +1,4 @@
-import { getBoundary, inchToPixel } from './../utils/common';
+import { getBoundary, inchToPixel } from '../utils/common-utils';
 
 export interface Segment {
   segmentID?: string;
@@ -128,6 +128,43 @@ const drawCasingShoes =
       .attr('stroke', 'blue')
       .attr('stroke-width', 1)
       .attr('fill', 'blue');
+  };
+
+export const getCasingSegmentPoints =
+  ({ casing, centerX }: { casing: Casing; centerX: number }) =>
+  ({ depthScale }: D3Props) => {
+    const boundary = getBoundary();
+    const points: { x: number; y: number }[] = []; // Points for the left polyline
+    let currentDepth = casing.startDepth;
+    let prevCrossoverLength = 0;
+
+    casing.segments.forEach((segment, index) => {
+      const diameterInPxl = inchToPixel(segment.diameter);
+      const x1 = centerX - diameterInPxl / 2;
+      const x2 = centerX + diameterInPxl / 2;
+      const y1 = Math.max(
+        depthScale(currentDepth) + prevCrossoverLength,
+        boundary.y
+      );
+      const y2 = depthScale(currentDepth + segment.length);
+      // Push start and end points for this segment to the polyline arrays
+      points.push({ x: x1, y: y1 }, { x: x1, y: y2 });
+
+      // Handle cross-over to the next segment
+      if (index < casing.segments.length - 1) {
+        const nextSegment = casing.segments[index + 1];
+        const nextX1 = centerX - inchToPixel(nextSegment.diameter) / 2;
+        const crossoverLength = Math.abs(nextX1 - x1);
+
+        // Add cross-over points
+        points.push({ x: nextX1, y: y2 + crossoverLength });
+        prevCrossoverLength = crossoverLength;
+      }
+
+      currentDepth += segment.length;
+    });
+
+    return points;
   };
 
 const drawCasingSegments =

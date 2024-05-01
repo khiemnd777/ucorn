@@ -1,4 +1,4 @@
-import { getBoundary, inchToPixel } from './../utils/common';
+import { getBoundary, inchToPixel } from '../utils/common-utils';
 import { Casing, getCasingByCasingID } from './casing';
 
 export interface Wellhead {

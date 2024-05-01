@@ -47,3 +47,17 @@ export const calculateCenterX = (firstHoleDiameter: number) => {
   const centerX = startHoleX + maxHoleWidth / 2;
   return centerX;
 };
+
+export const pointsToSVGPath = (points: Point[]): string => {
+  if (points.length === 0) return ''; // Handle the case of an empty points array
+
+  // Start the path at the first point
+  let path = `M ${points[0].x} ${points[0].y}`;
+
+  // Add a line to each subsequent point
+  for (let i = 1; i < points.length; i++) {
+    path += ` L ${points[i].x} ${points[i].y}`;
+  }
+
+  return path; // Returns the SVG path data as a string
+};

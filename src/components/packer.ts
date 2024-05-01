@@ -1,4 +1,4 @@
-import { inchToPixel } from './../utils/common';
+import { inchToPixel } from '../utils/common-utils';
 import {
   Casing,
   getCasingByCasingID,

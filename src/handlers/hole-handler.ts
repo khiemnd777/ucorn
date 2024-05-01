@@ -2,13 +2,14 @@ import {
   calculateCenterX,
   createDepthScale,
   createSVG,
-} from './../utils/common';
+} from '../utils/common-utils';
 import { WellData } from 'well-data';
 import { drawHoles } from './../components/hole';
 import { Casing, drawCasings } from './../components/casing';
 import { Packer, drawPacker } from './../components/packer';
 import { Wellhead, drawWellhead } from './../components/wellhead';
 import { CasingHanger, drawCasingHanger } from './../components/casing-hanger';
+import { Cement, drawCement } from './../components/cement';
 
 export const handleHole = (wellData: WellData) => {
   // Create an SVG element
@@ -61,6 +62,20 @@ export const handleHole = (wellData: WellData) => {
         })({ svg });
       });
     }
+  }
+
+  // Draw cement
+  const cements: Cement[] = wellData.components?.filter(
+    (c) => c.type === 'Cement'
+  ) as any;
+  if (cements) {
+    cements.forEach((cement) =>
+      drawCement({ cement, holes: holeData, casings, centerX })({
+        svg,
+        depthScale,
+        d3,
+      })
+    );
   }
 
   return d3n.svgString();

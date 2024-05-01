@@ -1,4 +1,4 @@
-import { getBoundary, inchToPixel } from './../utils/common';
+import { getBoundary, inchToPixel } from '../utils/common-utils';
 
 export interface Underreamed {
   diameter: number;
@@ -12,6 +12,50 @@ export interface Hole {
   depth: number;
   underreamed?: Underreamed[];
 }
+
+export const getHoleSegmentPoints =
+  ({ holes, centerX }: { holes: Hole[]; centerX: number }) =>
+  ({ d3, depthScale }: D3Props) => {
+    const boundary = getBoundary();
+    // Draw hole sections
+    let startY = boundary.y;
+
+    // Transform the hole with underreamed section inside of each one.
+    const transformedHoles: Hole[] = [];
+
+    holes.forEach((h, inx) => transformedHoles.push(...transformHoleData(h)));
+    const result: {
+      id: string | undefined;
+      startY: number;
+      endY: number;
+      startX: number;
+      points: [];
+    }[] = [];
+    transformedHoles.forEach((h, inx) => {
+      const depth = h.depth;
+      const diameter = h.diameter;
+      const endY = depthScale(h.depth);
+      const diameterInPxl = inchToPixel(h.diameter);
+      const startX = centerX - diameterInPxl / 2;
+      const holeDepthSeq = depthScale(depth) - startY;
+      const range = d3.range(holeDepthSeq);
+      const points = range.map((y: number) => {
+        const px = getWaveX({ centerX, diameter, side: 'left', y });
+        const py = getWaveY({ startLength: startY, holeDepthSeq, y });
+        return { x: px, y: py };
+      });
+      result.push({
+        id: h.holeID,
+        startY,
+        endY,
+        startX,
+        points,
+      });
+      startY = endY;
+    });
+
+    return result;
+  };
 
 const getWaveX = ({
   centerX,

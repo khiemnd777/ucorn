@@ -11,6 +11,6 @@ export interface WellData {
   unit?: Unit;
   holes: Hole[];
   components?: {
-    type: 'Casing' | 'Packer' | 'Wellhead' | 'CasingHanger';
+    type: 'Casing' | 'Cement' | 'Packer' | 'Wellhead' | 'CasingHanger';
   }[];
 }
