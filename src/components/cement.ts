@@ -55,13 +55,24 @@ export const drawCement =
         d3,
       });
 
+      let wholeSegmentPoints = [
+        ...holeSegmentPoints,
+        ...otherCasingSegmentPoints,
+      ];
+
+      wholeSegmentPoints = wholeSegmentPoints.filter(
+        (s) => s.points[0].x < refCasingSegmentPoints[0].x
+      );
+
+      // Sort segments based on the x-value of their first point
+      wholeSegmentPoints.sort((a, b) => b.points[0].x - a.points[0].x);
+
       const resolvingSegments: Segment[] = [
         {
           type: 'casing',
           points: refCasingSegmentPoints,
         },
-        ...holeSegmentPoints,
-        ...otherCasingSegmentPoints,
+        ...wholeSegmentPoints,
       ];
 
       const resolvedSegments = resolveSegmentOverlaps(resolvingSegments);

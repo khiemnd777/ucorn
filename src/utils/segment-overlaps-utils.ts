@@ -1,9 +1,11 @@
 import { Hole, getHoleSegmentPoints } from './../components/hole';
 import { Casing, getCasingSegmentPoints } from './../components/casing';
+import { clipAndIntersectPoints } from './common-utils';
 
 export interface Segment {
   type: 'casing' | 'hole';
   points: Point[];
+  actualPoint?: Point[];
 }
 
 export const mapCasingsToSegments =
@@ -45,7 +47,7 @@ export const mapHolesToSegments =
     return result;
   };
 
-export function resolveSegmentOverlaps(segments: Segment[]): any[] {
+export function resolveSegmentOverlaps(segments: Segment[]): Segment[] {
   let processedSegments: any[] = [];
 
   // Assuming the first segment is the base line (Line 0) for boundaries
@@ -137,6 +139,8 @@ export function resolveSegmentOverlaps(segments: Segment[]): any[] {
       ...seg,
       from: { x: seg.from.x, y: Math.max(seg.from.y, baseStartY) },
       to: { x: seg.to.x, y: Math.min(seg.to.y, baseEndY) },
+      actualFrom: { x: seg.from.x, y: seg.from.y },
+      actualTo: { x: seg.to.x, y: seg.to.y },
     }))
     .filter((seg) => seg.from.y < seg.to.y);
 
@@ -152,6 +156,7 @@ export function resolveSegmentOverlaps(segments: Segment[]): any[] {
   return processedSegments.map((seg) => ({
     type: seg.type,
     points: [seg.from, seg.to],
+    actualPoint: [seg.actualFrom ?? seg.from, seg.actualTo ?? seg.to],
   }));
 }
 
@@ -170,6 +175,8 @@ export function joinSegments(segments: Segment[]): Point[] {
         firstPoint.x,
         firstPoint.y,
         lastPoint.y,
+        segment.actualPoint?.[0].y ?? firstPoint.y,
+        segment.actualPoint?.[segment.actualPoint.length - 1].y ?? lastPoint.y,
         1.5,
         4
       );
@@ -185,16 +192,20 @@ function generateWavyLine(
   startX: number,
   startY: number,
   endY: number,
+  actualStartY: number,
+  actualEndY: number,
   amplitude: number,
   frequency: number
 ): Point[] {
-  const points: Point[] = [];
+  let points: Point[] = [];
   const step = 0.1; // Resolution of the line
-  const length = endY - startY;
 
-  for (let y = startY; y <= endY; y += step) {
-    const x = startX - amplitude * Math.sin((endY - y) / frequency);
+  for (let y = actualStartY; y <= actualEndY; y += step) {
+    const x = startX - amplitude * Math.sin((actualEndY - y) / frequency);
     points.push({ x, y: y });
   }
+
+  points = clipAndIntersectPoints(points, startY, endY);
+
   return points;
 }
