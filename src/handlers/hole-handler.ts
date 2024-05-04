@@ -10,22 +10,41 @@ import { Packer, drawPacker } from './../components/packer';
 import { Wellhead, drawWellhead } from './../components/wellhead';
 import { CasingHanger, drawCasingHanger } from './../components/casing-hanger';
 import { Cement, drawCement } from './../components/cement';
+import { cementPattern } from './../patterns/cement-pattern';
 
 export const handleHole = (wellData: WellData) => {
   // Create an SVG element
-  const [svg, d3, d3n] = createSVG(400, 900, 100);
+  const [svg, d3, d3n, defs] = createSVG(400, 900, 100);
 
   const depthScale = createDepthScale([0, 1000], [0, 900])({ d3 });
   const holeData = wellData.holes;
   const centerX = calculateCenterX(holeData[0].diameter);
 
+  // defs
+  cementPattern()({ defs });
+
+  const casings: Casing[] = wellData.components?.filter(
+    (c) => c.type === 'Casing'
+  ) as any;
+
+  // Draw cement
+  const cements: Cement[] = wellData.components?.filter(
+    (c) => c.type === 'Cement'
+  ) as any;
+  if (cements) {
+    cements.forEach((cement) =>
+      drawCement({ cement, holes: holeData, casings, centerX })({
+        svg,
+        depthScale,
+        d3,
+      })
+    );
+  }
+
   // Draw hole sections
   drawHoles({ holeData, centerX })({ d3, svg, depthScale });
 
   // Draw casing components
-  const casings: Casing[] = wellData.components?.filter(
-    (c) => c.type === 'Casing'
-  ) as any;
   if (casings) {
     drawCasings({ casings, centerX })({ d3, svg, depthScale });
   }
@@ -62,20 +81,6 @@ export const handleHole = (wellData: WellData) => {
         })({ svg });
       });
     }
-  }
-
-  // Draw cement
-  const cements: Cement[] = wellData.components?.filter(
-    (c) => c.type === 'Cement'
-  ) as any;
-  if (cements) {
-    cements.forEach((cement) =>
-      drawCement({ cement, holes: holeData, casings, centerX })({
-        svg,
-        depthScale,
-        d3,
-      })
-    );
   }
 
   return d3n.svgString();

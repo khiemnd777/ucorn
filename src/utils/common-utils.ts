@@ -25,14 +25,17 @@ export const createSVG = (width: number, height: number, padding?: number) => {
   const d3n = new D3Node(); // initializes D3.js on the server
   const d3 = d3n.d3;
   padding = padding || 0;
+  const svg = d3n
+    .createSVG(width + padding, height + padding)
+    .attr('xmlns', 'http://www.w3.org/2000/svg');
+  const defs = svg.append('defs');
   return [
-    d3n
-      .createSVG(width + padding, height + padding)
-      .attr('xmlns', 'http://www.w3.org/2000/svg')
+    svg
       .append('g') // Append a group element to move everything by padding
       .attr('transform', `translate(${padding}, ${padding})`),
     d3,
     d3n,
+    defs,
   ];
 };
 

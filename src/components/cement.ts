@@ -82,9 +82,9 @@ export const drawCement =
       svg
         .append('path')
         .attr('d', leftPath)
-        .attr('stroke', 'blue')
+        .attr('stroke', '#a9a9a9')
         .attr('stroke-width', 1)
-        .attr('fill', 'none');
+        .attr('fill', 'url(#cementPattern)');
 
       const rightSegments = reflectPoints(
         jointResolvedSegments,
@@ -95,8 +95,8 @@ export const drawCement =
       svg
         .append('path')
         .attr('d', rightPath)
-        .attr('stroke', 'blue')
+        .attr('stroke', '#a9a9a9')
         .attr('stroke-width', 1)
-        .attr('fill', 'none');
+        .attr('fill', 'url(#cementPattern)');
     }
   };
