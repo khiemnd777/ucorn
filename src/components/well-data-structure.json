@@ -1,0 +1,39 @@
+{
+    "wellName": "Sample Well",
+    "wellID": "W001",
+    "unit": {
+        "diameter": "inch",
+        "depth": "ft"
+    },
+    "holes": [
+        {
+            "holeID": "H001",
+            "diameter": 14.75,
+            "depth": 5000,
+            "underreamed": [
+                {
+                    "diameter": 17.5,
+                    "startDepth": 1000,
+                    "endDepth": 1500
+                }
+            ]
+        }
+    ],
+    "components": [
+        {
+            "type": "Casing"
+        },
+        {
+            "type": "Cement"
+        },
+        {
+            "type": "Packer"
+        },
+        {
+            "type": "Wellhead"
+        },
+        {
+            "type": "CasingHanger"
+        }
+    ]
+}
