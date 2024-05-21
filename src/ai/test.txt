@@ -1,0 +1,4 @@
+Please generate a hole data with:
+- diameters: 42, 28, 17
+- depths: 175, 280, 570
+an under reaming at the last hole with diameter is 23 and its depth values must be valid
