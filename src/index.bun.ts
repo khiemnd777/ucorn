@@ -3,6 +3,15 @@ import { WellData } from 'well-data';
 import { handleHole } from './handlers/hole-handler';
 
 const routeRequest = async (req: Request): Promise<Response> => {
+  if (req.method === 'OPTIONS') {
+    return new Response(null, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
+  }
   const url = new URL(req.url);
   switch (url.pathname) {
     case '/':
@@ -14,6 +23,7 @@ const routeRequest = async (req: Request): Promise<Response> => {
       return new Response(svgString, {
         headers: {
           'Content-Type': 'image/svg+xml',
+          'Access-Control-Allow-Origin': '*',
         },
       });
     default:

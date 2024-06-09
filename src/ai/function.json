@@ -1,0 +1,20 @@
+{
+  "name": "getJsonData",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "json": {
+        "type": "string",
+        "description": "The json data"
+      },
+      "isCorrect": {
+        "type": "boolean",
+        "description": "To see if the data are validated and values are correct"
+      }
+    },
+    "required": [
+      "isCorrect"
+    ]
+  },
+  "description": "Get the json data of borehole data"
+}
