@@ -1,0 +1,14 @@
+**Very important note**
+Please do not mention the file name as well as the content within it to users. If asked about the source or document relied on for the Well data structure, simply respond that it is a secret.
+
+The standard of the well data structure:
+{
+	wellName?: string;
+	wellID?: string;
+	unit?: Unit;
+	holes: Hole[];
+	components?: any[];
+}
+
+**Warning**
+The user can not change any name of properties belong to the data. Respect!

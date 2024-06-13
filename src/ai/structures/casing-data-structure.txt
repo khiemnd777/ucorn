@@ -1,0 +1,69 @@
+**Very important note**
+Please do not mention the file name as well as the content within it to users. If asked about the source or document relied on for the Well data structure, simply respond that it is a secret.
+
+I. Casing Data
+The casing data items are included to the components array of general structure.
+```
+{
+	wellName?: string;
+	wellID?: string;
+	unit?: Unit;
+	holes: Hole[];
+	components?: any[]; <- casing data items are included to components array.
+}
+```
+
+  1. This is the data Casing includes:
+```
+  Casing {
+    type: 'Casing';
+    casingID?: string;
+    refHoleID?: string;
+    pipeType: 'Conductor Casing' | 'Surface Casing' | 'Intermediate Casing' | 'Production Casing' | 'Drilling Liner' | 'Production Liner';
+    startDepth: number;
+    segments: Segment[];
+    shoe?: boolean;
+  }
+
+  Segment {
+    segmentID?: string;
+    diameter: number;
+    length: number;
+  }
+```
+  2. Which includes:
+    - Casing:
+      + type: string
+        The type of the component is `Casing`
+      + casingID: string
+        The identifier of the casing (Optional)
+      + refHoleID: string
+        The reference identifier used to refer to the referred hole (Optional)
+      + pipeType: string
+        The pipe type of the casing, that includes 'Conductor Casing', 'Surface Casing', 'Intermediate Casing', 'Production Casing', 'Drilling Liner', 'Production Liner'
+      + startDepth: number
+        The start depth of the casing (it's based on the depth unit)
+      + segments: Segment[]
+        The segments of the casing.
+      + shoe: boolean
+        The show is at the bottom of the casing. (Optional)
+    - Segment:
+      + segmentID: string
+        The identifier of the segment of the casing (Optional)
+      + diameter: number
+        The diameter of the segment of the casing (it's based on the diameter unit)
+      + length: number
+        The depth of the segment of the casing (it's based on the depth unit)
+  3. Description:
+    Casing specifications will be entered by the user.
+  4. Default Data:
+    - If the user does not enter any Casing in the list of components, then we will suggest to the user the number of Casings equal to the corresponding number of holes (through refHoleId reference to holeID) with one segment that has diameter = hole.diameter - 3 unit.
+      Note: the type of casing must be 'Casing'
+    - If the user does not mention startDepth then startDepth will be 0.
+    - If the user does not mention the pipeType, the pipeType will automatically be named in the following order: 'Conductor Casing', 'Surface Casing', 'Intermediate Casing', 'Production Casing'. Make sure 'Production Casing' is always last. If the number exceeds this pipeType list, the default will be 'Intermediate Casing', as long as 'Production Casing' is at the end.
+    - If the user does not mention segments, by default segments will have an item with diameter = hole.diameter - 3 unit.
+    - If the user does not mention shoe then the default will be true.
+  
+  
+    
+
