@@ -16,8 +16,9 @@ export const handleHole = (wellData: WellData) => {
   // Create an SVG element
   const [svg, d3, d3n, defs] = createSVG(400, 900, 100);
 
-  const depthScale = createDepthScale([0, 1000], [0, 900])({ d3 });
   const holeData = wellData.holes;
+  const lastHoleDepth = holeData[holeData.length - 1].depth;
+  const depthScale = createDepthScale([0, Math.max(lastHoleDepth, 1000) + 800], [0, 900])({ d3 });
   const centerX = calculateCenterX(holeData[0].diameter);
 
   // defs
