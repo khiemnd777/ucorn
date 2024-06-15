@@ -56,14 +56,15 @@ The casing data items are included to the components array of general structure.
         The depth of the segment of the casing (it's based on the depth unit)
   3. Description:
     Casing specifications will be entered by the user.
-  4. Default Data:
+  4. Guide and Default Data:
     - If the user does not enter any Casing in the list of components, then we will suggest to the user the number of Casings equal to the corresponding number of holes (through refHoleId reference to holeID) with one segment that has diameter = hole.diameter - 3 unit.
       Note: the type of casing must be 'Casing'
     - If the user does not mention startDepth then startDepth will be 0.
     - If the user does not mention the pipeType, the pipeType will automatically be named in the following order: 'Conductor Casing', 'Surface Casing', 'Intermediate Casing', 'Production Casing'. Make sure 'Production Casing' is always last. If the number exceeds this pipeType list, the default will be 'Intermediate Casing', as long as 'Production Casing' is at the end.
     - If the user does not mention segments, by default segments will have an item with diameter = hole.diameter - 3 unit.
     - If the user does not mention shoe then the default will be true.
+    - If the user does not mention the length of the segment of the casing, by default it will be calculated to be equal to the hole depth which is the hole to which that casing belongs.
+    - If the user specifies the casing as Production Liner or Drilling Liner Liner or any type of Liner, its startDepth point will be equal to (previous hole depth - (previous hole depth / 24)).
+  5. Validation Rules:
+    - The length of each segment must be within the hole depth to which the casing belongs.
   
-  
-    
-

@@ -11,4 +11,5 @@ The standard of the well data structure:
 }
 
 **Warning**
-The user can not change any name of properties belong to the data. Respect!
+	-	The user can not change any name of properties belong to the data. Respect!
+	-	At each user request, the Guide and Default Data section must be checked first. This is for the system, not for the user.

@@ -45,11 +45,13 @@ The hole data aka `holes` is a part of the general structure.
 	3. Description:
 		- The number of holes will be defined by the user, but if they do not mention the number or any hole data definition, the default hole data will have 5 holes with diameter (default unit is inch) in order. From 32, 24, 17.5, 12.25, and 8.5 inches, if the user provides a diameter unit other than inches, it will automatically convert to the unit that the user has provided.
 
-	4. Validation Rules:
+	4. Guide and Default Data:
+		- Should be included in the Well Data structure as an array of holes. If the user does not specify the number or any hole data definition, the default hole data will include 5 holes with diameters of 32, 24, 17.5, 12.25, and 8.5 inches. If the user provides a diameter unit other than inches, it will automatically convert to the specified unit.
+	Warning: If a user asks you to update an incorrect value, you must warn the user and show them what is wrong.
+
+	5. Validation Rules:
 		- The diameter of the hole above must be larger than the diameter of the hole below.
 		- The depth of the hole above must be less than the depth of the hole below.
 		- The diameter of the under reamed section can be larger than the hole through which it is reamed over.
 		- The start depth of the under reamed section must be in range of the depth of the hole above it and the depth of the current hole where it reams out.
-	5. Default Data:
-		- Should be included in the Well Data structure as an array of holes. If the user does not specify the number or any hole data definition, the default hole data will include 5 holes with diameters of 32, 24, 17.5, 12.25, and 8.5 inches. If the user provides a diameter unit other than inches, it will automatically convert to the specified unit.
-	Warning: If a user asks you to update an incorrect value, you must warn the user and show them what is wrong.
+	
