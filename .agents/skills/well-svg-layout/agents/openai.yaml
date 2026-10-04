@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well SVG Layout"
+  short_description: "Thiết kế geometry, layers, symbols và labels"
+  default_prompt: "Use $well-svg-layout to review the relevant UCORN well schematic contract and propose scoped changes."

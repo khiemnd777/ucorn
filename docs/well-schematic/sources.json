@@ -1,0 +1,230 @@
+{
+  "openhole": {
+    "url": "https://glossary.slb.com/en/terms/o/openhole",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Uncased interval; không mặc định toàn giếng."
+  },
+  "formation": {
+    "url": "https://glossary.slb.com/en/terms/f/formation",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Định nghĩa formation; không tự xác định reservoir."
+  },
+  "casing": {
+    "url": "https://glossary.slb.com/en/terms/c/casing",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Casing function/family; không suy sizing."
+  },
+  "liner": {
+    "url": "https://glossary.slb.com/en/terms/l/liner",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Liner top trong casing trước; extension context."
+  },
+  "underream": {
+    "url": "https://glossary.slb.com/en/terms/u/underream",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Enlarged borehole interval."
+  },
+  "float_shoe": {
+    "url": "https://glossary.slb.com/en/terms/f/float_shoe",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Terminal guide/check-valve family; không chứng nhận rating."
+  },
+  "float_collar": {
+    "url": "https://glossary.slb.com/en/terms/f/float_collar",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Near-bottom collar và cement-plug landing context."
+  },
+  "liner_hanger": {
+    "url": "https://glossary.slb.com/en/terms/l/liner_hanger",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Support liner từ casing trước."
+  },
+  "annulus": {
+    "url": "https://glossary.slb.com/en/terms/a/annulus",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Space giữa boundaries."
+  },
+  "cement": {
+    "url": "https://glossary.slb.com/en/terms/c/cement",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Annular sealing và plug use; không dùng con số vận hành làm default."
+  },
+  "packer": {
+    "url": "https://glossary.slb.com/en/terms/p/packer",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Annular isolation, classification context."
+  },
+  "production_tubing": {
+    "url": "https://glossary.slb.com/en/terms/p/production_tubing",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Production conduit."
+  },
+  "tubing_hanger": {
+    "url": "https://glossary.slb.com/en/terms/t/tubing_hanger",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Support/sealing context ở tubing head."
+  },
+  "casing_hanger": {
+    "url": "https://glossary.slb.com/en/terms/c/casing_hanger",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Casing support/seal subassembly."
+  },
+  "wellhead": {
+    "url": "https://glossary.slb.com/en/terms/w/wellhead",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Surface termination/support interfaces."
+  },
+  "christmas_tree": {
+    "url": "https://glossary.slb.com/en/terms/c/christmas_tree",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Production flow-control assembly."
+  },
+  "perforation": {
+    "url": "https://glossary.slb.com/en/terms/p/perforation",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Communication tunnel tới formation."
+  },
+  "sand_control": {
+    "url": "https://glossary.slb.com/en/terms/s/sand_control",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Control formation sand; family overview."
+  },
+  "gravel_pack": {
+    "url": "https://glossary.slb.com/en/terms/g/gravel_pack",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Screen + prepared gravel context."
+  },
+  "sliding_sleeve": {
+    "url": "https://glossary.slb.com/en/terms/s/sliding_sleeve",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Ports giữa conduit và annulus."
+  },
+  "landing_nipple": {
+    "url": "https://glossary.slb.com/en/terms/l/landing_nipple",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Internal locking/seal profile."
+  },
+  "artificial_lift": {
+    "url": "https://glossary.slb.com/en/terms/a/artificial_lift",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Energy-adding production family."
+  },
+  "gas_lift": {
+    "url": "https://glossary.slb.com/en/terms/g/gas_lift",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Injection through gas-lift valves."
+  },
+  "electric_submersible_pump": {
+    "url": "https://glossary.slb.com/en/terms/e/electric_submersible_pump",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Electrically driven downhole pump family."
+  },
+  "rod_pump": {
+    "url": "https://glossary.slb.com/en/terms/r/rod_pump",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Rod-driven downhole pump."
+  },
+  "subsurface_safety_valve_sssv": {
+    "url": "https://glossary.slb.com/en/terms/s/subsurface_safety_valve_sssv",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Safety-valve family, surface/subsurface control context."
+  },
+  "bridge_plug": {
+    "url": "https://glossary.slb.com/en/terms/b/bridge_plug",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Lower wellbore isolation tool."
+  },
+  "plug_and_abandon": {
+    "url": "https://glossary.slb.com/en/terms/p/plug_and_abandon",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Permanent closure context; operator/regulator-specific requirements."
+  },
+  "measured_depth": {
+    "url": "https://glossary.slb.com/en/terms/m/measured_depth",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Length along wellbore."
+  },
+  "true_vertical_depth": {
+    "url": "https://glossary.slb.com/en/terms/t/true_vertical_depth",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Vertical distance from datum."
+  },
+  "tieback": {
+    "url": "https://glossary.slb.com/en/terms/t/tieback",
+    "status": "unverified-unavailable",
+    "checked": "2026-10-04",
+    "scope": "Trang không đọc được qua web tool; URL là candidate, không bằng chứng."
+  },
+  "sand_screen": {
+    "url": "https://glossary.slb.com/en/terms/s/sand_screen",
+    "status": "unverified-unavailable",
+    "checked": "2026-10-04",
+    "scope": "Trang không đọc được qua web tool; URL là candidate, không bằng chứng."
+  },
+  "progressing_cavity_pump": {
+    "url": "https://glossary.slb.com/en/terms/p/progressing_cavity_pump",
+    "status": "unverified-unavailable",
+    "checked": "2026-10-04",
+    "scope": "Trang không đọc được qua web tool; URL là candidate, không bằng chứng."
+  },
+  "ucorn-convention": {
+    "url": null,
+    "status": "proposed-local",
+    "checked": "2026-10-04",
+    "scope": "Quy ước model/render/QA do UCORN đề xuất, không chuẩn kỹ thuật."
+  },
+  "production_packer": {
+    "url": "https://glossary.slb.com/en/terms/p/production_packer",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Annular isolation / tubing anchoring family; không xác minh sizing/rating."
+  },
+  "liner_top_packer": {
+    "url": "https://www.halliburton.com/en/products/matchset-hydraulic-set-liner-hanger-with-integral-liner-top-packer",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Function-backed: annular seal giữa liner top và parent casing cho model MatchSet; không generalize model specs hoặc default assembly."
+  },
+  "crossover": {
+    "url": "https://glossary.slb.com/en/terms/c/crossover",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Short connector for different thread types/sizes; no manufacturer dimensions, length, ratings or compatibility verified."
+  },
+  "tubular_accessories": {
+    "url": "https://www.crossoverinc.com/products.aspx",
+    "status": "verified-definition",
+    "checked": "2026-10-04",
+    "scope": "Manufacturer function/family: coupling nối pipe joints; pup joint là short tubular section để positioning. Không xác minh model dimensions, ratings, thread compatibility hoặc universal length cutoff."
+  }
+}

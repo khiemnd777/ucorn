@@ -1,0 +1,445 @@
+{
+  "wellName": "UCORN Demo — Coupling and Pup Joint",
+  "wellID": "DEMO-5H-001",
+  "unit": {
+    "diameter": "inch",
+    "depth": "m"
+  },
+  "holes": [
+    {
+      "holeID": "H01",
+      "diameter": 36,
+      "depth": 100
+    },
+    {
+      "holeID": "H02",
+      "diameter": 26,
+      "depth": 600
+    },
+    {
+      "holeID": "H03",
+      "diameter": 17.5,
+      "depth": 1800
+    },
+    {
+      "holeID": "H04",
+      "diameter": 12.25,
+      "depth": 3000
+    },
+    {
+      "holeID": "H05",
+      "diameter": 8.5,
+      "depth": 4200
+    }
+  ],
+  "components": [
+    {
+      "type": "Casing",
+      "casingID": "C01-CONDUCTOR",
+      "refHoleID": "H01",
+      "pipeType": "Conductor Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C01-S01",
+          "diameter": 30,
+          "length": 100,
+          "boreDiameter": {
+            "value": 29.5,
+            "unit": "in"
+          }
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C02-SURFACE",
+      "refHoleID": "H02",
+      "pipeType": "Surface Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C02-S01",
+          "diameter": 20,
+          "length": 600,
+          "boreDiameter": {
+            "value": 19.5,
+            "unit": "in"
+          }
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C03-INTERMEDIATE",
+      "refHoleID": "H03",
+      "pipeType": "Intermediate Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C03-S01",
+          "diameter": 13.375,
+          "length": 1800,
+          "boreDiameter": {
+            "value": 12.875,
+            "unit": "in"
+          }
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C04-PRODUCTION",
+      "refHoleID": "H04",
+      "pipeType": "Production Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C04-S01",
+          "diameter": 9.625,
+          "length": 3000,
+          "boreDiameter": {
+            "value": 9.125,
+            "unit": "in"
+          }
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "L01-PRODUCTION",
+      "refHoleID": "H05",
+      "pipeType": "Production Liner",
+      "startDepth": 2800,
+      "segments": [
+        {
+          "segmentID": "L01-S01",
+          "diameter": 7,
+          "length": 1400,
+          "boreDiameter": {
+            "value": 6.5,
+            "unit": "in"
+          }
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C01-CONDUCTOR",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C02-SURFACE",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C03-INTERMEDIATE",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C04-PRODUCTION",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "L01-PRODUCTION",
+      "startDepth": 2800
+    },
+    {
+      "type": "Wellhead",
+      "wellheadType": "Onshore",
+      "surfaceCasingID": "C02-SURFACE",
+      "seatingCasingID": "C01-CONDUCTOR",
+      "wellheadID": "WH01",
+      "seats": [
+        {
+          "id": "SEAT-T01",
+          "at": {
+            "value": 0,
+            "unit": "m"
+          }
+        }
+      ]
+    },
+    {
+      "type": "CasingHanger",
+      "refCasingID": "C04-PRODUCTION"
+    },
+    {
+      "type": "CasingHanger",
+      "refCasingID": "C03-INTERMEDIATE"
+    },
+    {
+      "type": "Tubing",
+      "id": "T01",
+      "purpose": "production",
+      "top": {
+        "value": 0,
+        "unit": "m"
+      },
+      "segments": [
+        {
+          "id": "T01-S01",
+          "od": {
+            "value": 4.5,
+            "unit": "in"
+          },
+          "innerDiameter": {
+            "value": 4,
+            "unit": "in"
+          },
+          "length": {
+            "value": 2000,
+            "unit": "m"
+          }
+        },
+        {
+          "id": "PUP-S01",
+          "od": {
+            "value": 4.5,
+            "unit": "in"
+          },
+          "innerDiameter": {
+            "value": 4,
+            "unit": "in"
+          },
+          "length": {
+            "value": 6,
+            "unit": "m"
+          }
+        },
+        {
+          "id": "T01-S01B",
+          "od": {
+            "value": 4.5,
+            "unit": "in"
+          },
+          "innerDiameter": {
+            "value": 4,
+            "unit": "in"
+          },
+          "length": {
+            "value": 794,
+            "unit": "m"
+          }
+        },
+        {
+          "id": "T01-S02",
+          "od": {
+            "value": 3.5,
+            "unit": "in"
+          },
+          "innerDiameter": {
+            "value": 3,
+            "unit": "in"
+          },
+          "length": {
+            "value": 1200,
+            "unit": "m"
+          }
+        }
+      ],
+      "hostSpans": [
+        {
+          "hostId": "C04-PRODUCTION",
+          "top": {
+            "value": 0,
+            "unit": "m"
+          },
+          "bottom": {
+            "value": 2800,
+            "unit": "m"
+          }
+        },
+        {
+          "hostId": "L01-PRODUCTION",
+          "top": {
+            "value": 2800,
+            "unit": "m"
+          },
+          "bottom": {
+            "value": 4000,
+            "unit": "m"
+          }
+        }
+      ],
+      "lifecycle": "planned",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "verification": "unverified"
+    },
+    {
+      "type": "TubingHanger",
+      "id": "TH01",
+      "tubingId": "T01",
+      "headId": "WH01",
+      "seatId": "SEAT-T01",
+      "lifecycle": "planned",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "verification": "unverified"
+    },
+    {
+      "type": "CompletionPacker",
+      "id": "PK-P01",
+      "role": "production",
+      "innerConduitId": "T01",
+      "outerHostId": "C04-PRODUCTION",
+      "top": {
+        "value": 2400,
+        "unit": "m"
+      },
+      "bottom": {
+        "value": 2440,
+        "unit": "m"
+      },
+      "setState": "set",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "retrievable": false
+    },
+    {
+      "type": "CompletionPacker",
+      "id": "PK-L01",
+      "role": "liner-top",
+      "innerConduitId": "L01-PRODUCTION",
+      "outerHostId": "C04-PRODUCTION",
+      "top": {
+        "value": 2800,
+        "unit": "m"
+      },
+      "bottom": {
+        "value": 2820,
+        "unit": "m"
+      },
+      "setState": "set",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ]
+    },
+    {
+      "type": "CompletionPacker",
+      "id": "PK-I01",
+      "role": "isolation",
+      "innerConduitId": "T01",
+      "outerHostId": "L01-PRODUCTION",
+      "top": {
+        "value": 3200,
+        "unit": "m"
+      },
+      "bottom": {
+        "value": 3240,
+        "unit": "m"
+      },
+      "setState": "unknown",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "retrievable": true
+    },
+    {
+      "type": "CompletionPacker",
+      "id": "PK-T01",
+      "role": "test",
+      "innerConduitId": "T01",
+      "outerHostId": "L01-PRODUCTION",
+      "top": {
+        "value": 3600,
+        "unit": "m"
+      },
+      "bottom": {
+        "value": 3620,
+        "unit": "m"
+      },
+      "setState": "unset",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "retrievable": true
+    },
+    {
+      "type": "Crossover",
+      "id": "XO-01",
+      "label": "Production tubing size transition",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "synthetic-fixture"
+      ],
+      "tubingId": "T01",
+      "fromSegmentId": "T01-S01B",
+      "toSegmentId": "T01-S02",
+      "at": {
+        "value": 2800,
+        "unit": "m"
+      },
+      "fromConnection": "4.5 in connection (demo)",
+      "toConnection": "3.5 in connection (demo)"
+    },
+    {
+      "type": "Coupling",
+      "id": "CPL-01",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "tubingId": "T01",
+      "fromSegmentId": "T01-S01",
+      "toSegmentId": "PUP-S01",
+      "at": {
+        "value": 2000,
+        "unit": "m"
+      },
+      "od": {
+        "value": 5.25,
+        "unit": "in"
+      },
+      "innerDiameter": {
+        "value": 4,
+        "unit": "in"
+      },
+      "fromConnection": "demo-upper",
+      "toConnection": "demo-lower"
+    },
+    {
+      "type": "PupJoint",
+      "id": "PJ-01",
+      "lifecycle": "planned",
+      "verification": "unverified",
+      "sources": [
+        "UCORN synthetic fixture; not an equipment specification"
+      ],
+      "tubingId": "T01",
+      "segmentId": "PUP-S01",
+      "fromConnection": "demo-upper",
+      "toConnection": "demo-lower"
+    }
+  ],
+  "schemaVersion": 2,
+  "depthContext": {
+    "basis": "MD",
+    "datumId": "DEMO-RKB"
+  },
+  "snapshotAt": "2026-10-04T00:00:00Z",
+  "wellboreId": "WB01"
+}

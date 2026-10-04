@@ -4,6 +4,8 @@ export interface Segment {
   segmentID?: string;
   diameter: number;
   length: number;
+  /** Explicit context bore for completion v2; never inferred from diameter. */
+  boreDiameter?: import('../domain/completion').Quantity;
 }
 
 export interface Tieback {

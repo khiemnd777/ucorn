@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well Visual QA"
+  short_description: "Kiểm tra fixtures và visual regression SVG"
+  default_prompt: "Use $well-visual-qa to review the relevant UCORN well schematic contract and propose scoped changes."

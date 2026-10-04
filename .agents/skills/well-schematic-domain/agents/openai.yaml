@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well Schematic Domain"
+  short_description: "Phân tích domain, scope và lifecycle của giếng"
+  default_prompt: "Use $well-schematic-domain to review the relevant UCORN well schematic contract and propose scoped changes."

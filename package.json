@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "test": "bun test tests",
+    "ui": "bun run ./src/ui/server.ts",
     "go": "node --import=./register.js ./src/index.ts",
     "go:bun": "bun run ./src/index.bun.ts"
   },

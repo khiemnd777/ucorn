@@ -1,0 +1,165 @@
+{
+  "wellName": "UCORN Demo — 5 Holes with Production Liner",
+  "wellID": "DEMO-5H-001",
+  "unit": {
+    "diameter": "inch",
+    "depth": "m"
+  },
+  "holes": [
+    {
+      "holeID": "H01",
+      "diameter": 36,
+      "depth": 100
+    },
+    {
+      "holeID": "H02",
+      "diameter": 26,
+      "depth": 600
+    },
+    {
+      "holeID": "H03",
+      "diameter": 17.5,
+      "depth": 1800
+    },
+    {
+      "holeID": "H04",
+      "diameter": 12.25,
+      "depth": 3000
+    },
+    {
+      "holeID": "H05",
+      "diameter": 8.5,
+      "depth": 4200
+    }
+  ],
+  "components": [
+    {
+      "type": "Casing",
+      "casingID": "C01-CONDUCTOR",
+      "refHoleID": "H01",
+      "pipeType": "Conductor Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C01-S01",
+          "diameter": 30,
+          "length": 100
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C02-SURFACE",
+      "refHoleID": "H02",
+      "pipeType": "Surface Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C02-S01",
+          "diameter": 20,
+          "length": 600
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C03-INTERMEDIATE",
+      "refHoleID": "H03",
+      "pipeType": "Intermediate Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C03-S01",
+          "diameter": 13.375,
+          "length": 1800
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "C04-PRODUCTION",
+      "refHoleID": "H04",
+      "pipeType": "Production Casing",
+      "startDepth": 0,
+      "segments": [
+        {
+          "segmentID": "C04-S01",
+          "diameter": 9.625,
+          "length": 3000
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Casing",
+      "casingID": "L01-PRODUCTION",
+      "refHoleID": "H05",
+      "pipeType": "Production Liner",
+      "startDepth": 2800,
+      "segments": [
+        {
+          "segmentID": "L01-S01",
+          "diameter": 7,
+          "length": 1400
+        }
+      ],
+      "shoe": true
+    },
+    {
+      "type": "Packer",
+      "toolType": "Liner Top Packer",
+      "refCasingID": "L01-PRODUCTION",
+      "seatingCasingID": "C04-PRODUCTION",
+      "startDepth": 2800
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C01-CONDUCTOR",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C02-SURFACE",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C03-INTERMEDIATE",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "C04-PRODUCTION",
+      "startDepth": 0
+    },
+    {
+      "type": "Cement",
+      "refCasingID": "L01-PRODUCTION",
+      "startDepth": 2800
+    },
+    {
+      "type": "Packer",
+      "toolType": "Liner Top Packer",
+      "refCasingID": "L01-PRODUCTION",
+      "seatingCasingID": "C04-PRODUCTION",
+      "startDepth": 2800
+    },
+    {
+      "type": "Wellhead",
+      "wellheadType": "Onshore",
+      "surfaceCasingID": "C02-SURFACE",
+      "seatingCasingID": "C01-CONDUCTOR"
+    },
+    {
+      "type": "CasingHanger",
+      "refCasingID": "C04-PRODUCTION"
+    },
+    {
+      "type": "CasingHanger",
+      "refCasingID": "C03-INTERMEDIATE"
+    }
+  ]
+}

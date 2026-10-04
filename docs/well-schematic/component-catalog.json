@@ -1,0 +1,1170 @@
+[
+  {
+    "group": "borehole-formation",
+    "id": "hole",
+    "name": "Borehole section / đoạn lỗ khoan",
+    "tier": "core",
+    "function": "Biểu diễn bore boundary theo interval.",
+    "fields": "diameter; interval; wellboreId. Legacy: holeID?, diameter, cumulative depth.",
+    "attachment": "Host wellbore; segment continuity; không là physical installed equipment.",
+    "symbol": "bore; paired wavy boundaries; label size + top/bottom.",
+    "validation": "Finite positive diameter; ordered section bottoms; no unexplained overlap/gap.",
+    "status": "legacy-rendered",
+    "edge": "F01/F02/F14: empty holes; subsequent hole underream; unknown datum.",
+    "done": "Correct split/extents, IDs và immutable input.",
+    "sources": [
+      "openhole"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "borehole-formation",
+    "id": "underream",
+    "name": "Underreamed interval",
+    "tier": "configuration",
+    "function": "Đoạn bore được mở rộng.",
+    "fields": "diameter; interval trong parent hole. Legacy startDepth/endDepth.",
+    "attachment": "contained-in holeID; diameter boundary overrides tại interval.",
+    "symbol": "bore; widened boundaries, no separate installed-tool glyph.",
+    "validation": "Within hole interval; enlarged diameter > parent; reject intersecting intervals.",
+    "status": "legacy-rendered",
+    "edge": "F02: shuffled, adjacent, overlap, exact parent end.",
+    "done": "Only enlarged span changes geometry; không mutate sort.",
+    "sources": [
+      "underream"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "borehole-formation",
+    "id": "formation",
+    "name": "Formation / lithology band",
+    "tier": "configuration",
+    "function": "Bối cảnh địa chất quanh bore.",
+    "fields": "formationName; lithology?; interval; confidence.",
+    "attachment": "wellbore interval reference; không host pipe.",
+    "symbol": "context; muted band/hatch ngoài bore, geological legend.",
+    "validation": "Interval/datum valid; overlapping interpretations có source riêng.",
+    "status": "proposed",
+    "edge": "F01/F13: repeated names; uncertain top; MD vs TVD.",
+    "done": "Band/label trace source và không che bore.",
+    "sources": [
+      "formation"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "borehole-formation",
+    "id": "reservoir",
+    "name": "Reservoir / target zone",
+    "tier": "configuration",
+    "function": "Đánh dấu zone liên quan completion/production.",
+    "fields": "zoneId; interval; purpose; fluid description optional.",
+    "attachment": "annotates formation interval; references perforation/screens nếu có.",
+    "symbol": "context; bracket + zone label.",
+    "validation": "Không suy reservoir từ lithology; target refs và interval consistent.",
+    "status": "proposed",
+    "edge": "F08: multiple zones, commingled completion, unknown fluid.",
+    "done": "Zone distinct from perforation và formation.",
+    "sources": [
+      "formation"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "borehole-formation",
+    "id": "annulus",
+    "name": "Annulus / fluid column",
+    "tier": "core",
+    "function": "Khoảng giữa boundaries; có thể gắn fluid annotation.",
+    "fields": "innerId; outerId; interval; fluidName?; density quantity?",
+    "attachment": "Bounded by pipe OD và outer bore/pipe ID; wellbore reference.",
+    "symbol": "annular-fill; optional light fill; label boundary IDs.",
+    "validation": "Positive annular clearance khi OD/ID đủ; fluid density unit explicit.",
+    "status": "proposed",
+    "edge": "F05/F12: multiple annuli; missing ID; partial fluid level.",
+    "done": "Correct occupied region; unknown clearance diagnostic.",
+    "sources": [
+      "annulus"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "conductor",
+    "name": "Conductor casing",
+    "tier": "core",
+    "function": "Ống chống ngoài cùng ở đoạn nông theo cấu hình.",
+    "fields": "stringId; interval/start + segments(length, OD, ID?); grade/weight/connection optional với unit. Legacy pipeType + diameter/length.",
+    "attachment": "contained-in hole/outer casing; supported-by hanger nếu known; segments same string.",
+    "symbol": "tubular; paired boundaries + shoe anchor; label role, OD/ID và depths.",
+    "validation": "Segments positive/continuous; OD < available host ID; grade không suy rating; role không auto-generate cement.",
+    "status": "legacy-generic",
+    "edge": "F03/F14: taper; nested fit; exact segment end; duplicate string ID.",
+    "done": "Generic legacy path phân biệt metadata; future graph giữ role và boundary checks.",
+    "sources": [
+      "casing"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "surface-casing",
+    "name": "Surface casing",
+    "tier": "core",
+    "function": "Ống chống đoạn nông; support surface interfaces theo input.",
+    "fields": "stringId; interval/start + segments(length, OD, ID?); grade/weight/connection optional với unit. Legacy pipeType + diameter/length.",
+    "attachment": "contained-in hole/outer casing; supported-by hanger nếu known; segments same string.",
+    "symbol": "tubular; paired boundaries + shoe anchor; label role, OD/ID và depths.",
+    "validation": "Segments positive/continuous; OD < available host ID; grade không suy rating; role không auto-generate cement.",
+    "status": "legacy-generic",
+    "edge": "F03/F14: taper; nested fit; exact segment end; duplicate string ID.",
+    "done": "Generic legacy path phân biệt metadata; future graph giữ role và boundary checks.",
+    "sources": [
+      "casing"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "intermediate-casing",
+    "name": "Intermediate casing",
+    "tier": "core",
+    "function": "Ống chống giữa các drilling stages.",
+    "fields": "stringId; interval/start + segments(length, OD, ID?); grade/weight/connection optional với unit. Legacy pipeType + diameter/length.",
+    "attachment": "contained-in hole/outer casing; supported-by hanger nếu known; segments same string.",
+    "symbol": "tubular; paired boundaries + shoe anchor; label role, OD/ID và depths.",
+    "validation": "Segments positive/continuous; OD < available host ID; grade không suy rating; role không auto-generate cement.",
+    "status": "legacy-generic",
+    "edge": "F03/F14: taper; nested fit; exact segment end; duplicate string ID.",
+    "done": "Generic legacy path phân biệt metadata; future graph giữ role và boundary checks.",
+    "sources": [
+      "casing"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "production-casing",
+    "name": "Production casing",
+    "tier": "core",
+    "function": "Ống chống phục vụ completion/production interval.",
+    "fields": "stringId; interval/start + segments(length, OD, ID?); grade/weight/connection optional với unit. Legacy pipeType + diameter/length.",
+    "attachment": "contained-in hole/outer casing; supported-by hanger nếu known; segments same string.",
+    "symbol": "tubular; paired boundaries + shoe anchor; label role, OD/ID và depths.",
+    "validation": "Segments positive/continuous; OD < available host ID; grade không suy rating; role không auto-generate cement.",
+    "status": "legacy-generic",
+    "edge": "F03/F14: taper; nested fit; exact segment end; duplicate string ID.",
+    "done": "Generic legacy path phân biệt metadata; future graph giữ role và boundary checks.",
+    "sources": [
+      "casing"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "drilling-liner",
+    "name": "Drilling liner",
+    "tier": "configuration",
+    "function": "Casing string treo trong casing trước, không kéo tới surface.",
+    "fields": "linerId; interval; segments OD/ID/length; overlap interval.",
+    "attachment": "contained-in parent casing/hole; supported-by liner hanger; named liner-top anchor.",
+    "symbol": "tubular; terminates ở liner top + overlap label.",
+    "validation": "Top inside parent range; overlap explicit; not auto-assume hanger/support.",
+    "status": "legacy-generic",
+    "edge": "F04: liner top at parent shoe; multiple nested liners; absent hanger.",
+    "done": "Label liner role và explicit top; generic legacy rendering không nhận là hanger-supported assembly.",
+    "sources": [
+      "liner"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "production-liner",
+    "name": "Production liner",
+    "tier": "configuration",
+    "function": "Casing string treo trong casing trước, không kéo tới surface.",
+    "fields": "linerId; interval; segments OD/ID/length; overlap interval.",
+    "attachment": "contained-in parent casing/hole; supported-by liner hanger; named liner-top anchor.",
+    "symbol": "tubular; terminates ở liner top + overlap label.",
+    "validation": "Top inside parent range; overlap explicit; not auto-assume hanger/support.",
+    "status": "legacy-generic",
+    "edge": "F04: liner top at parent shoe; multiple nested liners; absent hanger.",
+    "done": "Label liner role và explicit top; generic legacy rendering không nhận là hanger-supported assembly.",
+    "sources": [
+      "liner"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "tieback",
+    "name": "Liner tieback / extension",
+    "tier": "configuration",
+    "function": "Extension nối từ liner-top connector lên phía trên.",
+    "fields": "startDepth + segments; connectorId; targetLinerId; OD/ID. Legacy tiebackID/type fields.",
+    "attachment": "connects-to liner-top/PBR; supported-by upper seat where supplied.",
+    "symbol": "tubular; separate extension line + connector label.",
+    "validation": "Connector/endpoint continuity; no duplicate overlap counted; không dùng subsea flowline tieback meaning.",
+    "status": "type-only",
+    "edge": "F04: disconnected extension; taper; reversed endpoint.",
+    "done": "Dispatch explicit extension và topology diagnostic; không silently ignore tieback.",
+    "sources": [
+      "liner",
+      "tieback"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "shoe",
+    "name": "Casing shoe / guide or float variant",
+    "tier": "core",
+    "function": "Terminal shoe assembly; float function chỉ khi variant được cung cấp.",
+    "fields": "stringId; bottom anchor; variant guide/float/unknown; envelope optional.",
+    "attachment": "Owned by terminal string segment; connects to bottom endpoint.",
+    "symbol": "tools; paired terminal triangles legacy, proposed variant + label.",
+    "validation": "At terminal depth; float capability không suy từ shoe=true; avoid duplicate bottom glyph.",
+    "status": "legacy-rendered",
+    "edge": "F03: shoe false/undefined; empty segments; float vs guide label.",
+    "done": "Anchor at computed bottom; generic glyph không tuyên bố check valve.",
+    "sources": [
+      "float_shoe"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "float-collar",
+    "name": "Float collar",
+    "tier": "configuration",
+    "function": "Collar near-bottom với check-valve/plug-landing context.",
+    "fields": "stringId; at; OD/ID; valve variant unknown allowed.",
+    "attachment": "Inline casing, above shoe per provided assembly.",
+    "symbol": "tools; short collar/check-valve marker + label.",
+    "validation": "Within host; position relative shoe explicit; no guessed spacing.",
+    "status": "proposed",
+    "edge": "F03: collar at segment transition; removed/drilled-out state.",
+    "done": "Inline anchor, valve role và lifecycle legible.",
+    "sources": [
+      "float_collar"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "liner-hanger",
+    "name": "Liner hanger",
+    "tier": "configuration",
+    "function": "Support liner tại casing trước.",
+    "fields": "linerId; parentCasingId; at; seatProfile?; settingMethod?",
+    "attachment": "supported-by parent wall/seat; supports liner; seal relation separate.",
+    "symbol": "tools; slip/support glyph at liner top.",
+    "validation": "Parent present at at-depth; liner ID resolved; no substitute surface CasingHanger.",
+    "status": "proposed",
+    "edge": "F04: nested liners; shared depth; unknown seat.",
+    "done": "Distinct support relation và symbol; no seal inferred.",
+    "sources": [
+      "liner_hanger"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "centralizer",
+    "name": "Casing centralizer",
+    "tier": "configuration",
+    "function": "Giữ casing quanh vị trí bore tương đối theo assembly data.",
+    "fields": "stringId; at/interval; envelopeOD; variant optional.",
+    "attachment": "attached-to casing exterior; constrained by bore envelope.",
+    "symbol": "tools; bowed/stand-off marker, schematic label.",
+    "validation": "Envelope fit nếu known; không infer cement quality hay centering perfection.",
+    "status": "proposed",
+    "edge": "F03: many repeated items; eccentricity unspecified.",
+    "done": "Repeated items deterministic, labels summarized có counts.",
+    "sources": [
+      "casing"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "casing-liner-tieback",
+    "id": "stage-collar",
+    "name": "Stage cementing collar",
+    "tier": "configuration",
+    "function": "Interface cho staged cement placement theo thiết bị được khai báo.",
+    "fields": "stringId; at; portState; stageId.",
+    "attachment": "Inline casing; connects-to declared annulus/stage record.",
+    "symbol": "tools; ported collar symbol + state label.",
+    "validation": "Stage refs và depth valid; no staged-operation simulation.",
+    "status": "proposed",
+    "edge": "F05: closed/unknown ports; two cement stages.",
+    "done": "Stage identity không merge với float collar.",
+    "sources": [
+      "cement"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "cement-barriers",
+    "id": "annular-cement",
+    "name": "Annular cement / TOC",
+    "tier": "core",
+    "function": "Biểu diễn cement giữa casing và bore/outer casing.",
+    "fields": "innerId; outerId; interval; TOC source/uncertainty; placement status. Legacy refCasingID/startDepth.",
+    "attachment": "occupies-annulus; associated with string, not lumen.",
+    "symbol": "annular-fill; cement hatch; TOC depth/unknown label.",
+    "validation": "Clip boundaries; top≤bottom; bottom explicit proposed; no cement quality inferred.",
+    "status": "legacy-rendered",
+    "edge": "F05: TOC outside casing; missing refs; diameter step; unknown TOC.",
+    "done": "Fill đúng annulus, TOC/provenance explicit.",
+    "sources": [
+      "cement"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "cement-barriers",
+    "id": "cement-plug",
+    "name": "Cement plug / squeeze interval",
+    "tier": "configuration",
+    "function": "Cement ở bore/lumen hoặc declared repair interval; purpose tách annular cement.",
+    "fields": "interval; purpose abandonment/kickoff/repair; hostBoreId; evidenceIds.",
+    "attachment": "occupies bore/lumen; optional supported-by bridge plug; squeeze target explicit.",
+    "symbol": "barrier-overlay; full-bore hatch + purpose label.",
+    "validation": "Not map to current annular Cement; bore boundaries exist; placement không là tested isolation.",
+    "status": "proposed",
+    "edge": "F11: plug spanning cut casing; uncertain top/bottom; failed test.",
+    "done": "Plug span/purpose/evidence distinct from annular fill.",
+    "sources": [
+      "cement",
+      "plug_and_abandon"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "cement-barriers",
+    "id": "barrier-record",
+    "name": "Declared barrier / evidence span",
+    "tier": "configuration",
+    "function": "Nhóm component/evidence theo objective người nhập; overlay traceability.",
+    "fields": "barrierId; objective; componentIds; evidenceIds; verification state; interval optional.",
+    "attachment": "annotates components; separate from physical ownership.",
+    "symbol": "barrier-overlay; bracket with explicit unknown/verified evidence text.",
+    "validation": "No pass inferred from presence; evidence source/time/type required for supplied verification.",
+    "status": "proposed",
+    "edge": "F11: incomplete/failed evidence; duplicate barrier role; removed component.",
+    "done": "Traceable evidence display; no certification wording.",
+    "sources": [
+      "plug_and_abandon"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "cement-barriers",
+    "id": "packoff",
+    "name": "Annular packoff / seal assembly",
+    "tier": "configuration",
+    "function": "Seal interface tại head/hanger hoặc annular assembly.",
+    "fields": "innerId; outerId; seatId; at; sealState; envelope.",
+    "attachment": "seals-between named interfaces; support relation independent.",
+    "symbol": "interfaces; seal blocks + state label.",
+    "validation": "Seats consistent, unknown seal status retained; no rating default.",
+    "status": "proposed",
+    "edge": "F10: missing seat; multiple seals; leak annotation.",
+    "done": "Seal relation distinct from hanger support.",
+    "sources": [
+      "casing_hanger",
+      "tubing_hanger"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "tubing",
+    "name": "Production / injection tubing string",
+    "tier": "core",
+    "function": "Conduit completion đưa lưu thể theo purpose supplied.",
+    "fields": "stringId; purpose; segments OD/ID/length; interval; connection optional.",
+    "attachment": "contained-in casing/liner/bore; supported-by tubing hanger; connects-to completion tools.",
+    "symbol": "tubular; inner string lines; label Tubing + size/depth.",
+    "validation": "No Casing alias; segment continuity/clearance; injection purpose không suy từ pipe.",
+    "status": "implemented",
+    "edge": "F06/F12: dual strings, taper, missing ID, tubing below packer.",
+    "done": "Independent tubing model/dispatch/hosts, no LLM coupling.",
+    "sources": [
+      "production_tubing"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "tubing-hanger",
+    "name": "Tubing hanger",
+    "tier": "configuration",
+    "function": "Support tubing ở tubing head; sealing interfaces theo cấu hình.",
+    "fields": "tubingId; headId; seatId; at/elevation; ports optional.",
+    "attachment": "supports tubing, supported-by head seat; seals-between declared boundaries.",
+    "symbol": "interfaces; hanger glyph + tubing ID, named ports.",
+    "validation": "Different from casing hanger; one seat occupancy per snapshot unless assembly supports more.",
+    "status": "implemented",
+    "edge": "F10: dual bore, cable/control-line feedthrough, unknown seat elevation.",
+    "done": "Tubing support/ports/seals traceable separately.",
+    "sources": [
+      "tubing_hanger"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "completion",
+    "id": "production-packer",
+    "name": "Production packer",
+    "tier": "configuration",
+    "function": "Seal tubing annulus theo production completion.",
+    "fields": "CompletionPacker v2: id, role, innerConduitId, outerHostId, top/bottom quantities, setState, retrievable? và metadata. Phase 2 cased/liner annuli only; legacy Packer riêng.",
+    "attachment": "Explicit inner/outer annulus endpoints; tubing-host spans cho production/isolation/test; liner-top → parent casing tại liner top. Không suy support từ seal.",
+    "symbol": "tools; paired blocks ngoài lumen; set crossed, unset outline, unknown outline + text; all strokes solid; role/state/depth/refs label. Unknown ID dùng unresolved outline.",
+    "validation": "Full interval coverage, same annulus, bore clearance nếu biết, uniform diameter, no overlapping packers; stable IDs, units/MD/datum, lifecycle/evidence. Unsupported openhole/taper/setting profiles trả diagnostic.",
+    "status": "implemented",
+    "edge": "F06: tubing missing; multiple packers; openhole variant; at shoe boundary.",
+    "done": "Phase 2 VERIFIED_LOCAL trong capability bounded; legacy generic vẫn riêng. Role/state, seal endpoints và QA evidence traceable; không chứng nhận hydraulic sealing/rating.",
+    "sources": [
+      "packer",
+      "production_packer"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "liner-top-packer",
+    "name": "Liner top packer",
+    "tier": "configuration",
+    "function": "Seal liner-top overlap annulus; support role không tự suy.",
+    "fields": "CompletionPacker v2: id, role, innerConduitId, outerHostId, top/bottom quantities, setState, retrievable? và metadata. Phase 2 cased/liner annuli only; legacy Packer riêng.",
+    "attachment": "Explicit inner/outer annulus endpoints; tubing-host spans cho production/isolation/test; liner-top → parent casing tại liner top. Không suy support từ seal.",
+    "symbol": "tools; paired blocks ngoài lumen; set crossed, unset outline, unknown outline + text; all strokes solid; role/state/depth/refs label. Unknown ID dùng unresolved outline.",
+    "validation": "Full interval coverage, same annulus, bore clearance nếu biết, uniform diameter, no overlapping packers; stable IDs, units/MD/datum, lifecycle/evidence. Unsupported openhole/taper/setting profiles trả diagnostic.",
+    "status": "implemented",
+    "edge": "F06: tubing missing; multiple packers; openhole variant; at shoe boundary.",
+    "done": "Phase 2 VERIFIED_LOCAL trong capability bounded; legacy generic vẫn riêng. Role/state, seal endpoints và QA evidence traceable; không chứng nhận hydraulic sealing/rating.",
+    "sources": [
+      "packer",
+      "liner_top_packer"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "isolation-packer",
+    "name": "Isolation packer",
+    "tier": "configuration",
+    "function": "Isolate declared interval/zone boundaries.",
+    "fields": "CompletionPacker v2: id, role, innerConduitId, outerHostId, top/bottom quantities, setState, retrievable? và metadata. Phase 2 cased/liner annuli only; legacy Packer riêng.",
+    "attachment": "Explicit inner/outer annulus endpoints; tubing-host spans cho production/isolation/test; liner-top → parent casing tại liner top. Không suy support từ seal.",
+    "symbol": "tools; paired blocks ngoài lumen; set crossed, unset outline, unknown outline + text; all strokes solid; role/state/depth/refs label. Unknown ID dùng unresolved outline.",
+    "validation": "Full interval coverage, same annulus, bore clearance nếu biết, uniform diameter, no overlapping packers; stable IDs, units/MD/datum, lifecycle/evidence. Unsupported openhole/taper/setting profiles trả diagnostic.",
+    "status": "implemented",
+    "edge": "F06: tubing missing; multiple packers; openhole variant; at shoe boundary.",
+    "done": "Phase 2 VERIFIED_LOCAL trong capability bounded; legacy generic vẫn riêng. Role/state, seal endpoints và QA evidence traceable; không chứng nhận hydraulic sealing/rating.",
+    "sources": [
+      "packer"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "test-packer",
+    "name": "Well-test / service packer",
+    "tier": "configuration",
+    "function": "Temporary/test isolation context, không mặc định permanent.",
+    "fields": "CompletionPacker v2: id, role, innerConduitId, outerHostId, top/bottom quantities, setState, retrievable? và metadata. Phase 2 cased/liner annuli only; legacy Packer riêng.",
+    "attachment": "Explicit inner/outer annulus endpoints; tubing-host spans cho production/isolation/test; liner-top → parent casing tại liner top. Không suy support từ seal.",
+    "symbol": "tools; paired blocks ngoài lumen; set crossed, unset outline, unknown outline + text; all strokes solid; role/state/depth/refs label. Unknown ID dùng unresolved outline.",
+    "validation": "Full interval coverage, same annulus, bore clearance nếu biết, uniform diameter, no overlapping packers; stable IDs, units/MD/datum, lifecycle/evidence. Unsupported openhole/taper/setting profiles trả diagnostic.",
+    "status": "implemented",
+    "edge": "F06: tubing missing; multiple packers; openhole variant; at shoe boundary.",
+    "done": "Phase 2 VERIFIED_LOCAL trong capability bounded; legacy generic vẫn riêng. Role/state, seal endpoints và QA evidence traceable; không chứng nhận hydraulic sealing/rating.",
+    "sources": [
+      "packer"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "seal-bore",
+    "name": "Seal-bore / PBR / seal assembly",
+    "tier": "configuration",
+    "function": "Receptacle/seal interface cho completion movement/connection.",
+    "fields": "receptacleId; sealAssemblyId; interval; engagementLength; ID/OD.",
+    "attachment": "Owned by liner/packer; connects-to tubing seal assembly; engagement relation explicit.",
+    "symbol": "tools; nested receptacle + engagement marker.",
+    "validation": "Engagement within bore; missing profile unresolved; not implicit tieback support.",
+    "status": "proposed",
+    "edge": "F04/F06: disengaged assembly; partial engagement; unknown profile.",
+    "done": "Both sides and engagement source preserved.",
+    "sources": [
+      "packer",
+      "liner"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "landing-nipple",
+    "name": "Landing nipple / lock profile",
+    "tier": "configuration",
+    "function": "Profile bên trong tubular cho insert tool/plug.",
+    "fields": "hostStringId; at; profileType; sealBoreID; noGoSize?",
+    "attachment": "Inline tubing; supports/locks insert by named profile.",
+    "symbol": "tools; short internal-profile marker + name.",
+    "validation": "Profile compatibility requires source; noGo/selective not inferred from OD.",
+    "status": "proposed",
+    "edge": "F06: insert mismatched profile; repeated nipples; empty nipple.",
+    "done": "Nipple stays distinct from installed insert.",
+    "sources": [
+      "landing_nipple"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "completion",
+    "id": "crossover",
+    "name": "Crossover / coupling / pup joint",
+    "tier": "configuration",
+    "function": "Nối size/profile hoặc short tubular section; chi tiết chỉ khi cần.",
+    "fields": "Runtime: Crossover/Coupling dùng tubingId, fromSegmentId, toSegmentId, at m/ft MD; Coupling thêm body od và innerDiameter optional in/mm. PupJoint dùng tubingId/segmentId, lấy physical quantities từ owned tubing segment. Connection texts optional.",
+    "attachment": "Explicit directed adjacent tubing endpoints; tối đa một Crossover/Coupling mỗi junction. PupJoint phân loại một owned tubing segment, không cộng thêm length.",
+    "symbol": "tubular; solid OD/known-ID boundaries và open lumen. Point connectors constrained theo adjacent segments; Pup Joint giữ physical interval và có detail riêng not MD scale.",
+    "validation": "Refs, matching MD, unique junction/segment ownership, lifecycle/evidence, finite quantities/units; Coupling same-OD và body/host clearance; unknown ID/profile không tự suy; Pup length counted once.",
+    "status": "implemented",
+    "edge": "F03/F06/F13/F14/F15: endpoints, units, unknown bore/profiles, body clearance, short physical pup, neighboring tools, all-Pup string, immutability và escaped long labels; [crossover tests](../../tests/crossover.test.ts), [joint tests](../../tests/coupling-pup-joint.test.ts).",
+    "done": "Endpoints và taper remain physically consistent.",
+    "sources": [
+      "crossover",
+      "production_tubing",
+      "casing",
+      "tubular_accessories"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "expansion-joint",
+    "name": "Expansion joint",
+    "tier": "configuration",
+    "function": "Assembly cho phép relative movement theo model supplied.",
+    "fields": "hostStringId; interval; stroke quantity?; state unknown allowed.",
+    "attachment": "Inline tubing; connects-to upper/lower segments.",
+    "symbol": "tools; telescoping glyph + stroke label if provided.",
+    "validation": "No guessed stroke/design allowance; avoid double counting length.",
+    "status": "proposed",
+    "edge": "F06: extended/retracted/unknown; crossing packer depth.",
+    "done": "Explicit envelope/length và state, no mechanics simulation.",
+    "sources": [
+      "production_tubing"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "completion",
+    "id": "control-line",
+    "name": "Control / chemical line / gauge cable",
+    "tier": "configuration",
+    "function": "Đường secondary service/measurement từ surface tới tool.",
+    "fields": "serviceType; endpoints; path anchors; diameter?; medium?",
+    "attachment": "connects named tool/head ports; attached externally to string per configuration.",
+    "symbol": "tools; thin separate line, service label; distinguish ESP power cable.",
+    "validation": "Endpoints resolved; service compatible only when supplied; not silently route through seals.",
+    "status": "proposed",
+    "edge": "F07/F09/F10: shared line, feedthrough missing, crossed packer.",
+    "done": "Traceable endpoint path and missing-port diagnostic.",
+    "sources": [
+      "subsurface_safety_valve_sssv"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "valves-flow",
+    "id": "safety-valve",
+    "name": "SSSV / SCSSV",
+    "tier": "configuration",
+    "function": "Emergency closure device family trong producing conduit.",
+    "fields": "hostTubingId; at/interval; controlType; valveState; controlPortId?; bore.",
+    "attachment": "Inline tubing; surface-controlled variant connects control line/port.",
+    "symbol": "tools; valve glyph + SSSV/SCSSV + open/closed/unknown text.",
+    "validation": "State not inferred; control type explicit; no rating/fail-safe certification from symbol.",
+    "status": "proposed",
+    "edge": "F07: wireline-retrievable insert vs tubing-retrievable; unknown state.",
+    "done": "Correct inline/control relations and state legend.",
+    "sources": [
+      "subsurface_safety_valve_sssv"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "valves-flow",
+    "id": "sliding-sleeve",
+    "name": "Sliding sleeve",
+    "tier": "configuration",
+    "function": "Ports nối conduit với annulus khi state tương ứng được khai báo.",
+    "fields": "hostStringId; at/interval; portState; targetAnnulusId.",
+    "attachment": "Inline tubing; connects-to annulus through named ports.",
+    "symbol": "tools; sleeve/ports glyph + state label.",
+    "validation": "Annulus exists at depth; closed/unknown cannot be shown flowing by default.",
+    "status": "proposed",
+    "edge": "F07: multiple zones, open/closed/unknown ports.",
+    "done": "Port endpoints/state independent from flow arrows.",
+    "sources": [
+      "sliding_sleeve"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "valves-flow",
+    "id": "icd-icv",
+    "name": "ICD / ICV",
+    "tier": "configuration",
+    "function": "Family inflow restriction/control; passive ICD và actuated ICV phải khác variant.",
+    "fields": "hostScreenOrStringId; interval/at; deviceType; portId; state/setting optional with units.",
+    "attachment": "connects zone inflow path to conduit; actuated device control connection explicit.",
+    "symbol": "tools; distinct restriction/control glyph + type text.",
+    "validation": "No flow coefficient/setting invented; device-specific source required before detailed variant.",
+    "status": "proposed",
+    "edge": "F08: multi-zone devices; passive no state; missing control port.",
+    "done": "Variant semantics and zone association explicit.",
+    "sources": [
+      "sand_control"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "valves-flow",
+    "id": "check-valve",
+    "name": "Check / standing / traveling valve",
+    "tier": "configuration",
+    "function": "Cho flow direction theo thiết bị; standing/traveling thuộc pump assembly nếu supplied.",
+    "fields": "hostId; at; allowedDirection; valveRole; state.",
+    "attachment": "Inline conduit hoặc pump child; connects flow endpoints.",
+    "symbol": "tools; one-way marker + role/direction.",
+    "validation": "Direction tied to named endpoints; not infer orientation from screen y.",
+    "status": "proposed",
+    "edge": "F09: two pump valves; reversed direction; unknown orientation.",
+    "done": "Flow role and assembly identity stay separate.",
+    "sources": [
+      "float_shoe",
+      "rod_pump"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "valves-flow",
+    "id": "flow-insert",
+    "name": "Blanking plug / choke insert",
+    "tier": "configuration",
+    "function": "Insert làm closure hoặc restriction theo role supplied.",
+    "fields": "nippleId; at; insertType; bore/orifice?; state.",
+    "attachment": "Locked/supported by landing nipple; seals or restricts named conduit.",
+    "symbol": "tools; insert glyph + role/state label.",
+    "validation": "Nipple exists; profile compatibility unresolved if missing; plug differs choke.",
+    "status": "proposed",
+    "edge": "F07: empty nipple; mismatched profile; removed insert.",
+    "done": "Correct host/profile and closure/restriction distinction.",
+    "sources": [
+      "landing_nipple"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "perforation-sand",
+    "id": "perforation",
+    "name": "Perforation interval",
+    "tier": "configuration",
+    "function": "Liên thông casing/liner tới formation.",
+    "fields": "hostStringId; interval; zoneId; shotDensity? with shots/m or shots/ft; phasing? deg; lifecycle.",
+    "attachment": "annotates/penetrates casing wall/cement, connects reservoir/conduit context.",
+    "symbol": "tools; radial ticks at interval; depth/zone label.",
+    "validation": "Within host/zone; not screen hatching; unknown phase/density không tạo exact number of holes.",
+    "status": "proposed",
+    "edge": "F08: multiple intervals; reperforated vs squeezed; thin span.",
+    "done": "Ticks đúng walls/depth, display aggregation not actual charge count.",
+    "sources": [
+      "perforation"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "perforation-sand",
+    "id": "screen",
+    "name": "Sand screen / slotted liner",
+    "tier": "configuration",
+    "function": "Sand exclusion family; screen và slotted tubular là distinct variant.",
+    "fields": "stringId; interval; screenType; basePipe OD/ID; aperture/slot? with unit.",
+    "attachment": "Inline completion or lower string; contained-in hole/casing.",
+    "symbol": "tools; screened band within host envelope, variant label.",
+    "validation": "Aperture needs manufacturer/source; not imply particle retention from hatch.",
+    "status": "proposed",
+    "edge": "F08: openhole vs cased; screen end at packer; unknown aperture.",
+    "done": "Screen host/interval correct; variant details marked unverified.",
+    "sources": [
+      "gravel_pack",
+      "sand_screen"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "perforation-sand",
+    "id": "gravel-pack",
+    "name": "Gravel pack interval",
+    "tier": "configuration",
+    "function": "Prepared gravel quanh screen theo sand-control assembly.",
+    "fields": "screenId; inner/outer boundary IDs; interval; gravel size optional with unit or mesh convention.",
+    "attachment": "occupies-annulus outside screen, associated perforated/openhole zone.",
+    "symbol": "annular-fill; dots distinct from cement; pack label.",
+    "validation": "Within bounds; no treatment success from fill; mesh not converted blindly to length.",
+    "status": "proposed",
+    "edge": "F08: partial pack; missing screen; adjacent cement fill.",
+    "done": "Correct gravel region/legend with uncertainty.",
+    "sources": [
+      "gravel_pack"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "perforation-sand",
+    "id": "blank-basepipe",
+    "name": "Blank pipe / bull plug / lower termination",
+    "tier": "configuration",
+    "function": "Non-screened section hoặc sealed terminal trong lower completion.",
+    "fields": "hostStringId; interval/at; terminationType; OD/ID; closureState.",
+    "attachment": "Inline screen string; terminal anchor for bull plug.",
+    "symbol": "tubular/tools; plain segment or terminal cap + label.",
+    "validation": "At real endpoint; blank pipe không là screened interval; closure unknown explicit.",
+    "status": "proposed",
+    "edge": "F08: alternating blank/screen sections; open vs capped tail.",
+    "done": "Segments và endpoint role distinguished.",
+    "sources": [
+      "gravel_pack",
+      "production_tubing"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "esp",
+    "name": "ESP assembly",
+    "tier": "configuration",
+    "function": "Electrically driven downhole pump family.",
+    "fields": "hostStringId; interval; assembly parts order if known; pump/motor envelope; powerPort; model optional.",
+    "attachment": "Suspended on tubing; contained-in casing; connects intake/discharge and cable.",
+    "symbol": "tools; stacked assembly blocks + ESP label.",
+    "validation": "Fit/part order from actual assembly; no performance or stage count defaults.",
+    "status": "proposed",
+    "edge": "F09: below packer; missing motor envelope; multiple parts too short to scale.",
+    "done": "Assembly envelope/flow/power endpoints explicit; inset legible.",
+    "sources": [
+      "electric_submersible_pump"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "esp-cable",
+    "name": "ESP power cable / feedthrough",
+    "tier": "configuration",
+    "function": "Power path từ surface qua head/packer interfaces tới motor.",
+    "fields": "motorPortId; headFeedthroughId; path anchors; cable envelope optional.",
+    "attachment": "connects motor/surface endpoints; attached-to tubing path.",
+    "symbol": "tools; labeled separate power line.",
+    "validation": "Feedthroughs explicit; cannot pass through sealed barrier by assumed route.",
+    "status": "proposed",
+    "edge": "F09/F10: feedthrough missing; crossed control line; splice annotation.",
+    "done": "Power path/ports traceable, different from control line.",
+    "sources": [
+      "electric_submersible_pump"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "gas-lift-mandrel",
+    "name": "Gas-lift mandrel",
+    "tier": "configuration",
+    "function": "Tubing carrier/interface cho gas-lift valve theo assembly.",
+    "fields": "hostTubingId; at/interval; valveSeatId; mandrelType; envelope.",
+    "attachment": "Inline tubing; supports valve insert/seat; annulus gas connection.",
+    "symbol": "tools; side pocket/mandrel generic glyph + label.",
+    "validation": "Do not infer side-pocket variant or dimensions; valve seat not duplicate inline valve.",
+    "status": "proposed",
+    "edge": "F09: many unloading mandrels; missing valve; nonretrievable variant.",
+    "done": "Mandrel and valve modeled separately where needed.",
+    "sources": [
+      "gas_lift"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "gas-lift-valve",
+    "name": "Gas-lift valve",
+    "tier": "configuration",
+    "function": "Gas injection interface giữa annulus và tubing.",
+    "fields": "mandrelId; seatId; at; role operating/unloading/unknown; state; pressure setting optional with reference/unit.",
+    "attachment": "Inserted in mandrel; connects annulus gas path to tubing.",
+    "symbol": "tools; valve at mandrel + role/state label.",
+    "validation": "No guessed valve spacing/operating pressure; role not infer from depth.",
+    "status": "proposed",
+    "edge": "F09: several valves; state unknown; removed insert.",
+    "done": "Gas path/role/seat and source retained.",
+    "sources": [
+      "gas_lift"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "rod-pump",
+    "name": "Rod pump / sucker-rod string",
+    "tier": "configuration",
+    "function": "Surface drive/rod motion tới downhole pump family.",
+    "fields": "pump interval; rodStringId/segments; tubingId; intake/discharge; valve children optional.",
+    "attachment": "Rod inside tubing, connects surface drive context và pump.",
+    "symbol": "tools; central rod + pump glyph, pump depth label.",
+    "validation": "Rod/tubing fit; no mechanical loads calculation; surface drive only context.",
+    "status": "proposed",
+    "edge": "F09: rod taper; pump below tubing; standing/traveling valves.",
+    "done": "Rod path và pump endpoints correct, not ESP.",
+    "sources": [
+      "rod_pump"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "pcp",
+    "name": "Progressing cavity pump",
+    "tier": "configuration",
+    "function": "Rotary positive-displacement lift family, chi tiết variant cần nguồn riêng.",
+    "fields": "pump interval; driveType; rotor/stator envelope; hostTubingId; ports.",
+    "attachment": "Inline/attached completion; rod/electric drive connection only if supplied.",
+    "symbol": "tools; PCP generic block + drive label.",
+    "validation": "No rotor pitch/torque/rating defaults; source chưa đọc được ghi unverified.",
+    "status": "proposed",
+    "edge": "F09: rod-driven vs electric drive; unknown stator size.",
+    "done": "Generic family annotation có uncertainty, detailed variant requires verified source.",
+    "sources": [
+      "artificial_lift",
+      "progressing_cavity_pump"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "artificial-lift",
+    "id": "hydraulic-lift",
+    "name": "Hydraulic / jet-pump lift",
+    "tier": "configuration",
+    "function": "Lift family dùng supplied power-fluid/return paths.",
+    "fields": "pump interval; type; powerFluidPort; returnPort; host strings.",
+    "attachment": "connects named fluid conduits; ownership independent from flow graph.",
+    "symbol": "tools; pump block + named arrows only if flow direction known.",
+    "validation": "No nozzle sizing/operating rate defaults; source for actual topology needed.",
+    "status": "proposed",
+    "edge": "F09: concentric/parallel conduits; unknown return route.",
+    "done": "Energy/return path explicit and unresolved facts visible.",
+    "sources": [
+      "artificial_lift"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "wellhead",
+    "name": "Wellhead / casing-tubing heads",
+    "tier": "core",
+    "function": "Termination/support interfaces ở surface hoặc seabed theo configuration.",
+    "fields": "configuration; surfaceCasingId; head/seat IDs; elevation/datum; named ports; rating optional with evidence. Legacy wellheadType/surfaceCasingID/seatingCasingID.",
+    "attachment": "supported-by surface casing; supports hangers; connects tree interfaces.",
+    "symbol": "interfaces; head block/inset; datum and config label.",
+    "validation": "No type-specific claim from legacy metadata; seats/ports explicit; no rating inference.",
+    "status": "legacy-rendered",
+    "edge": "F10: onshore/platform/subsea; datum negative elevation; no casing.",
+    "done": "Support refs/display origin vs elevation explicit; future variant dispatch reviewed.",
+    "sources": [
+      "wellhead"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "casing-hanger",
+    "name": "Casing hanger",
+    "tier": "core",
+    "function": "Support casing tại wellhead seat; seal relation nếu supplied.",
+    "fields": "casingId; headId; seatId; at/elevation; sealAssemblyId optional. Legacy refCasingID only.",
+    "attachment": "supports casing; supported-by wellhead; seal separate.",
+    "symbol": "interfaces; hanger glyph + casing/seat label.",
+    "validation": "Requires head and casing; order independent explicit seats; no two occupants same seat.",
+    "status": "legacy-rendered",
+    "edge": "F10: no wellhead; reordered hangers; duplicate seat.",
+    "done": "Seat identities stable; legacy slot-by-array limitation recorded.",
+    "sources": [
+      "casing_hanger"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "tree",
+    "name": "Production / Christmas tree",
+    "tier": "configuration",
+    "function": "Assembly valves/spools/chokes cho production flow control.",
+    "fields": "treeId; configuration; bore IDs; named ports; valve children; envelope optional.",
+    "attachment": "connects-to wellhead/tubing interface và flowline terminal.",
+    "symbol": "interfaces; simplified tree/inset with valve roles.",
+    "validation": "Not synonymous wellhead; supplied ports/roles only; no manufacturer/certification inference.",
+    "status": "proposed",
+    "edge": "F10: dual bore; horizontal/vertical tree; unknown ports.",
+    "done": "Tree distinct graph và role-labeled ports.",
+    "sources": [
+      "christmas_tree"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "tree-valves",
+    "name": "Master / wing / swab / annulus valve",
+    "tier": "configuration",
+    "function": "Valve roles trong tree flow/annulus/access path.",
+    "fields": "treeId; role; portFrom/to; state; actuation optional.",
+    "attachment": "Child of tree/head; connects named ports, annulus role explicit.",
+    "symbol": "interfaces; role-labeled valve glyph, known/unknown state.",
+    "validation": "Role not determined by drawing x/y; no missing state = closed assumption.",
+    "status": "proposed",
+    "edge": "F10: multiple master valves; absent swab; unknown actuator.",
+    "done": "Each valve traced to port graph and state.",
+    "sources": [
+      "christmas_tree"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "choke",
+    "name": "Production choke",
+    "tier": "configuration",
+    "function": "Flow restriction ở tree/outlet theo configuration.",
+    "fields": "hostTreeId; ports; chokeType; setting/orifice optional with unit.",
+    "attachment": "Inline tree/flowline outlet boundary; not downhole insert unless specified.",
+    "symbol": "interfaces; restriction glyph + setting/unknown label.",
+    "validation": "No Cv/bean size/unit guesses; ports identified.",
+    "status": "proposed",
+    "edge": "F10: adjustable vs fixed; unknown setting; missing outlet.",
+    "done": "Choke role separate from shutoff valve.",
+    "sources": [
+      "christmas_tree"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "subsea-interface",
+    "name": "Subsea wellhead / connector / tubing-head interface",
+    "tier": "configuration",
+    "function": "Interfaces subsea tới tree/hangers tại mudline context.",
+    "fields": "headId; connector IDs; seat IDs; elevation/datum; configuration; named bores.",
+    "attachment": "Connects wellhead/tree và casing/tubing; support/lock/seal relations separate.",
+    "symbol": "interfaces; seabed context + simplified connector/inset.",
+    "validation": "Do not claim Subsea metadata generates interface; manufacturer mating profiles require source.",
+    "status": "proposed",
+    "edge": "F10: mudline different from RKB; horizontal tree interface; unknown connector.",
+    "done": "Explicit interface topology và datum, generic depiction clearly labeled.",
+    "sources": [
+      "wellhead",
+      "christmas_tree"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "wellhead-subsea",
+    "id": "subsea-control",
+    "name": "Subsea control module / umbilical endpoint",
+    "tier": "configuration",
+    "function": "Context block cho control connections tới subsea assembly.",
+    "fields": "moduleId; treeId; controlPortIds; umbilical endpoint; serviceType.",
+    "attachment": "Connects named tree ports; context boundary to external network.",
+    "symbol": "interfaces; context block/dashed external line + label.",
+    "validation": "No full subsea-network or control-system design; unresolved ports explicit.",
+    "status": "proposed",
+    "edge": "F10: shared umbilical; spare ports; missing module.",
+    "done": "Only schematic endpoint/relationship, no claimed control function test.",
+    "sources": [
+      "christmas_tree"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "abandonment",
+    "id": "bridge-plug",
+    "name": "Bridge plug / mechanical isolation",
+    "tier": "configuration",
+    "function": "Tool cách ly lower wellbore; permanent/retrievable variant.",
+    "fields": "hostBoreId; at/interval; variant; setState; evidenceIds.",
+    "attachment": "contained-in casing/bore; seals full named conduit; may support cement plug.",
+    "symbol": "barrier-overlay; full-bore closure glyph + state.",
+    "validation": "Host/fit valid; retrievability/state from source; placement not certified isolation.",
+    "status": "proposed",
+    "edge": "F11: cement above plug; removed plug; unknown test.",
+    "done": "Plug topology/state/evidence explicit.",
+    "sources": [
+      "bridge_plug"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "abandonment",
+    "id": "retainer",
+    "name": "Cement retainer / squeeze tool",
+    "tier": "configuration",
+    "function": "Isolation/placement tool context cho squeeze/repair operation.",
+    "fields": "hostCasingId; at; valve state; repairTargetId; lifecycle.",
+    "attachment": "contained-in casing; connects placement path/repair target as supplied.",
+    "symbol": "tools; retainer glyph + role/state label.",
+    "validation": "Not automatically permanent bridge plug; repair success not inferred.",
+    "status": "proposed",
+    "edge": "F11: removed after operation; unknown valve; absent target.",
+    "done": "Retainer distinct purpose/lifecycle from abandonment plug.",
+    "sources": [
+      "cement",
+      "bridge_plug"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "abandonment",
+    "id": "cut-casing",
+    "name": "Cut / recovered casing interval",
+    "tier": "configuration",
+    "function": "Thay đổi tubular tồn tại trong abandonment snapshot.",
+    "fields": "stringId; cutAt; recoveredInterval; snapshotAt; source/evidence.",
+    "attachment": "annotates parent string; updates extant interval in selected snapshot.",
+    "symbol": "tubular; cut endpoint, removed portion dashed only if historical view requested.",
+    "validation": "No installed depiction of removed pipe; interval arithmetic valid.",
+    "status": "proposed",
+    "edge": "F11: cut through nested strings; unknown recovery bottom.",
+    "done": "Selected snapshot extents truthful; historical legend explicit.",
+    "sources": [
+      "plug_and_abandon"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "abandonment",
+    "id": "abandonment-cap",
+    "name": "Wellhead removal / abandonment cap or marker",
+    "tier": "configuration",
+    "function": "Surface/seabed closure context theo supplied abandonment record.",
+    "fields": "headId; removalTime?; cap/markerType; elevation/datum; evidenceIds.",
+    "attachment": "Connected-to remaining head/casing terminal; removed component relation historical.",
+    "symbol": "interfaces; cap/marker block + lifecycle/date label.",
+    "validation": "No jurisdiction depth/plug rule defaults; cap not proof completion of P&A.",
+    "status": "proposed",
+    "edge": "F11: wellhead removed but casing remains; mudline cut; unknown date.",
+    "done": "Closure context/source clear, no compliance conclusion.",
+    "sources": [
+      "plug_and_abandon"
+    ],
+    "verification": "family-only"
+  },
+  {
+    "group": "annotations",
+    "id": "depth-axis",
+    "name": "Depth axis / datum / reference elevation",
+    "tier": "core",
+    "function": "Tọa độ đọc bản vẽ và depth anchors.",
+    "fields": "basis; datumId; unit; ticks; elevation offsets with sign; surveyId for transformation.",
+    "attachment": "Well header + depth mapping; not physical tool.",
+    "symbol": "annotation; ticks/header MD/TVD @ datum.",
+    "validation": "No silent datum offset or MD↔TVD conversion; ticks consistent with geometry.",
+    "status": "proposed",
+    "edge": "F12/F13: ft vs m; datum missing; deep well; surface negative depth.",
+    "done": "Basis/unit/datum on exported figure and consistent anchors.",
+    "sources": [
+      "measured_depth",
+      "true_vertical_depth"
+    ],
+    "verification": "definition-backed"
+  },
+  {
+    "group": "annotations",
+    "id": "component-label",
+    "name": "Component label / leader / legend",
+    "tier": "core",
+    "function": "Giải thích glyph và truy dữ liệu.",
+    "fields": "targetId; text; quantities; lifecycle; legendKey; priority.",
+    "attachment": "annotates component/interval; leader attaches named anchor.",
+    "symbol": "annotation; side lanes; repeated-label strategy keeps IDs.",
+    "validation": "XML escape; no text-generated technical claims; no disconnected leader.",
+    "status": "proposed",
+    "edge": "F13: long Vietnamese name; ampersand; duplicate names; tiny intervals.",
+    "done": "Readable exported labels, no clipping/collision ambiguity.",
+    "sources": [
+      "ucorn-convention"
+    ],
+    "verification": "proposed-local"
+  },
+  {
+    "group": "annotations",
+    "id": "measurement",
+    "name": "Gauge / measurement / log annotation",
+    "tier": "configuration",
+    "function": "Ghi measurement/evidence được cung cấp tại depth hoặc interval.",
+    "fields": "targetId; quantity/value/unit; pressure reference; measuredAt; source; uncertainty.",
+    "attachment": "annotates tool/zone; gauge sensor host optional separate physical device.",
+    "symbol": "annotation; callout, measurement timestamp/unit.",
+    "validation": "Measurement ≠ rating; datum/time/reference explicit; no inferred pressure.",
+    "status": "proposed",
+    "edge": "F07/F11/F12: stale gauge data; psi gauge vs absolute; unknown uncertainty.",
+    "done": "Provenance/time/unit readable without engineering verdict.",
+    "sources": [
+      "ucorn-convention"
+    ],
+    "verification": "proposed-local"
+  },
+  {
+    "group": "annotations",
+    "id": "flow-arrow",
+    "name": "Flow / service direction annotation",
+    "tier": "configuration",
+    "function": "Biểu diễn direction do input cung cấp, không mô phỏng flow.",
+    "fields": "fromPortId; toPortId; serviceType; direction; snapshot/state.",
+    "attachment": "annotates declared flow graph; not host ownership.",
+    "symbol": "annotation; arrows/service label, unknown direction text if needed.",
+    "validation": "Endpoints valid; closed state conflict diagnostic; no calculated rate without source.",
+    "status": "proposed",
+    "edge": "F07/F09: unknown state; reverse flow; branch connections.",
+    "done": "Arrows trace ports and remain consistent with supplied state.",
+    "sources": [
+      "ucorn-convention"
+    ],
+    "verification": "proposed-local"
+  },
+  {
+    "group": "annotations",
+    "id": "revision",
+    "name": "Revision / lifecycle / uncertainty note",
+    "tier": "core",
+    "function": "Thông tin thời điểm và mức chắc chắn bản vẽ.",
+    "fields": "revisionId; snapshotAt; author/source; lifecycle legend; unresolved facts.",
+    "attachment": "Annotates entire well or targets; no ownership relation.",
+    "symbol": "annotation; title block + explicit unknown/planned legend.",
+    "validation": "Do not merge incompatible snapshots; no installed default from blank field.",
+    "status": "proposed",
+    "edge": "F11/F13: planned overlay on as-built; conflicting source dates.",
+    "done": "Revision/source/unknowns present on export.",
+    "sources": [
+      "ucorn-convention"
+    ],
+    "verification": "proposed-local"
+  }
+]

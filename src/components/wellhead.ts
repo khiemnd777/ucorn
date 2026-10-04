@@ -6,6 +6,8 @@ export interface Wellhead {
   wellheadType: 'Platform' | 'Onshore' | 'Shallow' | 'Subsea';
   surfaceCasingID: string;
   seatingCasingID?: string;
+  wellheadID?: string;
+  seats?: import('../domain/completion').HeadSeat[];
 }
 
 export const getWellheadPoints = (

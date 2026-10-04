@@ -112,7 +112,7 @@ export function resolveSegmentOverlaps(segments: Segment[]): Segment[] {
   processedSegments = processedSegments.reduce((acc, current) => {
     if (
       !acc.some(
-        (seg) =>
+        (seg: { from: Point; to: Point; type: Segment['type'] }) =>
           seg.from.x === current.from.x &&
           seg.from.y === current.from.y &&
           seg.to.x === current.to.x &&

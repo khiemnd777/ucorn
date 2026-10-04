@@ -311,10 +311,10 @@ const transformHoleData = (holeDatum: Hole) => {
   let currentDepth = 0;
 
   // Sort underreamed sections by startDepth just in case they are not ordered
-  holeDatum.underreamed.sort((a, b) => a.startDepth - b.startDepth);
+  const underreamed = [...holeDatum.underreamed].sort((a, b) => a.startDepth - b.startDepth);
 
   // Process each underreamed section
-  holeDatum.underreamed.forEach((section, index) => {
+  underreamed.forEach((section, index) => {
     // Add the normal section before the underreamed section if there is a gap
     if (section.startDepth > currentDepth) {
       results.push({
@@ -334,15 +334,15 @@ const transformHoleData = (holeDatum: Hole) => {
 
     // Check for a gap between this underreamed section and the next (or to the total depth if it's the last section)
     if (
-      index + 1 < holeDatum.underreamed.length &&
-      holeDatum.underreamed[index + 1].startDepth > currentDepth
+      index + 1 < underreamed.length &&
+      underreamed[index + 1].startDepth > currentDepth
     ) {
       results.push({
         diameter: holeDatum.diameter,
-        depth: holeDatum.underreamed[index + 1].startDepth,
+        depth: underreamed[index + 1].startDepth,
       });
     } else if (
-      index === holeDatum.underreamed.length - 1 &&
+      index === underreamed.length - 1 &&
       currentDepth < holeDatum.depth
     ) {
       // Add the remaining part of the hole after the last underreamed section
