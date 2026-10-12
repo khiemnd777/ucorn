@@ -195,3 +195,25 @@ hoặc commit/push/deploy.
 Coupling / Pup Joint Phase 4 — 2026-10-04: hai new discriminators `Coupling`/`PupJoint` trong versioned single tubing path, với separate domain/validator/layout/SVG adapters. Coupling explicit same-OD adjacent endpoints + supplied body OD/optional ID, clearance ở cả hai phía host boundary, junction exclusivity và tubing packer conflict diagnostics. Pup owns existing physical segment; length/depth/diameter không lặp, tổng length tính một lần. Solid main/detail lines; detail not MD scale, physical Pup giữ actual MD interval. Unknown bore/profile giữ diagnostics; connection compatibility chưa kiểm chứng.
 
 Crossover Inc. products function/family source đọc trực tiếp, registered; không lấy manufacturer sizing/rating defaults. UI thêm Coupling / Pup sample và GET/HEAD allowlist. Tests **197 pass / 0 fail / 999 assertions (9 files)**; build/typecheck PASS, docs validator PASS 6 skills / 64 cards / sources / links. XML/whitespace/extents PASS, ba old completion fragments byte-identical; [browser evidence](evidence/completion-joints/README.md) desktop/mobile Fit/Actual, unknown/wide labels, fit-error và recovery. Bảy catalog cards / chín kinds hoặc roles selected/implemented/VERIFIED_LOCAL trong bounded contracts. Chưa operator UAT, manufacturer assembly verification hay production; không commit/push/deploy.
+
+## Seal interfaces / Landing Nipple Phase 5 — 2026-10-12
+
+Implemented bounded `SealBore`, `SealAssembly`, `LandingNipple` v2 kinds.
+[Contract](completion-seals.md) records explicit liner/tubing-packer ownership,
+receptacle reference, seal interval/declared engagement and nipple segment profile.
+Geometric overlap is derived without declaring hydraulic sealing or mechanical
+lock verification. Assembly/nipple length is included once in existing tubing.
+Unknown IDs/profiles/insert state stay visible; unsupported overlaps, duplicate
+ownership, invalid fits and lifecycle conflicts produce structured diagnostics.
+
+Domain: `src/domain/seal-bore.ts`, `src/domain/landing-nipple.ts`. Validation:
+`src/validation/seal-bores.ts`, `src/validation/landing-nipples.ts` and the shared
+segment-ownership helper. Pure layout and SVG adapters are separate. All existing
+transports share preparation and handler. Editor sample route is `/sample-seals.json`.
+No new kinds leaves earlier completion layouts unchanged against pre-change HEAD.
+
+Local gates: 243 tests / 1209 assertions PASS; build, typecheck, docs validation
+and diff check PASS. [Evidence](evidence/completion-seals/README.md) records fresh
+desktop/mobile, errors/recovery, unknowns/labels, variants and export review.
+This is **VERIFIED_LOCAL** for the bounded slice. Equipment compatibility, rated
+sealing, engineering approval, physical-device UAT and production remain unknown.

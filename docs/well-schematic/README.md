@@ -20,6 +20,8 @@ Bộ tài liệu tiếng Việt, giữ thuật ngữ English để đối chiế
 
 14. [Completion Coupling / Pup Joint Phase 4](completion-joints.md) — explicit coupling body và owned physical tubing segment, validation và evidence.
 
+15. [Seal interfaces / Landing Nipple Phase 5](completion-seals.md) — explicit receptacle/assembly graph, nipple segment ownership and unknown profiles.
+
 ## Cách dùng
 
 Đọc audit trước khi cam kết hỗ trợ component. Chọn một nhóm catalog; mọi card kế thừa common contract, nhưng có field, quan hệ và edge case riêng. Ký hiệu/layer là convention UCORN được đề xuất, không phải chuẩn ngành được chứng nhận. Các thông số sizing, loads, pressure rating, khoảng cách barrier và quy trình thi công phải có dữ liệu/chuyên gia riêng; tài liệu này không cung cấp giá trị mặc định kỹ thuật.

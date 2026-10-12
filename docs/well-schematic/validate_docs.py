@@ -2,6 +2,7 @@
 """Validate UCORN docs and project skills without runtime or network access."""
 import json
 import re
+import runpy
 import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -20,7 +21,7 @@ CARD_FIELDS = {
     'symbol', 'validation', 'status', 'edge', 'done', 'sources', 'verification',
 }
 STATUSES = {'legacy-rendered', 'legacy-generic', 'type-only', 'proposed', 'implemented'}
-IMPLEMENTED_IDS = {'tubing', 'tubing-hanger', 'production-packer', 'liner-top-packer', 'isolation-packer', 'test-packer', 'crossover'}
+IMPLEMENTED_IDS = {'tubing', 'tubing-hanger', 'production-packer', 'liner-top-packer', 'isolation-packer', 'test-packer', 'crossover', 'seal-bore', 'landing-nipple'}
 RENDERED_IDS = {'hole', 'underream', 'shoe', 'annular-cement', 'wellhead', 'casing-hanger'}
 GENERIC_IDS = {'conductor', 'surface-casing', 'intermediate-casing', 'production-casing',
                'drilling-liner', 'production-liner', 'production-packer',
@@ -97,8 +98,9 @@ def validate(root):
             check(source['url'] in (base / 'sources.md').read_text(), f'{sid}: source absent from register')
     skill_root = root / '.agents/skills'
     actual = {p.parent.name for p in skill_root.glob('*/SKILL.md')}
-    check(actual == EXPECTED_SKILLS, 'Expected six project skills')
-    for p in sorted(skill_root.glob('*/SKILL.md')):
+    check(EXPECTED_SKILLS.issubset(actual), 'Missing required UCORN domain skill')
+    domain_skills = [p for p in skill_root.glob('*/SKILL.md') if p.parent.name in EXPECTED_SKILLS]
+    for p in sorted(domain_skills):
         text = p.read_text()
         match = re.match(r'^---\nname: ([a-z0-9-]+)\ndescription: ("[^\n]+")\n---\n', text)
         check(match is not None, f'{p}: unsupported/malformed frontmatter')
@@ -122,7 +124,7 @@ def validate(root):
             check(set(fields) == {'display_name', 'short_description', 'default_prompt'}, f'{metadata}: metadata fields mismatch')
             check(25 <= len(fields.get('short_description', '')) <= 64, f'{metadata}: short description length')
             check(f'${p.parent.name}' in fields.get('default_prompt', ''), f'{metadata}: prompt missing skill invocation')
-    files = [root / 'AGENTS.md'] + sorted(base.glob('*.md')) + sorted(skill_root.glob('*/SKILL.md'))
+    files = [root / 'AGENTS.md'] + sorted(base.glob('*.md')) + sorted(domain_skills)
     for p in files:
         if not p.is_file():
             errors.append(f'Missing {p}')
@@ -139,7 +141,14 @@ def validate(root):
             check(target.is_file(), f'{p}: broken link {href}')
             if sep and target.is_file():
                 check(unquote(fragment) in anchors(target.read_text()), f'{p}: missing anchor {href}')
-    return errors, len(cards), len(actual)
+    manifest = root / 'docs/skills-manifest.json'
+    if manifest.exists():
+        kit_validator = root / 'docs/validate_agent_setup.py'
+        check(kit_validator.is_file(), 'Agent Kit validator missing')
+        if kit_validator.is_file():
+            kit_errors, _ = runpy.run_path(str(kit_validator))['validate'](root)
+            errors.extend(kit_errors)
+    return errors, len(cards), len(domain_skills)
 
 if __name__ == '__main__':
     root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
@@ -147,4 +156,4 @@ if __name__ == '__main__':
     if errors:
         print('\n'.join(f'ERROR: {e}' for e in errors))
         sys.exit(1)
-    print(f'PASS: {skill_count} skills, {card_count} component cards, sources and internal links. No runtime/network validation.')
+    print(f'PASS: {skill_count} domain skills, {card_count} component cards, sources and internal links. Agent Kit checked when present. No runtime/network validation.')

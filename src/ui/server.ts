@@ -13,6 +13,7 @@ const samples = new Map([
   ['/sample-packers.json', '../../sample-data/well-completion-packers.json'],
   ['/sample-crossover.json', '../../sample-data/well-completion-crossover.json'],
   ['/sample-joints.json', '../../sample-data/well-completion-joints.json'],
+  ['/sample-seals.json', '../../sample-data/well-completion-seals.json'],
 ]);
 
 export const uiRequest = async (request: Request): Promise<Response> => {

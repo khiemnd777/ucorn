@@ -1,5 +1,11 @@
 # ucorn
 
+Agent setup uses [Agent Kit](https://github.com/khiemnd777/agent-kit) alongside
+UCORN's six well-domain skills. Codex reads [AGENTS.md](AGENTS.md); Claude Code
+imports the same file through [CLAUDE.md](CLAUDE.md). See the
+[skills catalog](docs/skills-catalog.md), [project state](docs/project-state.md)
+and [adoption record](docs/agent-kit-adoption.md) for scope and verification limits.
+
 To install dependencies:
 
 ```bash

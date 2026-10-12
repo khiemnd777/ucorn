@@ -122,7 +122,7 @@
   "landing_nipple": {
     "url": "https://glossary.slb.com/en/terms/l/landing_nipple",
     "status": "verified-definition",
-    "checked": "2026-10-04",
+    "checked": "2026-10-12",
     "scope": "Internal locking/seal profile."
   },
   "artificial_lift": {
@@ -226,5 +226,23 @@
     "status": "verified-definition",
     "checked": "2026-10-04",
     "scope": "Manufacturer function/family: coupling nối pipe joints; pup joint là short tubular section để positioning. Không xác minh model dimensions, ratings, thread compatibility hoặc universal length cutoff."
+  },
+  "sealbore": {
+    "url": "https://glossary.slb.com/en/terms/s/sealbore",
+    "status": "verified-definition",
+    "checked": "2026-10-12",
+    "scope": "Polished bore accepts seal assembly; general function only."
+  },
+  "seal_receptacle": {
+    "url": "https://glossary.slb.com/en/terms/s/seal_receptacle",
+    "status": "verified-definition",
+    "checked": "2026-10-12",
+    "scope": "Receptacle accepts a seal-equipped mating component; no dimensions or support criteria."
+  },
+  "seal_assembly": {
+    "url": "https://glossary.slb.com/en/terms/s/seal_assembly",
+    "status": "verified-definition",
+    "checked": "2026-10-12",
+    "scope": "Seal assembly engages sealbore; movement context does not supply stroke or hydraulic verification."
   }
 }

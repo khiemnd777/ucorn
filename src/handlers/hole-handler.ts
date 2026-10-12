@@ -20,6 +20,9 @@ import { drawCompletionNotes } from '../components/completion-notes';
 import { drawCrossover } from '../components/crossover';
 import { drawCoupling } from '../components/coupling';
 import { drawPupJoint } from '../components/pup-joint';
+import { drawSealBore } from '../components/seal-bore';
+import { drawSealAssembly } from '../components/seal-assembly';
+import { drawLandingNipple } from '../components/landing-nipple';
 
 export const handleHole = (input: unknown) => {
   const { well: wellData, completion } = prepareWell(input);
@@ -123,6 +126,15 @@ export const handleHole = (input: unknown) => {
     for (const packerLayout of layout.packers) {
       const packer = packersById.get(packerLayout.id)!;
       drawCompletionPacker({ packer, layout: packerLayout, labelX: layout.labelX })({ svg });
+    }
+    for (const [index, primitive] of layout.sealBores.entries()) {
+      drawSealBore({ sealBore: completion.sealBores[index], layout: primitive, labelX: layout.labelX })({ svg });
+    }
+    for (const [index, primitive] of layout.sealAssemblies.entries()) {
+      drawSealAssembly({ sealAssembly: completion.sealAssemblies[index], layout: primitive, labelX: layout.labelX })({ svg });
+    }
+    for (const [index, primitive] of layout.landingNipples.entries()) {
+      drawLandingNipple({ landingNipple: completion.landingNipples[index], layout: primitive, labelX: layout.labelX })({ svg });
     }
     drawCompletionNotes({ notes: layout.notes })({ svg });
   }

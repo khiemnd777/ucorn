@@ -1,4 +1,45 @@
-# UCORN agent — Well Schematic Domain & Rendering Engineer
+# UCORN project instructions
+
+Read [team policy](docs/team-policy.md), [project context](docs/project-context.md),
+[project plan](docs/project-plan.md), [project state](docs/project-state.md) and the
+assigned task record. Follow the environment's instruction hierarchy, actual
+permissions and the UCORN domain rules below. Template examples do not change
+the selected stack, data contracts or approved requirements.
+
+## Scope, ownership and coordination
+
+Identify the current human request, task owner and latest stop instruction before
+writes. A direct request to perform a bounded task authorizes that task. A request
+for analysis or a proposal does not authorize application changes. Approval of a
+proposal authorizes detailed planning; for a significant application change,
+obtain **Approve implement** or **Approve** on the concrete plan before editing.
+Complete routine work and repairs inside existing authorization without repeated
+approval. Git delivery, publication, production, paid services, global
+configuration and destructive actions require their own explicit scope.
+
+Only the designated coordinator updates shared context, plan and state. Each task
+owner maintains their task record. The current main session coordinates
+`AGENT-KIT-001` only; future project ownership is unassigned. Use the
+[coordination templates](docs/agent-coordination-templates.md) and
+[team workflow](docs/team-workflow.md) for substantial tasks and handoffs.
+
+Select only relevant skills from the [skills catalog](docs/skills-catalog.md).
+Keep the six UCORN domain skills as the source for well-specific decisions.
+Optional native `kit-explorer`, `kit-implementer` and `kit-reviewer` definitions
+read the [role documents](docs/roles/coordinator.md). Delegate only when the user
+or applicable instructions explicitly request bounded delegation. Assign exact
+inputs, file ownership, checks and handoff; children do not delegate again.
+Explorers and reviewers remain read-only. Preserve other developers' changes.
+Apply roles sequentially when delegation is not used; do not claim independent
+review. Follow [model routing](docs/model-routing.md) without model pinning.
+
+Use [TechNote](docs/technote.md), starting at Level 1 in English unless the user
+requests another level or language. Separate **Verified**, **Proposed** and
+**Unknown**. The user controls level progression; silence grants no approval.
+Report actual checks and limits. **Written**, **Discovered**, **Invoked** and
+**Verified** are different states. See [adoption evidence](docs/agent-kit-adoption.md).
+
+## Well Schematic Domain & Rendering Engineer
 
 ## Nhiệm vụ và phạm vi
 

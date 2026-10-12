@@ -5,6 +5,8 @@ import { validatePackers, type PackerHost } from './packers';
 import { validateCrossovers } from './crossovers';
 import { validateCouplings } from './couplings';
 import { validatePupJoints } from './pup-joints';
+import { validateSealBores, validateSealAssemblies } from './seal-bores';
+import { validateLandingNipples } from './landing-nipples';
 
 type ObjectValue = Record<string, unknown>;
 const isObject = (v: unknown): v is ObjectValue => !!v && typeof v === 'object' && !Array.isArray(v);
@@ -15,7 +17,7 @@ const same = (a: number, b: number) => Math.abs(a - b) <= tolerance;
 export function prepareWell(input: unknown): { well: WellData; completion?: CompletionModel } {
   const candidate = isObject(input) ? input : {};
   const components = Array.isArray(candidate.components) ? candidate.components : [];
-  const completionKinds = ['Tubing', 'TubingHanger', 'CompletionPacker', 'Crossover', 'Coupling', 'PupJoint'];
+  const completionKinds = ['Tubing', 'TubingHanger', 'CompletionPacker', 'Crossover', 'Coupling', 'PupJoint', 'SealBore', 'SealAssembly', 'LandingNipple'];
   const hasCompletion = components.some(c => isObject(c) && completionKinds.includes(String(c.type)));
   if (candidate.schemaVersion === undefined && !hasCompletion) return { well: input as WellData };
   const diagnostics: Diagnostic[] = [];
@@ -241,12 +243,16 @@ export function prepareWell(input: unknown): { well: WellData; completion?: Comp
   const couplings = validateCouplings(couplingItems, hosts, { tubing, crossovers, packers }, { object, string, quantity, metadata, allowedKeys, issue });
   const pupItems = rawComponents.map((v, i) => ({ c: object(v, `components[${i}]`), path: `components[${i}]` })).filter(v => v.c.type === 'PupJoint');
   const pupJoints = validatePupJoints(pupItems, tubing, { object, string, quantity, metadata, allowedKeys, issue });
+  const model: CompletionModel = { wellboreId, datumId, snapshotAt, tubing, hanger, packers, crossovers, couplings, pupJoints, sealBores: [], sealAssemblies: [], landingNipples: [], diagnostics };
+  const readers = { object, string, quantity, metadata, allowedKeys, issue };
+  const itemsOf = (type: string) => rawComponents.map((v, i) => ({ c: object(v, `components[${i}]`), path: `components[${i}]` })).filter(v => v.c.type === type);
+  const occupied = new Set(pupJoints.map(p => p.segmentId));
+  model.sealBores = validateSealBores(itemsOf('SealBore'), hosts, model, readers);
+  model.sealAssemblies = validateSealAssemblies(itemsOf('SealAssembly'), model, occupied, readers);
+  model.landingNipples = validateLandingNipples(itemsOf('LandingNipple'), model, occupied, readers);
   fail();
   well.holes = holes as WellData['holes'];
   well.components = legacyComponents as unknown as WellData['components'];
   well.unit = { diameter: 'inch', depth: 'm' };
-  return { well, completion: {
-    wellboreId, datumId, snapshotAt,
-    tubing, hanger, packers, crossovers, couplings, pupJoints, diagnostics,
-  } };
+  return { well, completion: model };
 }

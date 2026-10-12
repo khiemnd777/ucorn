@@ -173,3 +173,10 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# Local agent state and validation caches
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/agent-memory-local/
+.kit-work/
+__pycache__/

@@ -7,6 +7,7 @@ import sample from '../sample-data/well-tubing-hanger.json';
 import packerSample from '../sample-data/well-completion-packers.json';
 import crossoverSample from '../sample-data/well-completion-crossover.json';
 import jointsSample from '../sample-data/well-completion-joints.json';
+import sealsSample from '../sample-data/well-completion-seals.json';
 import type { Server } from 'node:http';
 
 let bunServer: ReturnType<typeof serve>, uiServer: ReturnType<typeof serve>, expressServer: Server;
@@ -27,6 +28,35 @@ beforeAll(async () => {
 afterAll(async () => {
   bunServer?.stop(true); uiServer?.stop(true);
   if (expressServer) await new Promise<void>((resolve, reject) => expressServer.close(e => e ? reject(e) : resolve()));
+});
+
+test('all transports render seal interfaces/nipple and report invalid engagement with paths', async () => {
+  for (const target of targets) {
+    const send = (w: unknown) => fetch(target.url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(w) });
+    const response = await send(sealsSample);
+    expect(response.status).toBe(200);
+    const svg = await response.text();
+    for (const type of ['SealBore', 'SealAssembly', 'LandingNipple']) expect(svg.includes(`data-kind="${type}"`)).toBe(true);
+    for (const [type, field] of [['SealAssembly', 'receptacleId'], ['LandingNipple', 'segmentId'], ['SealBore', 'ownerId']]) {
+      const invalid: any = structuredClone(sealsSample);
+      invalid.components.find((c: any) => c.type === type)[field] = 'missing';
+      const failed = await send(invalid); expect(failed.status).toBe(400);
+      expect((await failed.json()).diagnostics.some((d: any) => d.code === 'DANGLING_REFERENCE' && d.path.endsWith(`.${field}`))).toBe(true);
+    }
+    const invalid: any = structuredClone(sealsSample);
+    invalid.components.find((c: any) => c.type === 'SealAssembly').engagement = 'disengaged';
+    const failed = await send(invalid); expect(failed.status).toBe(400);
+    expect((await failed.json()).diagnostics.some((d: any) => d.code === 'ENGAGEMENT_CONFLICT' && d.path.endsWith('.engagement'))).toBe(true);
+  }
+});
+
+test('seal sample route permits GET/HEAD only and is exposed by the editor', async () => {
+  const base = `http://127.0.0.1:${uiServer.port}`;
+  expect(await (await fetch(`${base}/sample-seals.json`)).json()).toEqual(sealsSample);
+  expect((await fetch(`${base}/sample-seals.json`, { method: 'HEAD' })).headers.get('Content-Type')).toContain('application/json');
+  expect((await fetch(`${base}/sample-seals.json`, { method: 'POST' })).status).toBe(405);
+  expect((await fetch(`${base}/sample-data/well-completion-seals.json`)).status).toBe(404);
+  expect((await (await fetch(`${base}/`)).text()).includes('id="seals-sample-button"')).toBe(true);
 });
 
 test('all transports render coupling and real-length Pup Joint; invalid references fail with paths', async () => {

@@ -4,6 +4,9 @@ import { layoutCrossover, type CrossoverPrimitive } from './crossover-layout';
 import { layoutCoupling, type CouplingPrimitive } from './coupling-layout';
 import { layoutPupJoint, type PupJointPrimitive } from './pup-joint-layout';
 import { trimTubingAtJunctions } from './junction-layout';
+import { layoutSealBore, layoutSealAssembly } from './seal-bore-layout';
+import { layoutLandingNipple } from './landing-nipple-layout';
+import type { ToolPrimitive } from './completion-tool-layout';
 
 export interface LinePrimitive { x1: number; y1: number; x2: number; y2: number; role: string; segmentId?: string }
 export interface LabelPrimitive { x: number; y: number; text: string }
@@ -25,6 +28,9 @@ export interface CompletionLayout {
   crossovers: CrossoverPrimitive[];
   couplings: CouplingPrimitive[];
   pupJoints: PupJointPrimitive[];
+  sealBores: ToolPrimitive[];
+  sealAssemblies: ToolPrimitive[];
+  landingNipples: ToolPrimitive[];
   tubingLabels: LabelPrimitive[]; hangerLabels: LabelPrimitive[]; notes: LabelPrimitive[]; height: number; width: number; labelX: number;
 }
 const display = (n: number) => Number(n.toFixed(3)).toString();
@@ -40,6 +46,15 @@ export function layoutCompletion(model: CompletionModel, config: {
 }): CompletionLayout {
   const { tubing: tube } = model;
   const { centerX, depthToY, diameterToWidth } = config;
+  // Prevent enlarged junction glyphs from covering declared tool intervals/profiles.
+  const toolObstacles = [
+    ...model.sealBores.map(b => ({ topY: depthToY(b.top), bottomY: depthToY(b.bottom) })),
+    ...model.sealAssemblies.map(a => ({ topY: depthToY(a.top), bottomY: depthToY(a.bottom) })),
+    ...model.landingNipples.map(n => {
+      const top = depthToY(n.segment.top), bottom = depthToY(n.segment.bottom);
+      return { topY: top + (bottom - top) * 0.2, bottomY: top + (bottom - top) * 0.8 };
+    }),
+  ];
   const labelX = config.labelX ?? 315;
   const lines: LinePrimitive[] = [];
   for (const [i, segment] of tube.segments.entries()) {
@@ -113,7 +128,8 @@ export function layoutCompletion(model: CompletionModel, config: {
     const range = packerRanges[index];
     const physicalTopY = range.top, physicalBottomY = range.bottom;
     const crowded = model.packers.some((other, i) => i !== index && other.innerConduitId === packer.innerConduitId && other.outerHostId === packer.outerHostId && Math.max(range.min, packerRanges[i].min) < Math.min(range.max, packerRanges[i].max))
-      || model.couplings.some(c => c.tubingId === packer.innerConduitId && depthToY(c.at) >= range.min && depthToY(c.at) <= range.max);
+      || model.couplings.some(c => c.tubingId === packer.innerConduitId && depthToY(c.at) >= range.min && depthToY(c.at) <= range.max)
+      || model.landingNipples.some(n => n.tubingId === packer.innerConduitId && Math.max(range.min, depthToY(n.segment.top)) < Math.min(range.max, depthToY(n.segment.bottom)));
     // Do not merge adjacent physical tools by enlarging their symbols into each other.
     const height = crowded ? physicalBottomY - physicalTopY : Math.max(8, physicalBottomY - physicalTopY);
     const glyphTop = (physicalTopY + physicalBottomY - height) / 2;
@@ -146,14 +162,14 @@ export function layoutCompletion(model: CompletionModel, config: {
       `${crossover.lifecycle} | ${crossover.verification}; compatibility unverified`,
     ]) for (const text of wrap(line)) { labels.push({ x: labelX, y: crossoverLabelY, text }); crossoverLabelY += 17; }
     crossoverLabelY += 20;
-    crossovers.push({ ...layoutCrossover(crossover, config), labels });
+    crossovers.push({ ...layoutCrossover(crossover, { ...config, obstacles: toolObstacles }), labels });
   }
   let connectorLabelY = crossovers.length ? crossoverLabelY : packers.length ? packerLabelY : hangerY + 25;
   const couplings: CouplingPrimitive[] = [];
   for (const coupling of model.couplings) {
     const obstacles = packers.filter(p => model.packers.find(m => m.id === p.id)?.innerConduitId === coupling.tubingId)
       .map(p => ({ topY: p.blocks[0].y, bottomY: p.blocks[0].y + p.blocks[0].height }));
-    const primitive = layoutCoupling(coupling, { ...config, labelX, labelY: connectorLabelY, datumId: model.datumId, obstacles });
+    const primitive = layoutCoupling(coupling, { ...config, labelX, labelY: connectorLabelY, datumId: model.datumId, obstacles: [...obstacles, ...toolObstacles] });
     couplings.push(primitive); connectorLabelY = primitive.nextLabelY;
   }
   const junctions = [...crossovers, ...couplings];
@@ -166,9 +182,25 @@ export function layoutCompletion(model: CompletionModel, config: {
   const trimmedTubing = trimTubingAtJunctions(lines, junctions);
   const tubingLeader = { x: trimmedTubing[0].x1, y: trimmedTubing[0].y2 };
   const pupSegments = new Set(model.pupJoints.map(p => p.segmentId));
-  const tubingLines = trimmedTubing.filter(line => !line.segmentId || !pupSegments.has(line.segmentId));
+  const nippleSegments = new Set(model.landingNipples.map(n => n.segmentId));
+  const tubingLines = trimmedTubing.filter(line => !line.segmentId || (!pupSegments.has(line.segmentId) && !nippleSegments.has(line.segmentId)));
+  const sealBores: ToolPrimitive[] = [], sealAssemblies: ToolPrimitive[] = [], landingNipples: ToolPrimitive[] = [];
+  for (const bore of model.sealBores) {
+    const primitive = layoutSealBore(bore, { ...config, labelX, labelY: connectorLabelY, datumId: model.datumId });
+    sealBores.push(primitive); connectorLabelY = primitive.nextLabelY;
+  }
+  for (const assembly of model.sealAssemblies) {
+    const primitive = layoutSealAssembly(assembly, { ...config, labelX, labelY: connectorLabelY, datumId: model.datumId });
+    sealAssemblies.push(primitive); connectorLabelY = primitive.nextLabelY;
+  }
+  for (const nipple of model.landingNipples) {
+    const primitive = layoutLandingNipple(nipple, { ...config, labelX, labelY: connectorLabelY, datumId: model.datumId });
+    primitive.lines = trimTubingAtJunctions(primitive.lines, junctions);
+    landingNipples.push(primitive); connectorLabelY = primitive.nextLabelY;
+  }
   const notes: LabelPrimitive[] = [];
-  let noteY = Math.max((pupJoints.length || couplings.length ? connectorLabelY : crossovers.length ? crossoverLabelY : packers.length ? packerLabelY : hangerY) + 28, 460);
+  const hasSealTools = sealBores.length || sealAssemblies.length || landingNipples.length;
+  let noteY = Math.max((hasSealTools || pupJoints.length || couplings.length ? connectorLabelY : crossovers.length ? crossoverLabelY : packers.length ? packerLabelY : hangerY) + 28, 460);
   const note = (text: string) => { for (const line of wrap(text)) { notes.push({ x: labelX, y: noteY, text: line }); noteY += 17; } };
   note(`Wellbore: ${model.wellboreId}`);
   note(`Snapshot: ${model.snapshotAt}`);
@@ -203,8 +235,15 @@ export function layoutCompletion(model: CompletionModel, config: {
     note('Main Pup Joint interval stays at physical MD scale.');
     note('Pup Joint detail uses a separate scale, with open lumen.');
   }
+  if (hasSealTools) {
+    note('Seal/nipple main intervals remain at physical MD scale.');
+    note('Detail insets use separate scales; no added pipe length.');
+    note('Seal marks and internal profiles are schematic conventions.');
+    note('Geometric overlap does not verify sealing or lock function.');
+    note('Nipple insert state is unknown; no plug is inferred.');
+  }
   for (const warning of model.diagnostics) note(`${warning.code}: ${warning.message}`);
   // The SVG group has a 100 px translation; reserve it beyond the detail lane.
-  const width = labelX + (pupJoints.length || couplings.length ? 775 : 635);
-  return { tubing: tubingLines, tubingLeader, tubingRiser, hanger: polygons, packers, crossovers, couplings, pupJoints, tubingLabels, hangerLabels, notes, height: Math.max(1000, noteY + 140), width, labelX };
+  const width = labelX + (hasSealTools || pupJoints.length || couplings.length ? 775 : 635);
+  return { tubing: tubingLines, tubingLeader, tubingRiser, hanger: polygons, packers, crossovers, couplings, pupJoints, sealBores, sealAssemblies, landingNipples, tubingLabels, hangerLabels, notes, height: Math.max(1000, noteY + 140), width, labelX };
 }

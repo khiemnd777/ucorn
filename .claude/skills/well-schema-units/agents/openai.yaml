@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well Schema and Units"
+  short_description: "Kiểm tra schema, unit, datum và intervals"
+  default_prompt: "Use $well-schema-units to review the relevant UCORN well schematic contract and propose scoped changes."

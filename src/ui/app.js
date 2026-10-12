@@ -95,7 +95,7 @@ async function render() {
     });
     if (!response.ok) {
       const result = await response.json().catch(() => ({}));
-      const details = result.diagnostics?.map(d => `${d.path}: ${d.message}`).join('\n');
+      const details = result.diagnostics?.filter(d => d.severity !== 'warning').map(d => `${d.path}: ${d.message}`).join('\n');
       throw new Error(details || result.error || `HTTP ${response.status}`);
     }
     const svg = await response.blob();
@@ -173,6 +173,7 @@ document.querySelector('#tubing-sample-button').addEventListener('click', () => 
 document.querySelector('#packers-sample-button').addEventListener('click', () => loadSample('/sample-packers.json', '#packers-sample-button'));
 document.querySelector('#crossover-sample-button').addEventListener('click', () => loadSample('/sample-crossover.json', '#crossover-sample-button'));
 document.querySelector('#joints-sample-button').addEventListener('click', () => loadSample('/sample-joints.json', '#joints-sample-button'));
+document.querySelector('#seals-sample-button').addEventListener('click', () => loadSample('/sample-seals.json', '#seals-sample-button'));
 document.querySelector('#size-button').addEventListener('click', (event) => {
   const fullSize = preview.classList.toggle('actual-size');
   document.querySelector('#preview-canvas').classList.toggle('actual-size', fullSize);

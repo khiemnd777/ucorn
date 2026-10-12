@@ -1,6 +1,8 @@
 import type { NormalizedCrossover } from './crossover';
 import type { NormalizedCoupling } from './coupling';
 import type { NormalizedPupJoint } from './pup-joint';
+import type { NormalizedSealBore, NormalizedSealAssembly } from './seal-bore';
+import type { NormalizedLandingNipple } from './landing-nipple';
 import type { CompletionMetadata, NormalizedSegment, Quantity } from './completion-types';
 export type { CompletionMetadata, NormalizedSegment, Quantity } from './completion-types';
 
@@ -58,5 +60,8 @@ export interface CompletionModel {
   crossovers: NormalizedCrossover[];
   couplings: NormalizedCoupling[];
   pupJoints: NormalizedPupJoint[];
+  sealBores: NormalizedSealBore[];
+  sealAssemblies: NormalizedSealAssembly[];
+  landingNipples: NormalizedLandingNipple[];
   diagnostics: Diagnostic[];
 }

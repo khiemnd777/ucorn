@@ -15,9 +15,10 @@ export function layoutCrossover(crossover: NormalizedCrossover, config: {
   centerX: number;
   depthToY: (md: number) => number;
   diameterToWidth: (mm: number) => number;
+  obstacles?: { topY: number; bottomY: number }[];
 }): Omit<CrossoverPrimitive, 'labels'> {
   const { centerX, depthToY, diameterToWidth } = config;
-  const { atY, topY, bottomY } = layoutJunctionWindow(crossover, depthToY);
+  const { atY, topY, bottomY } = layoutJunctionWindow(crossover, depthToY, config.obstacles);
   const lines: LinePrimitive[] = [];
   for (const [role, from, to] of [
     ['od', crossover.from.od, crossover.to.od],

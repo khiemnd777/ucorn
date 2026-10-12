@@ -1,4 +1,4 @@
-# Completion components — Phase 1–4 và trạng thái
+# Completion components — Phase 1–5 và trạng thái
 
 Ngày ghi nhận: **2026-10-04**. Người dùng đã chọn `tubing` và `tubing-hanger` làm hai component đầu tiên, sau đó yêu cầu triển khai. Runtime slice đã có; [Completion v2 contract](completion-v2-contract.md) ghi fields/capabilities thực tế, thay cho các wire-format đề xuất ban đầu.
 
@@ -14,8 +14,8 @@ Phạm vi bảng là 11 cards thuộc nhóm `completion` trong [catalog](compone
 | liner-top-packer | Liner Top Packer | **Có — Phase 2** | **VERIFIED_LOCAL** | implemented — bounded v2 | **Có — Phase 2** |
 | isolation-packer | Isolation Packer | **Có — Phase 2** | **VERIFIED_LOCAL** | implemented — bounded v2 | **Có — Phase 2** |
 | test-packer | Well-Test / Service Packer | **Có — Phase 2** | **VERIFIED_LOCAL** | implemented — bounded v2 | **Có — Phase 2** |
-| seal-bore | Seal-Bore / PBR / Seal Assembly | Chưa | NOT_SELECTED | proposed | Chưa |
-| landing-nipple | Landing Nipple / Lock Profile | Chưa | NOT_SELECTED | proposed | Chưa |
+| seal-bore | Seal-Bore / PBR / Seal Assembly | **Có — Phase 5** | **VERIFIED_LOCAL** | implemented — bounded v2 receptacle/assembly | **Có — Phase 5** |
+| landing-nipple | Landing Nipple / Lock Profile | **Có — Phase 5** | **VERIFIED_LOCAL** | implemented — owned tubing segment/profile | **Có — Phase 5** |
 | crossover | Crossover / Coupling / Pup Joint | **Có — Phase 3/4** | **VERIFIED_LOCAL — cả ba loại** | implemented — bounded tubing junction/segment | **Có — Phase 3/4** |
 | expansion-joint | Expansion Joint | Chưa | NOT_SELECTED | proposed | Chưa |
 | control-line | Control / Chemical Line / Gauge Cable | Chưa | NOT_SELECTED | proposed | Chưa |
@@ -43,7 +43,7 @@ Quy tắc cập nhật:
 
 **Đã chốt:** ưu tiên Tubing String trước, Tubing Hanger sau; lưu rõ trạng thái được chọn và đã triển khai. Không chọn thêm completion cards trong Phase 1. Yêu cầu tiếp theo chọn cả bốn packers cho Phase 2; xem [packer contract và tiến độ](completion-packers.md).
 
-Yêu cầu tiếp theo chọn crossover cho Phase 3 và Coupling/Pup Joint cho Phase 4; xem [crossover contract](completion-crossover.md), [joint contract](completion-joints.md). Bảy catalog cards (chín component kinds/roles) đã chọn/implemented trong bounded slices; seal-bore, landing-nipple, expansion-joint và control-line vẫn NOT_SELECTED.
+Yêu cầu tiếp theo chọn crossover cho Phase 3 và Coupling/Pup Joint cho Phase 4; xem [crossover contract](completion-crossover.md), [joint contract](completion-joints.md). Phase 5 chọn thêm seal-bore và landing-nipple. Chín catalog cards (12 component kinds/roles) đã chọn/implemented trong bounded slices; expansion-joint và control-line vẫn NOT_SELECTED.
 
 **Đề xuất cho slice đầu:** một tubing string đồng tâm trong schematic thẳng đứng, tapered segments, purpose khai báo `production` hoặc `injection`; một tubing hanger trên named seat của head. Dùng MD với datum khai báo cho depth và lengths theo trục giếng. Dual tubing, deviated trajectory, TVD/survey conversion, subsea multi-bore/ports, flow simulation và mở rộng packer host sang tubing là các slice sau. Input ngoài capability phải có diagnostic, không vẽ thành cấu hình single-string.
 
@@ -175,3 +175,28 @@ Coupling nối explicit adjacent same-OD tubing endpoints tại MD anchor, dùng
 Gates: `bun run test` **PASS 197 tests / 999 assertions (9 files)**; `bun run build` và `bunx tsc --noEmit` PASS. Docs validator PASS **6 skills / 64 cards / sources / links**; whitespace/XML/layout extents PASS. Ba completion fragments trước (tubing/hanger, full packers, Crossover) **byte-identical 3/3**; cement random context bỏ khỏi comparison.
 
 [Visual evidence](evidence/completion-joints/README.md): desktop 1440×1000, mobile 390×844 Fit/Actual size, SVG export, unknown ID/profile/host bore, wide long labels và body-clearance error/recovery đã review. Không operator UAT/production, không commit/push/deploy. Bốn cards seal-bore, landing-nipple, expansion-joint, control-line vẫn NOT_SELECTED.
+
+## Phase 5 handoff — 2026-10-12
+
+Direct human request: proceed with Seal-Bore / PBR / Seal Assembly and Landing
+Nipple / Lock Profile. Both cards are **implemented / VERIFIED_LOCAL** within
+[bounded contract](completion-seals.md). [Task record](../tasks/COMPLETION-005.md).
+
+- Separate SealBore, SealAssembly, LandingNipple domain/validation/layout/SVG paths.
+  Explicit ownership, geometric engagement, supplied dimensions, unknown profiles
+  and segment length counted once. UI **Seal / Nipple sample** via allowlisted route.
+- `bun run test`: PASS **243 tests / 1209 assertions**, 10 files. Baseline was
+  197 tests / 999 assertions. All Bun root/hole, Express hole and UI hole paths
+  exercised with real renderer, 400 errors and field paths.
+- `bun run build`, `./node_modules/.bin/tsc --noEmit`, docs validator and diff check:
+  PASS. HTTP test binding requires sandbox escalation; sandbox-only baseline
+  failed before new code, and unrestricted localhost baseline passed.
+- Earlier tubing/hanger, packer, crossover and joint fixture layouts compared
+  exactly against pre-change HEAD layout: unchanged. New fixtures parsed as SVG XML.
+- [Visual evidence](evidence/completion-seals/README.md): desktop 1440×1000,
+  mobile 390×844, Actual size internal scroll, error/recovery, unknown data/long
+  escaped labels, partial/disengaged states, monochrome and exported SVG.
+- Sequential review repaired short-junction profile occlusion, missing-bore no-go
+  omission and error messages obscured by warnings. No independent agent reviewer.
+- Equipment mating, hydraulic sealing, actual insert state, physical device UAT,
+  production and browser download save-to-file remain unverified.

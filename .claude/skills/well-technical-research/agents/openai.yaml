@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well Technical Research"
+  short_description: "Tra nguồn chính thống và ghi provenance kỹ thuật"
+  default_prompt: "Use $well-technical-research to review the relevant UCORN well schematic contract and propose scoped changes."

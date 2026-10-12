@@ -1,0 +1,4 @@
+interface:
+  display_name: "Well Component Modeling"
+  short_description: "Thiết kế component graph, host và attachments"
+  default_prompt: "Use $well-component-modeling to review the relevant UCORN well schematic contract and propose scoped changes."

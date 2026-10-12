@@ -56,7 +56,7 @@ Layout lấy mouth bounds trực tiếp từ wellhead renderer. Display slot kh�
 - Mỗi array tối đa 128 entries; nested invalid objects/numbers và normalization overflow có diagnostics. Completion v2 là khả năng schematic bounded, không phải full well schema validation cho mọi catalog card.
 - Semantic failures trả HTTP 400 JSON `{error, diagnostics}`; mỗi diagnostic có `code`, `path`, `componentId` nếu biết, `message`, `severity`. Bun root POST, Bun/Express `/hole`, UI `/hole` dùng chung handler/validator. Internal rendering failures trả 500 với message chung.
 - Warnings `FIT_UNRESOLVED`/`SUPPORT_UNKNOWN` hiển thị trong SVG notes và model diagnostics; thành công vẫn trả SVG. Không có endpoint JSON graph riêng.
-- Payload không `schemaVersion` và không Tubing/TubingHanger/CompletionPacker/Crossover/Coupling/PupJoint giữ path legacy; không có domain validation toàn cục trên legacy. Completion mới thiếu version trả 400.
+- Payload không `schemaVersion` và không Tubing/TubingHanger/CompletionPacker/Crossover/Coupling/PupJoint/SealBore/SealAssembly/LandingNipple giữ path legacy; không có domain validation toàn cục trên legacy. Completion mới thiếu version trả 400.
 
 ## Cách dùng và kiến trúc
 
@@ -77,3 +77,13 @@ Theo yêu cầu người dùng, toàn bộ Tubing (body/riser), Tubing Hanger, C
 ## Coupling / Pup Joint extension — 2026-10-04
 
 [Contract Phase 4](completion-joints.md): `Coupling` là ordinary external same-OD tubing connector, anchor tại junction với supplied body OD/optional ID, kiểm clearance ở cả hai phía host boundary. `PupJoint` tham chiếu một physical tubing segment có sẵn bằng `tubingId`/`segmentId`, nên chiều dài chỉ được tính một lần. Cả hai có domain, validation, pure layout và curried SVG adapters riêng, dùng nét liền. Detail riêng ghi not MD scale; main Pup interval giữ MD scale thật. UI **Coupling / Pup sample** đi qua allowlist GET/HEAD `/sample-joints.json`. Không có new kinds thì output completion cũ giữ nguyên.
+
+## Seal interfaces / Landing Nipple extension — 2026-10-12
+
+[Phase 5 contract](completion-seals.md): additive `SealBore`, `SealAssembly`,
+`LandingNipple` kinds. Receptacle has explicit liner/tubing-packer ownership; seal
+assembly owns an existing segment and declares a seal interval and engagement.
+Overlap is geometric only. Nipple owns one segment with supplied internal profile
+dimensions. No added tubing length, installed insert, support or hydraulic seal
+is inferred. Independent domain/validation/layout/SVG modules feed all existing
+transports. UI **Seal / Nipple sample** loads GET/HEAD `/sample-seals.json`.

@@ -464,18 +464,18 @@ Phạm vi: **configuration**; xác minh kỹ thuật: **family-only**. Nguồn: 
 
 ### seal-bore — Seal-bore / PBR / seal assembly
 
-Phạm vi: **configuration**; xác minh kỹ thuật: **family-only**. Nguồn: [packer](https://glossary.slb.com/en/terms/p/packer), [liner](https://glossary.slb.com/en/terms/l/liner).
+Phạm vi: **configuration**; xác minh kỹ thuật: **family-only**. Nguồn: [sealbore](https://glossary.slb.com/en/terms/s/sealbore), [seal_receptacle](https://glossary.slb.com/en/terms/s/seal_receptacle), [seal_assembly](https://glossary.slb.com/en/terms/s/seal_assembly).
 
 | Mục | Hợp đồng |
 | --- | --- |
 | Chức năng | Receptacle/seal interface cho completion movement/connection. |
-| Fields / units / depth | receptacleId; sealAssemblyId; interval; engagementLength; ID/OD. Common quantities/datum contract áp dụng. |
-| Host / reference / attachment | Owned by liner/packer; connects-to tubing seal assembly; engagement relation explicit. |
-| Symbol / layer / label | tools; nested receptacle + engagement marker. |
-| Validation | Engagement within bore; missing profile unresolved; not implicit tieback support. |
-| Current / proposed | **proposed**; đối chiếu source-audit, proposed contract chưa triển khai. |
-| Fixture / edge cases | F04/F06: disengaged assembly; partial engagement; unknown profile. |
-| Completion criteria | Both sides and engagement source preserved. Cộng completion gate trong QA. |
+| Fields / units / depth | Completion v2 SealBore: variant, ownerId, top/bottom, od, innerDiameter?, profile?; SealAssembly: tubingId, segmentId, receptacleId, seal interval, engagement, profile?; shared metadata. |
+| Host / reference / attachment | Explicit liner or tubing-packer owner and receptacle reference; seal segment owns existing tubing length once. No support or hydraulic sealing inferred. |
+| Symbol / layer / label | tools; supplied receptacle walls and seal interval markers at true MD; separate not-MD-scale details, solid strokes and traceable labels. |
+| Validation | Owner/host coverage and fit, seal interval containment, geometric engagement consistency, lifecycle, unique receipt/segment occupancy, unknown profiles and unsupported overlap. |
+| Current / proposed | **implemented** — bounded Phase 5; [runtime contract](completion-seals.md). |
+| Fixture / edge cases | F04/F06/F12-F15: partial/disengaged/unknown, missing profile/ID, unit conversion, boundaries, repeated ownership, escaped labels and immutable input. |
+| Completion criteria | Phase 5 bounded runtime; see completion-seals.md and local evidence. No manufacturer mating, integral assembly, ratings or seal certification. |
 | Source / uncertainty | family-only; variant/sizing/rating không verified nếu chưa có source riêng. |
 
 ### landing-nipple — Landing nipple / lock profile
@@ -485,13 +485,13 @@ Phạm vi: **configuration**; xác minh kỹ thuật: **definition-backed**. Ngu
 | Mục | Hợp đồng |
 | --- | --- |
 | Chức năng | Profile bên trong tubular cho insert tool/plug. |
-| Fields / units / depth | hostStringId; at; profileType; sealBoreID; noGoSize? Common quantities/datum contract áp dụng. |
-| Host / reference / attachment | Inline tubing; supports/locks insert by named profile. |
-| Symbol / layer / label | tools; short internal-profile marker + name. |
-| Validation | Profile compatibility requires source; noGo/selective not inferred from OD. |
-| Current / proposed | **proposed**; đối chiếu source-audit, proposed contract chưa triển khai. |
-| Fixture / edge cases | F06: insert mismatched profile; repeated nipples; empty nipple. |
-| Completion criteria | Nipple stays distinct from installed insert. Cộng completion gate trong QA. |
+| Fields / units / depth | Completion v2 LandingNipple: tubingId, segmentId, profileType, profile?, sealBoreDiameter?, noGoDiameter?, shared metadata. Segment supplies physical OD/ID/length. |
+| Host / reference / attachment | Owns one existing tubing segment; distinct from an insert tool. No plug, lock compatibility or installed insert inferred. |
+| Symbol / layer / label | tools; open internal profile and supplied no-go restriction, true MD interval, separate not-MD-scale detail and solid lines. |
+| Validation | References/ownership, supplied bore containment, no-go consistency, lifecycle, no overlapping unrelated tool; unknown bore/profile visible. |
+| Current / proposed | **implemented** — bounded Phase 5; [runtime contract](completion-seals.md). |
+| Fixture / edge cases | F06/F12-F15: repeated nipples, no-go/selective/unknown, missing bore, adjacent couplings, empty or unrepresented insert, units and labels. |
+| Completion criteria | Phase 5 bounded runtime; see completion-seals.md and local evidence. Nipple and insert stay distinct; no mechanical lock verification. |
 | Source / uncertainty | definition-backed; variant/sizing/rating không verified nếu chưa có source riêng. |
 
 ### crossover — Crossover / coupling / pup joint

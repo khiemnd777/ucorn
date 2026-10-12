@@ -65,3 +65,16 @@ SLB `packer` đọc lại cùng ngày cho family/classification; isolation/test 
 | `tubular_accessories` | [Crossover Inc. products — Couplings / Pup Joints](https://www.crossoverinc.com/products.aspx) | verified-definition | Đọc trực tiếp; coupling nối pipe joints, pup joint là short tubular section để positioning. Function/family được xác minh; dimensions, rating, thread mating và universal length cutoff chưa xác minh. |
 
 [Bounded runtime contract](completion-joints.md) chỉ hỗ trợ ordinary external same-OD tubing coupling và explicit Pup Joint segment; các symbol và thresholds từ supplied dimensions là quy ước UCORN.
+
+## Seal interfaces and landing nipple refresh — 2026-10-12
+
+| Source ID | Link | Status | Scope |
+| --- | --- | --- | --- |
+| `sealbore` | [SLB sealbore](https://glossary.slb.com/en/terms/s/sealbore) | verified-definition | Polished bore accepts seal assembly; no dimensions or sealing verification. |
+| `seal_receptacle` | [SLB seal receptacle](https://glossary.slb.com/en/terms/s/seal_receptacle) | verified-definition | Receptacle/mating component function; support and compatibility remain separate. |
+| `seal_assembly` | [SLB seal assembly](https://glossary.slb.com/en/terms/s/seal_assembly) | verified-definition | Assembly engages sealbore; movement context supplies no stroke/rating. |
+
+`landing_nipple` was read again directly: internal locking/seal profile; three
+profile families. No manufacturer mating geometry was adopted. Candidate PBR
+glossary URL was unavailable; SLB product-sheet fetch returned 502. Search excerpts
+were not adopted as equipment specifications. See [bounded contract](completion-seals.md).
