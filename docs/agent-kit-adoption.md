@@ -1,5 +1,9 @@
 # Agent Kit adoption in UCORN
 
+Current source: `51b1c810a9920be7fe3957ce454fc25fedf7b155`, refreshed on 2026-10-13.
+The initial record below remains historical; see the
+[maintenance update](#maintenance-update--2026-10-13) for current scope and evidence.
+
 Date: 2026-10-12. Source: [Agent Kit v0.1.0 preview](https://github.com/khiemnd777/agent-kit/tree/22c2a20359072dcb510f3329b97161b16f947fb2).
 Source commit: `22c2a20359072dcb510f3329b97161b16f947fb2`.
 UCORN base: `a9a51fed7210d2f9ffc02ac031b0583a90c35f1c`, branch `master`.
@@ -83,3 +87,74 @@ Temporary fixtures were removed through their task-owned temporary lifecycle.
 No independent agent review ran. The coordinator reviews and validates this
 instruction-only change sequentially. Native verification follows the
 [verification guide](verification-guide.md) when separately requested.
+
+## Maintenance update — 2026-10-13
+
+Task/plan: `AGENT-KIT-001` / `agent-kit-update-r2`. UCORN branch/base:
+`master` / `5f80b457772b22a1f5fa989e0869cff7927fc0fc`. The worktree was clean;
+the original adoption is present in this commit. This update remains local.
+
+The user's current-chat notice, “Agent-kit có update mới.”, steers the existing
+template-adoption request to the latest guidance. The scope is documentation
+maintenance and its static checks. No application, external delivery, global
+configuration, paid service or native/fixture scenario run is authorized here.
+
+Upstream source moved from `22c2a20359072dcb510f3329b97161b16f947fb2` to
+[51b1c810](https://github.com/khiemnd777/agent-kit/tree/51b1c810a9920be7fe3957ce454fc25fedf7b155)
+through two commits: adaptive reporting and repair/stop/review boundaries. Version
+remains `0.1.0 preview`. The changes add opening/closing report formats, explicit
+material-approach and stop boundaries, valid review reuse, blocking-gate reasons,
+acceptance-focused progress and written verification scenarios V20–V25 / A–G.
+
+Ten guidance documents were merged against the original pinned source without
+conflicts. UCORN's direct bounded-request authority, concrete application-plan
+approval rule, 23-skill catalog and local validator commands are retained.
+The application/domain rules are preserved in `AGENTS.md`; the entrypoint and
+README link to adaptive reports. Original template release approvals/results
+are not copied into project state or counted as UCORN observations.
+
+| Check | Current result | Evidence and limit |
+| --- | --- | --- |
+| Current template source inventory | PASS | All 78 original source digests matched the new template manifest before merging |
+| UCORN pre-update baseline | PASS | Agent validator: 23 skills/root, 103 files, 39 mirrors, 3 agents/runtime; domain validator: 6 skills and 64 cards |
+| Updated agent/domain validators | PASS | Agent: 23 skills/root, 103 hashes, 39 mirrors, 3 agents/runtime; domain: 6 skills, 64 cards, source IDs and links |
+| Current Markdown links/anchors | PASS | 537 local references across 115 tracked Markdown files, including new adaptive-report/review/task anchors; external URLs not fetched |
+| Skills/native/domain/application preservation | PASS | No diff in .agents, .claude, .codex, src, tests, sample-data, package/locks/config, validator code or domain docs; AGENTS.md domain body is byte-identical |
+| Guidance review | PASS | Sequential coordinator review; all six non-adapted guidance files match the new source bytes, four merged guides preserve UCORN changes; no independent agent |
+| Provenance and diff scope | PASS | New source pin/history and original digests recorded; 77 adopted paths, 67 exact copies, 10 declared adaptations/relocations; 18 owned files changed, no staged/untracked files |
+| Skill discovery in this session | Discovered | Runtime-provided catalog lists all 23 names and repository source paths |
+| Native invocation / new scenarios / two-machine checks | NOT_RUN | No clients, delegated agents, application or scenario fixtures were started |
+| Effective child model / permissions | Unknown | Unchanged definitions express intent; behavior was not observed |
+| Application tests / build / rendered UI | NOT_RUN | Instruction-only maintenance; application behavior is outside the writes |
+
+Reproducible local checks remain:
+
+```sh
+python3 docs/validate_agent_setup.py .
+python3 docs/well-schematic/validate_docs.py .
+git diff --check
+```
+
+No dependency installation is needed. Skill-creator's PyYAML-dependent validator
+was not rerun; no skill/metadata files changed. Native metadata checks remain in
+the package validator. The new scenario definitions are Written guidance only.
+
+Static/documentation acceptance is complete. The 17 imported plus six domain
+skills and three adapters per tool retain their prior bytes. No application,
+dependency, global configuration, commit/push, deployment or native/fixture run
+was performed. Use the updated reporting and repair/review guidance for the next
+scoped task. Further native tests or Git delivery require their own scope.
+
+## Git delivery authorization — 2026-10-13
+
+After the maintenance report, the human directly instructed “Commit và push
+toàn bộ thay đổi cập nhật Agent Kit.” This authorizes the complete 18-file
+Agent Kit update and its current coordination records for an ordinary commit
+on `master` and push to `origin/master`. The previous maintenance-phase Git
+restriction is historical. No application/deployment or history rewrite is added.
+
+The delivery owner reruns the existing validators, inspects staged scope and
+whitespace, and verifies the resulting local/remote SHA, divergence and clean
+worktree. Git history and the final delivery report carry the actual commit and
+remote evidence; this pre-delivery authorization record cannot establish success.
+Native execution and scenario evidence remain NOT_RUN.

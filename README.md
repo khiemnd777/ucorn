@@ -5,6 +5,8 @@ UCORN's six well-domain skills. Codex reads [AGENTS.md](AGENTS.md); Claude Code
 imports the same file through [CLAUDE.md](CLAUDE.md). See the
 [skills catalog](docs/skills-catalog.md), [project state](docs/project-state.md)
 and [adoption record](docs/agent-kit-adoption.md) for scope and verification limits.
+TechNote includes [adaptive opening and closing reports](docs/technote.md#adaptive-reports)
+for conversation, planning and implementation.
 
 To install dependencies:
 

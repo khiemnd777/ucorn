@@ -34,10 +34,15 @@ Apply roles sequentially when delegation is not used; do not claim independent
 review. Follow [model routing](docs/model-routing.md) without model pinning.
 
 Use [TechNote](docs/technote.md), starting at Level 1 in English unless the user
-requests another level or language. Separate **Verified**, **Proposed** and
-**Unknown**. The user controls level progression; silence grants no approval.
+requests another level or language. Use its [adaptive reports](docs/technote.md#adaptive-reports)
+before and after meaningful conversation, planning and implementation work;
+answer simple follow-ups directly and keep material blockers and verification
+limits visible. Separate **Verified**, **Proposed** and **Unknown**.
+The user controls level progression; silence grants no approval.
 Report actual checks and limits. **Written**, **Discovered**, **Invoked** and
 **Verified** are different states. See [adoption evidence](docs/agent-kit-adoption.md).
+At handoff, use the current stage's closing report and link the authorized task
+record instead of repeating its full coordination data in chat.
 
 ## Well Schematic Domain & Rendering Engineer
 

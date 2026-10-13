@@ -20,7 +20,7 @@ UCORN contains **23 logical skills**: 17 imported Agent Kit skills and six exist
 | performance-optimization | Measure and improve an evidenced performance problem |
 | observability-and-instrumentation | Make relevant runtime behavior diagnosable |
 | documentation-and-adrs | Record decisions, contracts, operations or reusable context |
-| technote | Explain investigations and solutions using the four-level TechNote method |
+| technote | Use adaptive reports for conversation, planning and implementation, and the four-level TechNote method for explanations |
 
 ## UCORN domain workflows
 

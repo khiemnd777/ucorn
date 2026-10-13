@@ -1328,13 +1328,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "8bd4f27ae6e25560d4c70aa4b40c3d83073c41e170ce16b69bf23b568df51b79",
+      "sha256": "59cf4fc286f36715ae5a347362acf8589e6dad3f7bdadccbb2bc6d0d739522d8",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "AGENTS.md",
-      "kit_sha256": "d26e6552291238849d3a5e01cdef54b82cedec6976da2d00c3506e999f0fa9c8",
+      "kit_sha256": "ba6e2f882d9411d898a3c8016dc1659e6fa65b813dc9298d5601cdd40e87842a",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
@@ -1349,13 +1349,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "2dc06c4f63a7fe27dec4ef6741bdcff327edd365b0c268b6b09ea17ac59cb5b2",
+      "sha256": "ce9b05d2e8aec53193a6e38a9426f01cdf01ea3f5cfe75c28f933695ba7a2734",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "README.md",
-      "kit_sha256": "704c40551e65d791f5dc490712c3a060aa0f2d8363b30a891a8719bf561d2b11",
+      "kit_sha256": "2fae421c3c188d065a760356beb7b9d2c57f171ff0c03880f305662e55b20fa7",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
@@ -1371,13 +1371,13 @@
     },
     {
       "path": "docs/agent-coordination-templates.md",
-      "sha256": "5907237a727e9d42328916efb884212efdf79ac8c96d0ec136381b80da881c97",
+      "sha256": "efa6f5e9a3832deecb4491d84f52784b33f56917e57c27946780775e8c32983f",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/agent-coordination-templates.md",
-      "kit_sha256": "5907237a727e9d42328916efb884212efdf79ac8c96d0ec136381b80da881c97"
+      "kit_sha256": "efa6f5e9a3832deecb4491d84f52784b33f56917e57c27946780775e8c32983f"
     },
     {
       "path": "docs/agent-kit-LICENSE",
@@ -1403,86 +1403,86 @@
     },
     {
       "path": "docs/roles/coordinator.md",
-      "sha256": "7308f5994f5af0747962dd7d2143933f14c9739e48a2a71ee89f081c06dbfedd",
+      "sha256": "e8f92c6f38db25f59fc50a1ed8130ff1b08095addd984967a2bd419dca63e387",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/coordinator.md",
-      "kit_sha256": "7308f5994f5af0747962dd7d2143933f14c9739e48a2a71ee89f081c06dbfedd"
+      "kit_sha256": "e8f92c6f38db25f59fc50a1ed8130ff1b08095addd984967a2bd419dca63e387"
     },
     {
       "path": "docs/roles/explorer.md",
-      "sha256": "97ce4c69a938698a215c738bbbc8919b1a2995beccf3fd1965bfc02bf9cd4cf0",
+      "sha256": "71f70743d0feb825e07c94c85d6dd2adb64e8c1edf35dcd41272e4cd2481b65c",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/explorer.md",
-      "kit_sha256": "97ce4c69a938698a215c738bbbc8919b1a2995beccf3fd1965bfc02bf9cd4cf0"
+      "kit_sha256": "71f70743d0feb825e07c94c85d6dd2adb64e8c1edf35dcd41272e4cd2481b65c"
     },
     {
       "path": "docs/roles/implementer.md",
-      "sha256": "eb2c2693aca4aebbf8b96705b60c08c23a3572d7765af778d462f903b4489018",
+      "sha256": "c2eae7a7c54a43518faaed01800c3ec8b1ed1eba3073ffa671965ce9388126d9",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/implementer.md",
-      "kit_sha256": "eb2c2693aca4aebbf8b96705b60c08c23a3572d7765af778d462f903b4489018"
+      "kit_sha256": "c2eae7a7c54a43518faaed01800c3ec8b1ed1eba3073ffa671965ce9388126d9"
     },
     {
       "path": "docs/roles/reviewer.md",
-      "sha256": "b1a267784fb4922666096516b1eedf21fbac06010b27cb2e665b256fdb7dd350",
+      "sha256": "ab615d5b120db46fa0088730e3dd4140fa148c6e4bf74db1d96ecc204bbec39a",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/reviewer.md",
-      "kit_sha256": "b1a267784fb4922666096516b1eedf21fbac06010b27cb2e665b256fdb7dd350"
+      "kit_sha256": "ab615d5b120db46fa0088730e3dd4140fa148c6e4bf74db1d96ecc204bbec39a"
     },
     {
       "path": "docs/skills-catalog.md",
-      "sha256": "667928ba6fd4e9e7b88dc1284366003ecebed39af761c9925fa663eca5771dae",
+      "sha256": "f103b621af1477620b4a5b4126f81df1b389a78a54c51ecad588ddd0bd4a1a04",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/skills-catalog.md",
-      "kit_sha256": "f096b72e2feaf97d431cd20f0441b164cd6f2dd5af506b5f60c4851e3e7cf7f1",
+      "kit_sha256": "a5465626a11f3ebb755adc0bd2bfee09ac71f79fa16e3ca263f7036529395ccb",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
       "path": "docs/team-policy.md",
-      "sha256": "06684033f646316acd911f92d3c028f3406f2040bb42e62327c4d89042d75247",
+      "sha256": "44ee2944695cf7ebb90542a2963a1633b35356f8278c27afac6ed4b4ddbd83a5",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-policy.md",
-      "kit_sha256": "fff291e5ffb739ba964838c7b0e0caa277b3ae07b7a8f231b186b5c3e5f7488e",
+      "kit_sha256": "a0d9659ed342d21461ffdc8ac641482dbe0a9f9c3b09eb007bea7db2f7cf12ca",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
       "path": "docs/team-workflow.md",
-      "sha256": "e57577500380b41b85331f9032528fe207a5922c03eb24b81ae020098d6805ac",
+      "sha256": "4957e198fc400eaa75c60e7c9b3ac85da541139c17e3952a0cb401cf1bb3d71e",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-workflow.md",
-      "kit_sha256": "ba9ecf84d08ad10cb4cd831b670d227df7acb622a01a486d308ec7d7793fa123",
+      "kit_sha256": "a176507aa54fa1066bbb4eb825862023dddc4edf70b6db06a1ef290fe073a26a",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
       "path": "docs/technote.md",
-      "sha256": "98a35db5e4f526eb5b1f21f47e281e7f0e25644fe01af84b4b56c37a1db64f8d",
+      "sha256": "9355f5fc4fa48517d19505d816573c3b3dfd76a94bf72382593c2d0c72f8f823",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/technote.md",
-      "kit_sha256": "98a35db5e4f526eb5b1f21f47e281e7f0e25644fe01af84b4b56c37a1db64f8d"
+      "kit_sha256": "9355f5fc4fa48517d19505d816573c3b3dfd76a94bf72382593c2d0c72f8f823"
     },
     {
       "path": "docs/validate_agent_setup.py",
@@ -1493,13 +1493,13 @@
     },
     {
       "path": "docs/verification-guide.md",
-      "sha256": "6e99a3a626ddddb99ec2fd4b9470984aff5c7af100ac9d1361574da89f087db1",
+      "sha256": "966c9bb8a96c8bc347259715a174e040e71caf127ff4a42c3381d075427ede04",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/verification-guide.md",
-      "kit_sha256": "287aa348872ff2edea85fd18f0d47b8baf5ff975f759397853669a034c9015ec",
+      "kit_sha256": "42c6e70e7eceb3c91887a323471f47a0e04cae7b0f9c36c9dbd3ae00cee4145b",
       "adapted_for": "UCORN existing-project adoption"
     },
     {
@@ -1523,8 +1523,16 @@
   "project": "UCORN",
   "kit_source": {
     "repository": "https://github.com/khiemnd777/agent-kit",
-    "commit": "22c2a20359072dcb510f3329b97161b16f947fb2",
+    "commit": "51b1c810a9920be7fe3957ce454fc25fedf7b155",
     "version": "0.1.0 preview",
-    "checked": "2026-10-12"
-  }
+    "checked": "2026-10-13"
+  },
+  "kit_source_history": [
+    {
+      "repository": "https://github.com/khiemnd777/agent-kit",
+      "commit": "22c2a20359072dcb510f3329b97161b16f947fb2",
+      "version": "0.1.0 preview",
+      "checked": "2026-10-12"
+    }
+  ]
 }

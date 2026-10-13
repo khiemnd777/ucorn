@@ -1,5 +1,11 @@
 # AGENT-KIT-001 — Adopt Agent Kit in UCORN
 
+Current revision: `agent-kit-update-r2`, 2026-10-13. The original r1 record below
+is historical. See the [current maintenance record](#maintenance-update--2026-10-13)
+for latest authority, base commit, writes and checks.
+Git delivery was separately authorized after maintenance; see
+[delivery authorization](#git-delivery-authorization--2026-10-13).
+
 Updated: 2026-10-12. Plan: `agent-kit-adoption-r1`.
 State: Setup complete locally; static acceptance checks PASS. Working tree: `master`, base
 `a9a51fed7210d2f9ffc02ac031b0583a90c35f1c`.
@@ -67,3 +73,77 @@ Next action: use the setup on the next scoped task. Native discovery/invocation,
 effective model and permission behavior, and a Claude/two-machine run remain
 NOT_RUN. Verify those in a fresh client before claiming runtime compatibility.
 No app feature or Git delivery is pending within this setup scope.
+
+## Maintenance update — 2026-10-13
+
+Plan: `agent-kit-update-r2`. Branch/base: `master` /
+`5f80b457772b22a1f5fa989e0869cff7927fc0fc`. State: documentation update complete
+locally; static checks PASS. The worktree was clean before this update.
+
+Human source: the current-chat follow-up, “Agent-kit có update mới.”, continues
+the original template-adoption request. The interpretation is routine local
+guidance maintenance; no application, delivery or production authority is inferred.
+No later stop received. The current main session continues as AGENT-KIT-001's
+coordinator and sole writer; no delegation or independent review ran.
+
+Scope: update `AGENTS.md`, `README.md`, imported policy/workflow/role/coordination/
+TechNote/catalog/verification guidance, `docs/skills-manifest.json`, and existing
+project/task/adoption records. Skill packages, native adapters, domain documents,
+application source, samples, tests, lockfiles, configuration and validator code
+are preserved. The direct task permits static verification of these boundaries.
+
+Inputs: old pin `22c2a20359072dcb510f3329b97161b16f947fb2`; current pin
+`51b1c810a9920be7fe3957ce454fc25fedf7b155`, including `8b70cd4` adaptive reporting
+and `51b1c810` repair/stop/review guidance. All 78 latest template source digests
+were checked before merging. Ten imported documents merged without conflicts;
+UCORN entrypoint/README reporting links are adapted separately.
+
+Acceptance: include both guidance changes, preserve UCORN's bounded-request and
+application-plan approval rules, retain all skills/native definitions and domain
+content, and pass the current agent/domain/hash/link/scope checks. Original
+upstream verification results remain evidence for Agent Kit, not UCORN authority.
+
+Selected/read workflows: using-agent-skills, documentation-and-adrs and TechNote.
+The current session's runtime-provided catalog lists the 23 repository skill
+names and paths. Native invocation, effective child models/permissions and
+cross-client/machine behavior remain NOT_RUN or Unknown. Static scenario text
+does not establish scenario PASS.
+
+Review question: do the merged documents include upstream reporting and recovery
+rules while retaining UCORN's authority/domain boundaries? Review is bounded to
+the changed guidance and its sources. Findings that change those boundaries
+invalidate the conclusion; changed wording alone does not require a new review
+chain. The existing static validators check package integrity and domain links.
+There is no additional blocking review gate for each file or phase.
+
+Actual evidence: both existing validators PASS; 537 links/anchors across 115
+tracked Markdown files PASS; all 23 skill packages, native definitions, domain
+rules/docs, application files and validator code are unchanged. The final diff
+contains 18 documentation/provenance files, with no staged or untracked changes.
+Sequential source review found no unresolved issue. These observations cover
+static/documentation acceptance, not native scenario behavior.
+
+At the maintenance handoff, the next action was to use the updated guidance. The
+[adoption record](../agent-kit-adoption.md#maintenance-update--2026-10-13) preserves
+actual checks and limits. No documentation work remains. Native tests and Git
+delivery are outside current authority; no commit/push was performed.
+
+## Git delivery authorization — 2026-10-13
+
+The human directly instructed “Commit và push toàn bộ thay đổi cập nhật Agent
+Kit.” in the current chat after the maintenance report. This supersedes the
+prior maintenance-phase exclusion of commit/push for this update only. The
+current coordinator owns the delivery; no subagent or separate reviewer is used.
+
+Scope: all 18 reviewed Agent Kit documentation/provenance files, including these
+current authorization records. Stage the intended files, inspect the staged
+diff, make one ordinary commit on `master`, push to `origin/master`, then compare
+local and remote SHAs/divergence and inspect final worktree status. Preserve all
+skill/domain/application files, history and other work. No force push, reset,
+branch switch, deployment or application change is authorized.
+
+The maintenance review remains valid for the unchanged guidance. Only these
+delivery records were updated after that review; rerun both documentation
+validators and whitespace/scope checks before commit. Record actual delivery
+success in Git history and the final report; authorization alone does not prove
+push success. Native behavior/scenarios remain NOT_RUN.
