@@ -3,9 +3,11 @@
 ## Begin a project
 
 UCORN is an existing repository with an established stack and well-domain
-contracts. Its template adoption is recorded in [project context](project-context.md)
-and [the setup task](tasks/AGENT-KIT-001.md). The new-project guidance below
-does not reset UCORN's scope or require a second approval for the requested setup.
+contracts. Its historical template adoption is recorded in
+[project context](project-context.md) and [the setup task](tasks/AGENT-KIT-001.md).
+Preserve that stack and domain context. New tasks, including kit adoption,
+maintenance and documentation, follow [Planning and approval](team-policy.md#approval-and-autonomy).
+Historical requests and results do not provide approval for a new current scope.
 
 Create one project repository from the template. Developers clone that repository, not separate template copies for the same product. A human identifies the Project Lead, Project Coordinator and initial objective.
 

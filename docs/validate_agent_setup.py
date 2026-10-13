@@ -95,6 +95,17 @@ def validate(root):
                 check(match is not None and match[1] == name, 'Skill identity mismatch: ' + str(value))
     agents = manifest['native_agents']
     check(len(agent_names) == len(set(agent_names)), 'Duplicate native agent names')
+
+    def check_role_instructions(text, name):
+        if name in {'kit-explorer', 'kit-reviewer'}:
+            # Authored package expectations do not prove effective runtime behavior.
+            clauses = (
+                'Do not change application code, implement features or repairs, or deploy.',
+                'Use tools and checks only within actual runtime permissions and the approved task scope.',
+            )
+            check(isinstance(text, str) and all(clause in text for clause in clauses),
+                  'Role responsibility/scope instructions missing: ' + name)
+
     for folder, extension, key in (('.codex/agents', '*.toml', 'codex'),
                                    ('.claude/agents', '*.md', 'claude')):
         actual = {str(p.relative_to(root)) for p in (root / folder).glob(extension)}
@@ -115,7 +126,8 @@ def validate(root):
                 check('model' not in config and 'model_reasoning_effort' not in config,
                       'Unexpected Codex model pin: ' + name)
                 if name in {'kit-explorer', 'kit-reviewer'}:
-                    check(config.get('sandbox_mode') == 'read-only', 'Read-only intent missing: ' + name)
+                    check('sandbox_mode' not in config, 'Unexpected Codex sandbox override: ' + name)
+                    check_role_instructions(config.get('developer_instructions', ''), name)
             except (OSError, tomllib.TOMLDecodeError) as exc:
                 errors.append(str(exc))
         if paths['claude'] is not None:
@@ -123,12 +135,17 @@ def validate(root):
             check(match is not None, 'Missing Claude frontmatter: ' + name)
             if match:
                 fields = dict(re.findall(r'^([a-z-]+): ([^\n]+)$', match[1], re.M))
+                # Include empty/block values, CamelCase and quoted YAML keys.
+                field_names = set(re.findall(r'^["\']?([A-Za-z][A-Za-z0-9_-]*)["\']?\s*:',
+                                             match[1], re.M))
                 check(fields.get('name') == name and bool(fields.get('description')),
                       'Claude metadata mismatch: ' + name)
-                check(fields.get('model') == 'inherit' and 'effort' not in fields,
+                check(fields.get('model') == 'inherit' and 'effort' not in field_names,
                       'Claude model intent mismatch: ' + name)
                 if name in {'kit-explorer', 'kit-reviewer'}:
-                    check(fields.get('tools') == 'Read, Glob, Grep', 'Read-only tools missing: ' + name)
+                    check(not field_names.intersection({'tools', 'disallowedTools', 'permissionMode'}),
+                          'Unexpected Claude permission/tool override: ' + name)
+                    check_role_instructions(paths['claude'].read_text()[match.end():], name)
         stats['agents'] += 1
     actual_assets = {str(p.relative_to(root)) for folder in ('.agents', '.claude', '.codex/agents')
                      for p in (root / folder).rglob('*')

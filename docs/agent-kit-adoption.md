@@ -1,8 +1,11 @@
 # Agent Kit adoption in UCORN
 
-Current source: `51b1c810a9920be7fe3957ce454fc25fedf7b155`, refreshed on 2026-10-13.
-The initial record below remains historical; see the
-[maintenance update](#maintenance-update--2026-10-13) for current scope and evidence.
+Current source: `ea72429b4c3cd80296b7ad75139431eb944aa319`, refreshed on 2026-10-13.
+All initial adoption, maintenance and Git delivery sections below are historical.
+Their authority interpretations are superseded by the
+[policy correction](#policy-correction--2026-10-13). Current scope and evidence
+belong to [AGENT-KIT-003 / approved U1](tasks/AGENT-KIT-003.md). P1's dated
+policy correction and local evidence remain below and in its task record.
 
 Date: 2026-10-12. Source: [Agent Kit v0.1.0 preview](https://github.com/khiemnd777/agent-kit/tree/22c2a20359072dcb510f3329b97161b16f947fb2).
 Source commit: `22c2a20359072dcb510f3329b97161b16f947fb2`.
@@ -158,3 +161,86 @@ whitespace, and verifies the resulting local/remote SHA, divergence and clean
 worktree. Git history and the final delivery report carry the actual commit and
 remote evidence; this pre-delivery authorization record cannot establish success.
 Native execution and scenario evidence remain NOT_RUN.
+
+## Policy correction — 2026-10-13
+
+Human source: Khiêm approved the concrete P1 correction plan in the current chat:
+“Approve P1. Đưa Agent Kit trong UCORN về đúng policy gốc như kế hoạch, kiểm tra
+đầy đủ. Chưa commit hay push.” [Task and exact scope](tasks/AGENT-POLICY-002.md).
+
+The earlier adaptation replaced the source's Planning-first and direct approval
+clauses with direct-request/setup authority and a significant-application-only
+gate. This was a policy deviation, not merely a UCORN domain adaptation. P1
+restores the pinned approval clauses and removes conflicting domain/workflow
+exemptions. Stack, well semantics, 23 skills, native definitions and original
+source commit/digests remain preserved.
+
+The reviewed update exchange supplied no approval of a presented update plan.
+The reviewed completion exchange selected two entries after an offer to develop
+their implementation plan; the agent then implemented without presenting it for
+approval. The dated [setup correction](tasks/AGENT-KIT-001.md#approval-correction--2026-10-13)
+and [completion correction](tasks/COMPLETION-005.md#approval-correction--2026-10-13)
+preserve those findings. The agent-written authority fields are historical
+interpretations. Later scoped Git approval and historical technical PASS results
+do not retroactively establish earlier plan approval.
+
+Local verification is recorded in the [P1 task](tasks/AGENT-POLICY-002.md#verification-and-review).
+Status: documentation/static acceptance complete locally. Both validators, exact
+canonical section comparisons, 556 local links/anchors, YAML/TOML, provenance,
+protected-asset preservation, exact 14-file ownership and whitespace checks PASS.
+HEAD and the empty index are unchanged. [Fresh-client regressions](verification-guide.md#planning-and-approval-regressions-v26v30)
+remain Written / NOT_RUN until observed; static package checks cannot prove them.
+P1 changes remain local. No commit, push, new chat or native delegation is authorized.
+
+## Role responsibility update — 2026-10-13
+
+Plan U1 / [AGENT-KIT-003](tasks/AGENT-KIT-003.md) was approved by Khiêm with
+“Approve option 1.” after the concrete plan. This approval covers local package
+edits and checks; no commit/push, new chat or native invocation is authorized.
+The starting worktree contained all 14 uncommitted P1 files, preserved as the
+baseline rather than reset or treated as source-template bytes.
+
+Source: `ea72429b4c3cd80296b7ad75139431eb944aa319`, two commits after `51b1c810`:
+`adba3ee` setup prompts/logo and `ea72429` role/permission separation. The approval
+clauses, imported skills and implementer adapters are unchanged upstream. U1
+adopts the relevant existing-project planning guidance into UCORN's README; the
+template logo, project placeholders, task approvals and release results are not
+installed as UCORN facts or authority.
+
+The four Explorer/Reviewer adapters omit Codex sandbox and Claude tool/permission
+overrides and retain model intent and no-code-change/implementation/deployment
+instructions. They inherit runtime limits; the omission does not modify the
+calling session's sandbox or grant task authority. Common roles, coordination,
+policy, compatibility, model routing and V18 guidance are aligned. U1's source
+references retain upstream review provenance; UCORN did not rerun a fresh official
+schema/source review or native permission test in this update.
+
+The validator now checks omitted fields and authored responsibility/scope text,
+including CamelCase, empty/block and quoted Claude permission keys. Metadata,
+model, inventory, mirror, path and hash guards remain. A coherent synthetic
+fixture first reproduced the old four read-only errors; after the change it
+passed alongside 33 negative cases. Semantic cases refreshed fixture hashes to
+ensure rejection came from the relevant guard, not checksum mismatch.
+
+Local package results: complete, maintained in the U1 task. Both validators,
+33 negative cases, YAML/TOML/AST, 561 local links/anchors, exact source/approval
+parity, provenance, P1/ownership preservation and whitespace PASS. HEAD and the
+empty index are unchanged. Native
+invocation, effective permission observation, V18/V26–V30 and two-machine behavior
+remain NOT_RUN. Earlier rows about read-only adapters describe the previous pin;
+they are historical, not the current authored configuration. P1's historical
+corrections and Planning/approval clauses remain unchanged in meaning.
+
+## P1/U1 Git delivery authorization — 2026-10-13
+
+After both local results, Khiêm directly instructed “Commit và push toàn bộ thay
+đổi P1 và U1 lên origin/master.” The combined reviewed payload is 25 files; no
+unrelated changes or active Git hooks are present. This later instruction covers
+ordinary staging, one commit on master, push to origin/master and final remote/
+divergence/worktree verification. The implementation-phase no-Git statements
+above remain historical; native/runtime work remains outside scope.
+
+The live remote preflight and local HEAD both equal 50f0118. Actual delivery
+results belong to Git history and the closing report. These authorization records
+are included in the delivery commit and do not claim a completed push in advance
+or provide authority for future Git work.

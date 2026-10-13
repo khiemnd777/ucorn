@@ -827,13 +827,13 @@
     },
     {
       "path": ".claude/agents/kit-explorer.md",
-      "sha256": "915c02eca56afc86ee90050c8c49d2c3c39b3b12bd605fdadfe41e2361e059c3",
+      "sha256": "5e730d6658025cfaf47755cb85a9dc6981b3f262b1c528e29d08f855137ac308",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": ".claude/agents/kit-explorer.md",
-      "kit_sha256": "915c02eca56afc86ee90050c8c49d2c3c39b3b12bd605fdadfe41e2361e059c3"
+      "kit_sha256": "5e730d6658025cfaf47755cb85a9dc6981b3f262b1c528e29d08f855137ac308"
     },
     {
       "path": ".claude/agents/kit-implementer.md",
@@ -847,13 +847,13 @@
     },
     {
       "path": ".claude/agents/kit-reviewer.md",
-      "sha256": "79c09efde5388290d4e8dcb895701c1b872b6ca02bd6b43956cb6d83ef2e0af9",
+      "sha256": "3520b42ee31bbe644ca46c9f70c78371c7f81dce3a437e6375afaacc8099162b",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": ".claude/agents/kit-reviewer.md",
-      "kit_sha256": "79c09efde5388290d4e8dcb895701c1b872b6ca02bd6b43956cb6d83ef2e0af9"
+      "kit_sha256": "3520b42ee31bbe644ca46c9f70c78371c7f81dce3a437e6375afaacc8099162b"
     },
     {
       "path": ".claude/references/accessibility-checklist.md",
@@ -1287,13 +1287,13 @@
     },
     {
       "path": ".codex/agents/kit-explorer.toml",
-      "sha256": "93e64baa6d9a090b95442b947d18cd98b9142a4417501e36192e14dbc432e063",
+      "sha256": "029bb3067023a52f6e6b8b7a282dc740b6c3ffb10290d23296f1681978508a92",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": ".codex/agents/kit-explorer.toml",
-      "kit_sha256": "93e64baa6d9a090b95442b947d18cd98b9142a4417501e36192e14dbc432e063"
+      "kit_sha256": "029bb3067023a52f6e6b8b7a282dc740b6c3ffb10290d23296f1681978508a92"
     },
     {
       "path": ".codex/agents/kit-implementer.toml",
@@ -1307,13 +1307,13 @@
     },
     {
       "path": ".codex/agents/kit-reviewer.toml",
-      "sha256": "c0b0ffcaae2b8a170c5333d87c2047c1c9ea25aa93686bd8b6dcb318460b7210",
+      "sha256": "deabc935e33f879a5a136c41178dd45e9b46eaecfd13a058e060e58cbd298873",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": ".codex/agents/kit-reviewer.toml",
-      "kit_sha256": "c0b0ffcaae2b8a170c5333d87c2047c1c9ea25aa93686bd8b6dcb318460b7210"
+      "kit_sha256": "deabc935e33f879a5a136c41178dd45e9b46eaecfd13a058e060e58cbd298873"
     },
     {
       "path": ".gitignore",
@@ -1328,14 +1328,14 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "59cf4fc286f36715ae5a347362acf8589e6dad3f7bdadccbb2bc6d0d739522d8",
+      "sha256": "7d2e80e56126cdecf19c7c4612d9c9cfd719b2d773c0312ec207a07434c72c24",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "AGENTS.md",
-      "kit_sha256": "ba6e2f882d9411d898a3c8016dc1659e6fa65b813dc9298d5601cdd40e87842a",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "0fc15c9d3713cdc7db79babf4b73498b039a5229b7fc68863b3aafc07df307b1",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "CLAUDE.md",
@@ -1349,35 +1349,35 @@
     },
     {
       "path": "README.md",
-      "sha256": "ce9b05d2e8aec53193a6e38a9426f01cdf01ea3f5cfe75c28f933695ba7a2734",
+      "sha256": "957c1a306943c2a55d31df35ff9e088496b58a92a609f7612c0fbbc8b8da2688",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "README.md",
-      "kit_sha256": "2fae421c3c188d065a760356beb7b9d2c57f171ff0c03880f305662e55b20fa7",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "97c9c3b68c9e23acfd7d7c7e788a02a656bfd4f00ba5bcfd7a8293b58f76c4b7",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "docs/agent-compatibility.md",
-      "sha256": "b19dea862deafda084a802365c89d49050d3edf005f12efea2460d46137d70ab",
+      "sha256": "671cbb259472996cf6b45500e71b69122f0489874b47afea3db861093061701a",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/agent-compatibility.md",
-      "kit_sha256": "cff4e6f0e676bc49ac9a21855207c4e3563c062969198aa0ccbf1623b4e99191",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "c92514826b98a19118bbf275f9cc9b98269e8ae71263c775639c5417604e643c",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "docs/agent-coordination-templates.md",
-      "sha256": "efa6f5e9a3832deecb4491d84f52784b33f56917e57c27946780775e8c32983f",
+      "sha256": "81f1cd71103c895016a4bfbaf83ccf2ff115d9f9994340596d32a017ec52f125",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/agent-coordination-templates.md",
-      "kit_sha256": "efa6f5e9a3832deecb4491d84f52784b33f56917e57c27946780775e8c32983f"
+      "kit_sha256": "81f1cd71103c895016a4bfbaf83ccf2ff115d9f9994340596d32a017ec52f125"
     },
     {
       "path": "docs/agent-kit-LICENSE",
@@ -1392,14 +1392,14 @@
     },
     {
       "path": "docs/model-routing.md",
-      "sha256": "88abccbea35e22923b9f19cea461a03c5619de00629f34835e29ba07bfc34f2c",
+      "sha256": "ec83e997aee543aa07e339ba232322b22df34959cd528103ef3cc1b0e5f57916",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/model-routing.md",
-      "kit_sha256": "1f45447a862382fed31cc58f7df9e513348390253b4b864aaa97ef6241b8b5bb",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "2f1ba8e4b5122c9ddf835c7abcff8274f99e6561bc088a5b88e6ea33667a812e",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "docs/roles/coordinator.md",
@@ -1413,13 +1413,13 @@
     },
     {
       "path": "docs/roles/explorer.md",
-      "sha256": "71f70743d0feb825e07c94c85d6dd2adb64e8c1edf35dcd41272e4cd2481b65c",
+      "sha256": "904314740059decec76d09c7ac43e593f05c68c3dd0398bd5de2c6122b6545c4",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/explorer.md",
-      "kit_sha256": "71f70743d0feb825e07c94c85d6dd2adb64e8c1edf35dcd41272e4cd2481b65c"
+      "kit_sha256": "904314740059decec76d09c7ac43e593f05c68c3dd0398bd5de2c6122b6545c4"
     },
     {
       "path": "docs/roles/implementer.md",
@@ -1433,13 +1433,13 @@
     },
     {
       "path": "docs/roles/reviewer.md",
-      "sha256": "ab615d5b120db46fa0088730e3dd4140fa148c6e4bf74db1d96ecc204bbec39a",
+      "sha256": "389bfdf6b0b94ae829adc8417e5046ba344419469714f62e7173a35a0b1d3288",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/reviewer.md",
-      "kit_sha256": "ab615d5b120db46fa0088730e3dd4140fa148c6e4bf74db1d96ecc204bbec39a"
+      "kit_sha256": "389bfdf6b0b94ae829adc8417e5046ba344419469714f62e7173a35a0b1d3288"
     },
     {
       "path": "docs/skills-catalog.md",
@@ -1454,25 +1454,25 @@
     },
     {
       "path": "docs/team-policy.md",
-      "sha256": "44ee2944695cf7ebb90542a2963a1633b35356f8278c27afac6ed4b4ddbd83a5",
+      "sha256": "e1b8ed77c9a1adba895de9767e421f2a72d58632a70bbe9907de8a82f080a412",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-policy.md",
-      "kit_sha256": "a0d9659ed342d21461ffdc8ac641482dbe0a9f9c3b09eb007bea7db2f7cf12ca",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "3057a612eaf71173a1c7df4d9de48152210f927f89be6a4f6339b5a87e571f8b",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "docs/team-workflow.md",
-      "sha256": "4957e198fc400eaa75c60e7c9b3ac85da541139c17e3952a0cb401cf1bb3d71e",
+      "sha256": "f51f046afdd4aa37a652f0b9234ebad55b6736a3b98500e211d271c1212a031d",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-workflow.md",
       "kit_sha256": "a176507aa54fa1066bbb4eb825862023dddc4edf70b6db06a1ef290fe073a26a",
-      "adapted_for": "UCORN existing-project adoption"
+      "adapted_for": "UCORN context and approved AGENT-POLICY-002/P1; original Planning/approval boundary retained"
     },
     {
       "path": "docs/technote.md",
@@ -1486,21 +1486,22 @@
     },
     {
       "path": "docs/validate_agent_setup.py",
-      "sha256": "a141c91ff0a6ec84f613df23d7eff1606358bf32b308cebffb94a59075564e13",
+      "sha256": "810af3d0eef28ce9728784d62793ae8789b5cf08fa135b56566c1d7838c53412",
       "origin": {
         "source": "UCORN adoption task AGENT-KIT-001"
-      }
+      },
+      "adapted_for": "UCORN approved U1 role responsibility/permission checks and existing package guards"
     },
     {
       "path": "docs/verification-guide.md",
-      "sha256": "966c9bb8a96c8bc347259715a174e040e71caf127ff4a42c3381d075427ede04",
+      "sha256": "e8423da1985e94de28d90a902bd0c5f144ac2614a78c5aa3979f6afb02c43729",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/verification-guide.md",
-      "kit_sha256": "42c6e70e7eceb3c91887a323471f47a0e04cae7b0f9c36c9dbd3ae00cee4145b",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "c957c7cd1415194d8d1e09beb38e81b97e127c2f693c73bf2a8eddf130f79144",
+      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
     },
     {
       "path": "docs/well-schematic/validate_docs.py",
@@ -1523,7 +1524,7 @@
   "project": "UCORN",
   "kit_source": {
     "repository": "https://github.com/khiemnd777/agent-kit",
-    "commit": "51b1c810a9920be7fe3957ce454fc25fedf7b155",
+    "commit": "ea72429b4c3cd80296b7ad75139431eb944aa319",
     "version": "0.1.0 preview",
     "checked": "2026-10-13"
   },
@@ -1533,6 +1534,12 @@
       "commit": "22c2a20359072dcb510f3329b97161b16f947fb2",
       "version": "0.1.0 preview",
       "checked": "2026-10-12"
+    },
+    {
+      "repository": "https://github.com/khiemnd777/agent-kit",
+      "commit": "51b1c810a9920be7fe3957ce454fc25fedf7b155",
+      "version": "0.1.0 preview",
+      "checked": "2026-10-13"
     }
   ]
 }

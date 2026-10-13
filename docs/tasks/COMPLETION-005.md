@@ -1,5 +1,22 @@
 # COMPLETION-005 — Seal interfaces and landing nipple
 
+## Approval correction — 2026-10-13
+
+Source: read-only audit of `Tiếp tục danh sách completion` and Khiêm's approved
+[P1 correction](AGENT-POLICY-002.md). The agent first asked which entries to
+develop into the next concrete implementation plan. After “Tiến hành #1 và #2…”
+it wrote contracts/tests and implemented the slice without presenting that plan
+for human approval. Selection was interpreted as implementation approval.
+
+The historical Authorization and Plan fields below record that interpretation
+and the plan written during execution; they are not proof of approval of a
+previously presented plan. The Planning → approval → execution behavior failed
+in this inspected exchange. Historical technical checks and VERIFIED_LOCAL remain
+evidence for their stated runtime scope, not approval compliance. No retroactive
+approval, code rollback, new component work or Git delivery is granted by P1.
+
+## Historical implementation record
+
 Updated: 2026-10-12. Plan: `completion-seals-r1`.
 Owner: current main session, task-local writer and sequential reviewer.
 

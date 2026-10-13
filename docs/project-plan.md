@@ -1,5 +1,49 @@
 # UCORN project plan
 
+Current revision: `agent-kit-update-u1`, 2026-10-13. Mode: approved local kit
+update and verification. Khiêm reviewed U1 option 1 and wrote “Approve option 1.”
+The original no commit/push restriction applied during implementation. The later
+[delivery approval](tasks/AGENT-KIT-003.md#git-delivery-authorization--2026-10-13)
+covers one ordinary combined P1/U1 commit/push and final checks on origin/master.
+
+| Task | Owner / runtime | Branch / HEAD | Ownership | Dependencies | Task record |
+| --- | --- | --- | --- | --- | --- |
+| AGENT-KIT-003 / U1: update role responsibilities to ea72429 | Current Codex main session; coordinator and sole writer for U1 | master / 50f0118, plus preserved uncommitted P1 changes | Exact 21-file allowlist and temporary validator fixtures in the task | Agent Kit ea72429; P1 corrections; human U1 approval | [AGENT-KIT-003](tasks/AGENT-KIT-003.md) |
+
+U1 retains P1's canonical approval clauses, V26–V30 and dated corrections. The
+task owns the four changed Explorer/Reviewer adapters, related documentation,
+validator and provenance/current records. Skills, implementers, application/domain
+assets, global settings and runtime permissions remain outside writes. Native
+invocation, new chats and delegation remain unauthorized. The later Git scope
+does not extend application authority or the implementation allowlist.
+
+## Prior approved plan — agent-policy-p1
+
+The following P1 record preserves its original scope and completed local result.
+Its approval is not used to authorize the broader U1 update.
+
+Prior revision: `agent-policy-p1`, 2026-10-13. Mode: approved documentation
+correction and local verification. The human approved the concrete P1 plan in
+chat with “Approve P1. Đưa Agent Kit trong UCORN về đúng policy gốc như kế hoạch,
+kiểm tra đầy đủ. Chưa commit hay push.”
+
+| Task | Owner / runtime | Branch / base commit | Ownership | Dependencies | Task record |
+| --- | --- | --- | --- | --- | --- |
+| AGENT-POLICY-002 / P1: restore original approval policy | Current Codex main session; coordinator and sole writer for P1 | master / 50f0118b36385816323ace57c8795b075c44c0b1 | Exact documentation/provenance allowlist in the task record | Agent Kit 51b1c810; inspected thread evidence; human P1 approval | [AGENT-POLICY-002](tasks/AGENT-POLICY-002.md) |
+
+The task record holds the ordered work, acceptance and actual checks. Application
+code, validators, skill packages, native definitions and domain contracts remain
+outside writes. Git mutation, new chats, delegation and external actions are not
+authorized. The P1 coordinator assignment applied to P1 only.
+
+## Historical maintenance plan — agent-kit-update-r2
+
+The remaining section preserves the earlier recorded plan and authority
+interpretation. It is superseded for current execution by P1 and the
+[dated correction](agent-kit-adoption.md#policy-correction--2026-10-13).
+The later human Git instruction remains a historical delivery authorization;
+it does not establish prior approval of the maintenance plan or authorize P1 Git.
+
 Plan revision: `agent-kit-update-r2`, 2026-10-13.
 Mode: authorized documentation and agent setup only.
 

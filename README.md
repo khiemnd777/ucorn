@@ -8,6 +8,29 @@ and [adoption record](docs/agent-kit-adoption.md) for scope and verification lim
 TechNote includes [adaptive opening and closing reports](docs/technote.md#adaptive-reports)
 for conversation, planning and implementation.
 
+For new work, the assistant starts with read-only Planning and presents the
+current plan/task scope in chat. Human approval of that scope precedes file
+writes, execution and writer assignments. Routine work and repairs continue
+within valid approval; material approach changes require a replacement plan
+and approval. See [approval policy](docs/team-policy.md#approval-and-autonomy)
+and [P1 correction and verification](docs/tasks/AGENT-POLICY-002.md).
+
+Explorer and Reviewer investigate or return findings without changing application
+code, implementing repairs or deploying. Their tools and permissions follow the
+runtime and approved task scope; role definitions do not impose a read-only
+sandbox or tool allowlist. Authorized checks and evidence capture must name their
+side effects, fixtures and destinations. See the
+[ea72429 update and verification](docs/tasks/AGENT-KIT-003.md).
+
+For a future Agent Kit update in this existing codebase, a useful request is:
+
+```text
+Inspect the Agent Kit update against UCORN's current instructions and setup.
+Preserve existing project rules, skills, configuration and records.
+Propose an update plan and wait for my approval.
+After approval, apply the plan and verify the integration.
+```
+
 To install dependencies:
 
 ```bash

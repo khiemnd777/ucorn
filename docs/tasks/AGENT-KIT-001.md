@@ -1,10 +1,33 @@
 # AGENT-KIT-001 — Adopt Agent Kit in UCORN
 
-Current revision: `agent-kit-update-r2`, 2026-10-13. The original r1 record below
-is historical. See the [current maintenance record](#maintenance-update--2026-10-13)
-for latest authority, base commit, writes and checks.
+Historical revision: `agent-kit-update-r2`, 2026-10-13. The r1/r2 records below
+preserve the earlier agent's interpretations, writes and checks. They do not
+grant current authority. See the [approval correction](#approval-correction--2026-10-13)
+before relying on any authorization field. Current policy work belongs to
+[AGENT-POLICY-002 / approved P1](AGENT-POLICY-002.md).
 Git delivery was separately authorized after maintenance; see
 [delivery authorization](#git-delivery-authorization--2026-10-13).
+
+## Approval correction — 2026-10-13
+
+Source: read-only audit of `Review agent-kit template` and Khiêm's subsequent
+approval of P1 in this chat. The historical adoption changed the original kit's
+Planning/approval clauses to treat direct bounded requests as execution authority.
+That deviation is superseded by [P1](AGENT-POLICY-002.md).
+
+For the r2 update, the inspected thread shows “Agent-kit có update mới.” followed
+by the agent's implementation announcements and writes, without a concrete update
+plan presented for human approval. The authorization statement below was the
+agent's interpretation; it is not evidence of an approved maintenance plan.
+The original “Use this template” request likewise was treated as setup authority;
+the inspected adoption turn contains no separate approval of a presented plan.
+
+The later explicit “Commit và push…” instruction authorized its stated Git
+delivery only. It does not retroactively approve the earlier edits. Preserve
+historical check/output facts; static acceptance does not establish approval
+compliance. P1 neither rolls back those assets nor grants new Git authority.
+
+## Historical adoption and maintenance records
 
 Updated: 2026-10-12. Plan: `agent-kit-adoption-r1`.
 State: Setup complete locally; static acceptance checks PASS. Working tree: `master`, base
