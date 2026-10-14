@@ -60,17 +60,72 @@ def validate(root):
         return [str(exc)], stats
     maintained = set(file_names)
     check(len(file_names) == len(maintained), 'Duplicate manifest file paths')
+    inventory = {item['path']: item for item in manifest['files']}
+    upstream = manifest.get('upstream')
+    if not isinstance(upstream, dict):
+        return ['Invalid upstream metadata'], stats
+    repository = upstream.get('repository')
+    pin = upstream.get('commit')
+    check(isinstance(repository, str) and bool(repository.strip())
+          and isinstance(pin, str) and re.fullmatch(r'[0-9a-f]{40}', pin) is not None,
+          'Invalid upstream metadata')
+    canonical_upstream = []
     for item in manifest['files']:
         path = scoped_file(item['path'])
+        origin = item.get('origin', {})
+        if not isinstance(origin, dict):
+            errors.append('Invalid origin metadata: ' + item['path'])
+            origin = {}
+        # Imported Addy files cannot evade provenance checks by dropping origin.
+        imported = item.get('kit_source_path', item['path'])
+        expected_upstream = (isinstance(imported, str)
+                             and imported.startswith(('.agents/', '.claude/'))
+                             and not item.get('preserved_domain_asset')
+                             and (item.get('source') == 'addyosmani/agent-skills'
+                                  or origin.get('upstream_path') is not None))
+        check(not expected_upstream or origin.get('repository') == repository,
+              'Missing upstream origin: ' + item['path'])
+        is_upstream = origin.get('repository') == repository
+        if is_upstream and item['path'].startswith('.agents/'):
+            canonical_upstream.append(item)
         if path is not None:
-            check(hashlib.sha256(path.read_bytes()).hexdigest() == item.get('sha256'),
+            data = path.read_bytes()
+            check(hashlib.sha256(data).hexdigest() == item.get('sha256'),
                   'Hash mismatch: ' + item['path'])
+            if is_upstream:
+                check(origin.get('commit') == pin, 'Upstream pin mismatch: ' + item['path'])
+                check(isinstance(origin.get('upstream_path'), str)
+                      and bool(origin['upstream_path'].strip())
+                      and isinstance(origin.get('git_blob_sha'), str)
+                      and re.fullmatch(r'[0-9a-f]{40}', origin['git_blob_sha']) is not None,
+                      'Invalid upstream origin: ' + item['path'])
+                adaptation = item.get('adaptation')
+                if adaptation is None:
+                    # SHA-1 here is Git's original blob identifier, not a security digest.
+                    blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+                    check(blob == origin.get('git_blob_sha'), 'Unmarked upstream change: ' + item['path'])
+                elif not isinstance(adaptation, dict) or not all(
+                        isinstance(adaptation.get(key), str) and adaptation[key].strip()
+                        for key in ('source', 'reason')):
+                    errors.append('Invalid adaptation metadata: ' + item['path'])
+                else:
+                    scoped_file(adaptation.get('record'))
             stats['files'] += 1
+    adapted = sum(item.get('adaptation') is not None for item in canonical_upstream)
+    counts = (len(canonical_upstream), adapted, len(canonical_upstream) - adapted)
+    check(all(type(upstream.get(key)) is int and upstream[key] == count
+              for key, count in zip(('file_count', 'adapted_file_count', 'unchanged_file_count'), counts)),
+          'Upstream adaptation counts mismatch')
     for pair in manifest['mirror_pairs']:
         canonical = scoped_file(pair.get('canonical'))
         mirror = scoped_file(pair.get('mirror'))
         check(pair.get('canonical') in maintained and pair.get('mirror') in maintained,
               'Untracked mirror pair')
+        canonical_item = inventory.get(pair['canonical'], {})
+        mirror_item = inventory.get(pair['mirror'], {})
+        check(canonical_item.get('origin') == mirror_item.get('origin')
+              and canonical_item.get('adaptation') == mirror_item.get('adaptation'),
+              'Mirror provenance mismatch: ' + pair['mirror'])
         if canonical is not None and mirror is not None:
             check(canonical.read_bytes() == mirror.read_bytes(), 'Mirror mismatch: ' + pair['mirror'])
             stats['mirrors'] += 1

@@ -2,7 +2,7 @@
 
 Create one `TASK-ID.md` per actual task only when documentation writes are authorized. The assigned Task Owner maintains that file on their branch. Use the [assignment and state templates](../agent-coordination-templates.md).
 
-Current task: [AGENT-KIT-003 / approved U1](AGENT-KIT-003.md).
+Current Agent Kit task: [AGENT-KIT-004 / approved U2](AGENT-KIT-004.md). Completion tasks retain their own scope and owners.
 Prior approved correction: [AGENT-POLICY-002 / P1](AGENT-POLICY-002.md).
 Historical tasks: [AGENT-KIT-001](AGENT-KIT-001.md) and
 [COMPLETION-005](COMPLETION-005.md). Read their dated corrections before using
@@ -21,3 +21,5 @@ A task record contains:
 Keep one current task state with traceable history. The coordinator indexes tasks in project-plan and summarizes integration in project-state. Task owners do not edit shared state without assigned ownership.
 
 Example naming: `TASK-001.md`. No example task or approval is pre-created in this template.
+
+- [AGENT-KIT-004](AGENT-KIT-004.md): approved U2 adoption of 8fedcd0; proportionate verification/provenance, preserving completion work; no Git delivery.

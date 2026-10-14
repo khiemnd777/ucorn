@@ -1,6 +1,20 @@
 # UCORN project plan
 
-Current revision: `agent-kit-update-u1`, 2026-10-13. Mode: approved local kit
+Current revision: `agent-kit-update-u2`, 2026-10-14. Mode: approved local package update and checks. Human source: “Approve U2. Cập nhật theo option 1, giữ nguyên toàn bộ thay đổi completion đang có và kiểm tra đầy đủ trong phạm vi đã nêu. Chưa commit hay push.”
+
+| Task | Owner / runtime | Branch / base | Ownership | Dependencies | Task record |
+| --- | --- | --- | --- | --- | --- |
+| AGENT-KIT-004 / U2: adopt 8fedcd0 proportionate verification | Current Codex main session; coordinator and sole U2 writer | master / 5dfa4bae | Exact 26-path allowlist and temporary check fixtures | Human U2 approval; Agent Kit 8fedcd0; preserved completion snapshot | [AGENT-KIT-004](tasks/AGENT-KIT-004.md) |
+
+Import eight source-exact assets; merge affected policy/guidance; enforce declared original/adapted provenance; map source V26–V30 to KIT-V26–KIT-V30; update current records and run relevant package/domain/metadata/link/scope checks. Preserve completion bytes and its entire domain-validator manifest entry. No Git mutation, native/application execution, new chats, delegation, install, paid service or global configuration is authorized. No project-wide or delegated approval authority is assigned.
+
+## U2 Git delivery authorization — 2026-10-14
+
+The later direct human instruction is “Commit và push toàn bộ thay đổi U2 lên origin/master. Giữ nguyên các thay đổi completion, không đưa chúng vào commit này.” This supersedes the original no-Git limit for one U2-only ordinary commit/push and final verification. The 26-path U2 payload excludes all completion changes; stage the shared manifest with only U2 content, preserving its completion entry unstaged. Preserve working files. See [delivery scope](tasks/AGENT-KIT-004.md#git-delivery-authorization--2026-10-14). Future Git/native work is not authorized.
+
+## Prior approved plan — agent-kit-update-u1
+
+Prior revision: `agent-kit-update-u1`, 2026-10-13. Mode: approved local kit
 update and verification. Khiêm reviewed U1 option 1 and wrote “Approve option 1.”
 The original no commit/push restriction applied during implementation. The later
 [delivery approval](tasks/AGENT-KIT-003.md#git-delivery-authorization--2026-10-13)

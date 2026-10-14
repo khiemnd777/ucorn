@@ -5,8 +5,10 @@
   "upstream": {
     "repository": "https://github.com/addyosmani/agent-skills",
     "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
-    "unchanged_file_count": 26,
-    "license": "MIT"
+    "unchanged_file_count": 22,
+    "license": "MIT",
+    "file_count": 26,
+    "adapted_file_count": 4
   },
   "canonical_root": ".agents",
   "mirror_root": ".claude",
@@ -397,7 +399,7 @@
     },
     {
       "path": ".agents/references/definition-of-done.md",
-      "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+      "sha256": "efb615a93227d23fa85d77af206143a7baac1895956c0447fe28a2e0c64e75c3",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -405,7 +407,12 @@
         "git_blob_sha": "35e39f9e15f6dd0ff4725a6e5cbce7f2aa69064a"
       },
       "kit_source_path": ".agents/references/definition-of-done.md",
-      "kit_sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee"
+      "kit_sha256": "efb615a93227d23fa85d77af206143a7baac1895956c0447fe28a2e0c64e75c3",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".agents/references/observability-checklist.md",
@@ -553,7 +560,7 @@
     },
     {
       "path": ".agents/skills/incremental-implementation/SKILL.md",
-      "sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+      "sha256": "bcf76a9cd03b5991a0acd22553ed040fba8f03c58b16fa4882b38164f5dbe06d",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -561,7 +568,12 @@
         "git_blob_sha": "9c4f49bc841adb3c0f98baaa9eabd435a5b64ef9"
       },
       "kit_source_path": ".agents/skills/incremental-implementation/SKILL.md",
-      "kit_sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b"
+      "kit_sha256": "bcf76a9cd03b5991a0acd22553ed040fba8f03c58b16fa4882b38164f5dbe06d",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".agents/skills/observability-and-instrumentation/SKILL.md",
@@ -601,7 +613,7 @@
     },
     {
       "path": ".agents/skills/planning-and-task-breakdown/SKILL.md",
-      "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+      "sha256": "eb494aacebd62152bafdb1410b17a2b033af8ca879d2e6cba9d0665cc092e397",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -609,7 +621,12 @@
         "git_blob_sha": "296249b64334bcfd1aeaefd27b9e3e5494e38ec0"
       },
       "kit_source_path": ".agents/skills/planning-and-task-breakdown/SKILL.md",
-      "kit_sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7"
+      "kit_sha256": "eb494aacebd62152bafdb1410b17a2b033af8ca879d2e6cba9d0665cc092e397",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".agents/skills/security-and-hardening/SKILL.md",
@@ -683,7 +700,7 @@
     },
     {
       "path": ".agents/skills/using-agent-skills/SKILL.md",
-      "sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3",
+      "sha256": "fd309a442037a5c0bec7d966f0d35e8f413b73338a55852c3012e7ecc9b90183",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -691,7 +708,12 @@
         "git_blob_sha": "d56ac03ab057036c1bdcc9127c88952758ee2f0d"
       },
       "kit_source_path": ".agents/skills/using-agent-skills/SKILL.md",
-      "kit_sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3"
+      "kit_sha256": "fd309a442037a5c0bec7d966f0d35e8f413b73338a55852c3012e7ecc9b90183",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".agents/skills/well-component-modeling/SKILL.md",
@@ -869,7 +891,7 @@
     },
     {
       "path": ".claude/references/definition-of-done.md",
-      "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+      "sha256": "efb615a93227d23fa85d77af206143a7baac1895956c0447fe28a2e0c64e75c3",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -877,7 +899,12 @@
         "git_blob_sha": "35e39f9e15f6dd0ff4725a6e5cbce7f2aa69064a"
       },
       "kit_source_path": ".claude/references/definition-of-done.md",
-      "kit_sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee"
+      "kit_sha256": "efb615a93227d23fa85d77af206143a7baac1895956c0447fe28a2e0c64e75c3",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".claude/references/observability-checklist.md",
@@ -1025,7 +1052,7 @@
     },
     {
       "path": ".claude/skills/incremental-implementation/SKILL.md",
-      "sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+      "sha256": "bcf76a9cd03b5991a0acd22553ed040fba8f03c58b16fa4882b38164f5dbe06d",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -1033,7 +1060,12 @@
         "git_blob_sha": "9c4f49bc841adb3c0f98baaa9eabd435a5b64ef9"
       },
       "kit_source_path": ".claude/skills/incremental-implementation/SKILL.md",
-      "kit_sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b"
+      "kit_sha256": "bcf76a9cd03b5991a0acd22553ed040fba8f03c58b16fa4882b38164f5dbe06d",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".claude/skills/observability-and-instrumentation/SKILL.md",
@@ -1073,7 +1105,7 @@
     },
     {
       "path": ".claude/skills/planning-and-task-breakdown/SKILL.md",
-      "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+      "sha256": "eb494aacebd62152bafdb1410b17a2b033af8ca879d2e6cba9d0665cc092e397",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -1081,7 +1113,12 @@
         "git_blob_sha": "296249b64334bcfd1aeaefd27b9e3e5494e38ec0"
       },
       "kit_source_path": ".claude/skills/planning-and-task-breakdown/SKILL.md",
-      "kit_sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7"
+      "kit_sha256": "eb494aacebd62152bafdb1410b17a2b033af8ca879d2e6cba9d0665cc092e397",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".claude/skills/security-and-hardening/SKILL.md",
@@ -1155,7 +1192,7 @@
     },
     {
       "path": ".claude/skills/using-agent-skills/SKILL.md",
-      "sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3",
+      "sha256": "fd309a442037a5c0bec7d966f0d35e8f413b73338a55852c3012e7ecc9b90183",
       "origin": {
         "repository": "https://github.com/addyosmani/agent-skills",
         "commit": "1401c8b8030e023baeebb31781a6653fe8e93026",
@@ -1163,7 +1200,12 @@
         "git_blob_sha": "d56ac03ab057036c1bdcc9127c88952758ee2f0d"
       },
       "kit_source_path": ".claude/skills/using-agent-skills/SKILL.md",
-      "kit_sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3"
+      "kit_sha256": "fd309a442037a5c0bec7d966f0d35e8f413b73338a55852c3012e7ecc9b90183",
+      "adaptation": {
+        "source": "agent-kit contributors",
+        "record": "docs/skills-catalog.md",
+        "reason": "Approved P2.1: proportionate verification, focused repair planning and bounded coordination"
+      }
     },
     {
       "path": ".claude/skills/well-component-modeling/SKILL.md",
@@ -1328,14 +1370,14 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "7d2e80e56126cdecf19c7c4612d9c9cfd719b2d773c0312ec207a07434c72c24",
+      "sha256": "3f8941bd282c44ee90632d891d74314f19a941b88a0a7c152cd5aefa07ceb28a",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "AGENTS.md",
-      "kit_sha256": "0fc15c9d3713cdc7db79babf4b73498b039a5229b7fc68863b3aafc07df307b1",
-      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
+      "kit_sha256": "33a055c8a7fe372c9cfe9babc4338c4de643e48a0a39f00696bd392c0502d3e8",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; preserve domain context, P1 approval regressions and prior role/permission guards"
     },
     {
       "path": "CLAUDE.md",
@@ -1349,14 +1391,14 @@
     },
     {
       "path": "README.md",
-      "sha256": "957c1a306943c2a55d31df35ff9e088496b58a92a609f7612c0fbbc8b8da2688",
+      "sha256": "67f4a61138786e768bf6c077be022d18db5778a2208a0a4f6ab1103f6b616bb9",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "README.md",
-      "kit_sha256": "97c9c3b68c9e23acfd7d7c7e788a02a656bfd4f00ba5bcfd7a8293b58f76c4b7",
-      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
+      "kit_sha256": "1ae43e7d041fd78b1240fa800e8f21764779365e2fb51fe5868c6b1920eb61a3",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; preserve domain context, P1 approval regressions and prior role/permission guards"
     },
     {
       "path": "docs/agent-compatibility.md",
@@ -1371,13 +1413,13 @@
     },
     {
       "path": "docs/agent-coordination-templates.md",
-      "sha256": "81f1cd71103c895016a4bfbaf83ccf2ff115d9f9994340596d32a017ec52f125",
+      "sha256": "9e3e8da33e82a7337aaf06dfa67eec21b9e7d7db22b5bbfa511e698abe51e877",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/agent-coordination-templates.md",
-      "kit_sha256": "81f1cd71103c895016a4bfbaf83ccf2ff115d9f9994340596d32a017ec52f125"
+      "kit_sha256": "9e3e8da33e82a7337aaf06dfa67eec21b9e7d7db22b5bbfa511e698abe51e877"
     },
     {
       "path": "docs/agent-kit-LICENSE",
@@ -1403,13 +1445,13 @@
     },
     {
       "path": "docs/roles/coordinator.md",
-      "sha256": "e8f92c6f38db25f59fc50a1ed8130ff1b08095addd984967a2bd419dca63e387",
+      "sha256": "8f406eac3aaadaa173fe6c89131f4c5dbb9cfc66eaef06f65cfa929c6114f6d4",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/coordinator.md",
-      "kit_sha256": "e8f92c6f38db25f59fc50a1ed8130ff1b08095addd984967a2bd419dca63e387"
+      "kit_sha256": "8f406eac3aaadaa173fe6c89131f4c5dbb9cfc66eaef06f65cfa929c6114f6d4"
     },
     {
       "path": "docs/roles/explorer.md",
@@ -1423,56 +1465,56 @@
     },
     {
       "path": "docs/roles/implementer.md",
-      "sha256": "c2eae7a7c54a43518faaed01800c3ec8b1ed1eba3073ffa671965ce9388126d9",
+      "sha256": "614723bc3e02240d1ae8d2e70abf7864802710a626e5dbcde4dc2a76acd14d95",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/implementer.md",
-      "kit_sha256": "c2eae7a7c54a43518faaed01800c3ec8b1ed1eba3073ffa671965ce9388126d9"
+      "kit_sha256": "614723bc3e02240d1ae8d2e70abf7864802710a626e5dbcde4dc2a76acd14d95"
     },
     {
       "path": "docs/roles/reviewer.md",
-      "sha256": "389bfdf6b0b94ae829adc8417e5046ba344419469714f62e7173a35a0b1d3288",
+      "sha256": "0e265282a62bd2a789d93f98827d36c8b82f77ceb3ce79db2bece0280675ad6e",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/roles/reviewer.md",
-      "kit_sha256": "389bfdf6b0b94ae829adc8417e5046ba344419469714f62e7173a35a0b1d3288"
+      "kit_sha256": "0e265282a62bd2a789d93f98827d36c8b82f77ceb3ce79db2bece0280675ad6e"
     },
     {
       "path": "docs/skills-catalog.md",
-      "sha256": "f103b621af1477620b4a5b4126f81df1b389a78a54c51ecad588ddd0bd4a1a04",
+      "sha256": "b728d965a7086ca814a4217a3d982690a71b295fbb7a61aa3c1a0a089ead54cb",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/skills-catalog.md",
-      "kit_sha256": "a5465626a11f3ebb755adc0bd2bfee09ac71f79fa16e3ca263f7036529395ccb",
-      "adapted_for": "UCORN existing-project adoption"
+      "kit_sha256": "67161d3874c46fa6b92b1893c601fef74f0ffa172ff983a80a7e4d6e1bc12b2c",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; preserve domain context, P1 approval regressions and prior role/permission guards"
     },
     {
       "path": "docs/team-policy.md",
-      "sha256": "e1b8ed77c9a1adba895de9767e421f2a72d58632a70bbe9907de8a82f080a412",
+      "sha256": "d37f64f0848f86449de0d84cc27d125494461c901eaa692ce119a26ada97a8c8",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-policy.md",
-      "kit_sha256": "3057a612eaf71173a1c7df4d9de48152210f927f89be6a4f6339b5a87e571f8b",
-      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
+      "kit_sha256": "16607323712c0103ce25f2dedaa6431bfccf02145646bbbc42c6475644d2b9be",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; preserve domain context, P1 approval regressions and prior role/permission guards"
     },
     {
       "path": "docs/team-workflow.md",
-      "sha256": "f51f046afdd4aa37a652f0b9234ebad55b6736a3b98500e211d271c1212a031d",
+      "sha256": "68657fd5ad0fbac8609acf1aeef5478c3839bfea6d7599d25e231b78b3cff7cc",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/team-workflow.md",
-      "kit_sha256": "a176507aa54fa1066bbb4eb825862023dddc4edf70b6db06a1ef290fe073a26a",
-      "adapted_for": "UCORN context and approved AGENT-POLICY-002/P1; original Planning/approval boundary retained"
+      "kit_sha256": "9fe3bf3fbbaaa1c583d824a8ede461c58b7056783af08eb5a6218e45cc2e3b99",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; P1 Planning/approval overlay preserved"
     },
     {
       "path": "docs/technote.md",
@@ -1486,22 +1528,22 @@
     },
     {
       "path": "docs/validate_agent_setup.py",
-      "sha256": "810af3d0eef28ce9728784d62793ae8789b5cf08fa135b56566c1d7838c53412",
+      "sha256": "2a043eec6f9f2fabafaa2ee4afd40b90d9d156ac8d095cfdfe840e1831779524",
       "origin": {
         "source": "UCORN adoption task AGENT-KIT-001"
       },
-      "adapted_for": "UCORN approved U1 role responsibility/permission checks and existing package guards"
+      "adapted_for": "UCORN approved U2 original/adapted provenance checks plus retained U1 role and package guards"
     },
     {
       "path": "docs/verification-guide.md",
-      "sha256": "e8423da1985e94de28d90a902bd0c5f144ac2614a78c5aa3979f6afb02c43729",
+      "sha256": "e6b2e1565bd6ddf6cd26691ef4dce57b2fd3268af1e0d09c6034646cf872e5de",
       "origin": {
         "license": "MIT",
         "source": "agent-kit contributors"
       },
       "kit_source_path": "docs/verification-guide.md",
-      "kit_sha256": "c957c7cd1415194d8d1e09beb38e81b97e127c2f693c73bf2a8eddf130f79144",
-      "adapted_for": "UCORN context and approved AGENT-KIT-003/U1; P1 Planning/approval corrections preserved"
+      "kit_sha256": "6cca997d8b3516268fa06e7978f65f611791d3ae752f14c296f4f01b729182bd",
+      "adapted_for": "UCORN approved AGENT-KIT-004/U2; preserve domain context, P1 approval regressions and prior role/permission guards"
     },
     {
       "path": "docs/well-schematic/validate_docs.py",
@@ -1520,13 +1562,13 @@
     "docs/agent-kit-adoption.md",
     "docs/skills-manifest.json"
   ],
-  "integrity_note": "Local hashes validate the current adapted assets. kit_sha256 retains original package digests. The manifest is not self-hashed. Static validation does not prove native runtime behavior.",
+  "integrity_note": "Local SHA-256 validates current assets; kit_sha256 records the pinned Agent Kit package. Original Addy commit/blob provenance is retained: 22 canonical originals and four declared adaptations with matching mirrors. Original blob metadata does not assert adapted byte identity. Mutable task/current records and manifest are not self-hashed. Static validation does not prove native behavior.",
   "project": "UCORN",
   "kit_source": {
     "repository": "https://github.com/khiemnd777/agent-kit",
-    "commit": "ea72429b4c3cd80296b7ad75139431eb944aa319",
+    "commit": "8fedcd0b08b256b08e50cfbcd12b3ccc80ed267c",
     "version": "0.1.0 preview",
-    "checked": "2026-10-13"
+    "checked": "2026-10-14"
   },
   "kit_source_history": [
     {
@@ -1538,6 +1580,12 @@
     {
       "repository": "https://github.com/khiemnd777/agent-kit",
       "commit": "51b1c810a9920be7fe3957ce454fc25fedf7b155",
+      "version": "0.1.0 preview",
+      "checked": "2026-10-13"
+    },
+    {
+      "repository": "https://github.com/khiemnd777/agent-kit",
+      "commit": "ea72429b4c3cd80296b7ad75139431eb944aa319",
       "version": "0.1.0 preview",
       "checked": "2026-10-13"
     }

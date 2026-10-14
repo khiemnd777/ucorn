@@ -18,7 +18,7 @@ Respect stop instructions for affected work. Continue independently authorized w
 
 Only the designated coordinator updates shared context, plan and state. Each task
 owner maintains their task record. The current main session coordinates
-`AGENT-KIT-003` / approved U1 only; future project ownership is unassigned. If
+`AGENT-KIT-004` / approved U2 only; future project ownership is unassigned. If
 ownership is unassigned, propose a bounded assignment in chat before writes.
 Do not assume every main session is the Project Coordinator. Use the
 [coordination templates](docs/agent-coordination-templates.md) and
@@ -48,6 +48,8 @@ Report actual checks and limits. **Written**, **Discovered**, **Invoked** and
 **Verified** are different states. See [adoption evidence](docs/agent-kit-adoption.md).
 At handoff, use the current stage's closing report and link the authorized task
 record instead of repeating its full coordination data in chat.
+
+Apply [verification scope and completion](docs/team-policy.md#verification-scope-and-completion): select checks by claim and risk; distinguish code integration, verified behavior and human acceptance. Pause an affected API/UI/library error flow and plan its specific repair before editing. Explicitly delegated Coordinators keep separate decision ownership; a Supervisor adds no implicit approval gate. U2 grants no delegated approval authority.
 
 ## Well Schematic Domain & Rendering Engineer
 

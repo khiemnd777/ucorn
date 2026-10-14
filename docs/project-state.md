@@ -2,6 +2,33 @@
 
 | Field | Current value |
 | --- | --- |
+| Updated | 2026-10-14 |
+| Project Coordinator | Current Codex main session for AGENT-KIT-004 / U2 only |
+| Current goal | Adopt 8fedcd0 proportionate verification, focused repair and scoped coordination without weakening Planning/approval |
+| Current plan revision | agent-kit-update-u2 |
+| Mode | Completed local package update plus separately approved U2-only Git delivery |
+| State | COMPLETE for local package acceptance; native behavior NOT_RUN |
+| Human source | Direct “Approve U2” for presented option 1; full quote in task record |
+| Authorized scope | 26 U2 paths, bounded delivery records, ordinary commit/push to origin/master and final checks; exclude all completion changes |
+| Restrictions | Preserve completion bytes and exclude them from staging/commit; no application/native execution, delegation/new chat, dependencies, deploy, paid calls, global/runtime changes or destructive Git |
+| Accepted decisions | 22 original / four adapted Addy files; source-exact eight assets; preserve local V26–V30 and map source cases to KIT-V26–KIT-V30; no delegated approval authority |
+| Task / owner | [AGENT-KIT-004 / U2](tasks/AGENT-KIT-004.md), current session, sole writer; completion owners remain separate |
+| Integration | Base HEAD 5dfa4bae; pre-existing completion source/docs/tests/samples/evidence stay intact |
+| Verification evidence | Both validators, 66 negative cases, 61 YAML records, TOML/AST, 843 links/anchors and 26-path source/preservation checks PASS; native/two-machine behavior NOT_RUN |
+| Latest stop / limits | Latest direct instruction authorizes U2-only Git delivery; original implementation no-Git boundary is historical |
+| Next action | Complete authorized U2-only delivery and verify remote/preservation; future Git/native work needs separate scope |
+
+This record refers to human approval; it cannot grant authority. Future ownership remains unassigned. Static package consistency does not establish effective child permissions, native behavior or human acceptance.
+
+## Historical U1 delivery snapshot
+
+The following prior state is historical. P1/U1 delivery completed in commit
+5dfa4bae; the prior Git approval grants no U2 Git authority.
+
+# Prior UCORN project state
+
+| Field | Current value |
+| --- | --- |
 | Updated | 2026-10-13 |
 | Project Coordinator | Current Codex main session for AGENT-KIT-003 / U1 only |
 | Current goal | Adopt ea72429 role/permission separation while preserving P1's Planning → approval → execution corrections |

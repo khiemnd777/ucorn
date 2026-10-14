@@ -1,9 +1,15 @@
 # Agent Kit adoption in UCORN
 
-Current source: `ea72429b4c3cd80296b7ad75139431eb944aa319`, refreshed on 2026-10-13.
-All initial adoption, maintenance and Git delivery sections below are historical.
+Current source: `8fedcd0b08b256b08e50cfbcd12b3ccc80ed267c`, refreshed under approved U2 on 2026-10-14.
+
+Current owner/scope: [AGENT-KIT-004 / approved U2](tasks/AGENT-KIT-004.md), local package update/checks completed, followed by separate direct U2-only commit/push authority. Preserve all completion work and exclude it from this commit. Local results are recorded below; native/two-machine behavior remains NOT_RUN.
+
+## Prior adoption overview (ea72429)
+
+The following overview and dated evidence describe earlier adoption, not current authority.
+All initial adoption, maintenance and P1/U1 Git delivery sections are historical.
 Their authority interpretations are superseded by the
-[policy correction](#policy-correction--2026-10-13). Current scope and evidence
+[policy correction](#policy-correction--2026-10-13). The prior U1 scope and evidence
 belong to [AGENT-KIT-003 / approved U1](tasks/AGENT-KIT-003.md). P1's dated
 policy correction and local evidence remain below and in its task record.
 
@@ -244,3 +250,41 @@ The live remote preflight and local HEAD both equal 50f0118. Actual delivery
 results belong to Git history and the closing report. These authorization records
 are included in the delivery commit and do not claim a completed push in advance
 or provide authority for future Git work.
+
+## U2 proportionate verification — 2026-10-14
+
+Human source: direct approval of U2 option 1, recorded in
+[AGENT-KIT-004](tasks/AGENT-KIT-004.md). Source moved from ea72429 to 8fedcd0.
+Eight changed skill/reference assets are copied exactly. Affected guidance now
+selects verification by deliverable/risk, pauses an API/UI/library error flow for
+a focused repair plan and separates code integration, verified behavior and human
+acceptance. Coordination approval delegation requires a scoped direct human
+instruction; U2 supplies none. Planning remains read-only until human approval.
+
+Twenty-two of 26 canonical Addy files remain original; four adaptations retain
+original commit/blob provenance and explicit source/reason/local record metadata.
+Mirrors retain the same bytes and provenance. The validator adds original-blob,
+adaptation/count/path and mirror-provenance checks while retaining prior guards.
+Original provenance is not a claim of byte identity for adapted files.
+
+UCORN V26–V30 retain the approval regression IDs and historical references.
+New source V26–V30 map respectively to KIT-V26–KIT-V30; neither group has been
+behaviorally run in U2. Source TASK-004 authority/results are not imported.
+The current completion domain-validator manifest entry is preserved wholesale.
+
+Local package results: PASS for both validators, 66 negative cases, 61 YAML records, three TOML files/validator AST and 843 links/anchors. Eight imports match source; full approval clauses and local regression procedure are preserved. Exactly 26 owned paths changed; all 511 other baseline files and the existing completion manifest object remain identical. HEAD/index are unchanged. Detailed commands and limits are in the U2 task record.
+
+Sequential review only; no independent reviewer,
+native invocation, application test/build/runtime or two-machine behavioral run.
+Completion changes remain under their existing task owners. No commit/push.
+
+## U2-only Git delivery authorization — 2026-10-14
+
+Direct human source: “Commit và push toàn bộ thay đổi U2 lên origin/master. Giữ nguyên các thay đổi completion, không đưa chúng vào commit này.”
+The delivery covers the 26 reviewed U2 paths, bounded records and a normal
+commit/push to origin/master. Stage the shared manifest with its pre-U2 committed
+domain-validator object, retaining the current completion object unstaged.
+Completion source, tests, samples, domain documents/evidence and task records
+remain outside the commit and retain their working bytes. Working and staged
+package checks are distinct. Final outcome is verified from Git history, remote
+SHA/divergence and preservation/status checks, not from an authored status field.

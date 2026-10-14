@@ -20,7 +20,7 @@ code, implementing repairs or deploying. Their tools and permissions follow the
 runtime and approved task scope; role definitions do not impose a read-only
 sandbox or tool allowlist. Authorized checks and evidence capture must name their
 side effects, fixtures and destinations. See the
-[ea72429 update and verification](docs/tasks/AGENT-KIT-003.md).
+[8fedcd0 update and verification](docs/tasks/AGENT-KIT-004.md).
 
 For a future Agent Kit update in this existing codebase, a useful request is:
 
@@ -119,3 +119,5 @@ Completion joints v2: use **Coupling / Pup sample** for an ordinary external
 same-OD tubing coupling and a physical Pup Joint segment. Pup length is already
 included in the tubing string; separate detail glyphs preserve readability without
 changing MD. See the [bounded joint contract](docs/well-schematic/completion-joints.md).
+
+Agent Kit engineering skills retain the original Addy source pin: 22 of 26 canonical files remain unchanged; four have [documented adaptations](docs/skills-catalog.md#local-adaptations), with matching Claude mirrors and the original MIT notice. Verification follows [the agreed claim and actual risk](docs/team-policy.md#verification-scope-and-completion). Code integration, verified behavior and human acceptance remain separate; an API/UI/library error pauses its affected flow for a focused repair plan. Explicit Coordinator delegation adds no implicit Supervisor approval tier.
